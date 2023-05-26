@@ -7,6 +7,7 @@ import {
   ColorValue,
   ImageSourcePropType,
   StyleSheet,
+  SafeAreaView,
 } from "react-native";
 
 const DEFAULT_SIZE = 23;
@@ -44,7 +45,7 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
   const [checked, setChecked] = useState(value);
 
   return (
-    <View
+    <SafeAreaView
       style={[
         styles.container,
         { flexDirection: position == "left" ? "row" : "row-reverse" },
@@ -75,14 +76,13 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
       >
         {label}
       </Text>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    justifyContent: "center",
   },
 });
 
