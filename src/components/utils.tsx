@@ -16,9 +16,7 @@ export const getButtonColors = ({
   color?: string;
   disabled?: boolean;
 }) => {
-  const isMode = (modeToCompare: ButtonMode) => {
-    return mode === modeToCompare;
-  };
+  const isMode = (modeToCompare: ButtonMode) => mode === modeToCompare;
 
   const getButtonBackgroundColor = ({
     disabled,
