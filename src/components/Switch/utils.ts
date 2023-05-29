@@ -1,21 +1,13 @@
-import { Platform } from 'react-native';
+import { Platform } from "react-native";
 
-import {
-  grey800,
-  grey50,
-  white,
-} from '../../styles/themes/v2/colors';
+import { grey800, grey50, white } from "../../styles/themes/v2/colors";
 
 type BaseProps = {
   disabled?: boolean;
   value?: boolean;
 };
 
-const getCheckedColor = ({
-  color,
-}: {
-  color?: string;
-}) => {
+const getCheckedColor = ({ color }: { color?: string }) => {
   if (color) {
     return color;
   }
@@ -26,7 +18,7 @@ const getThumbTintColor = ({
   value,
   checkedColor,
 }: BaseProps & { checkedColor?: string }) => {
-  const isIOS = Platform.OS === 'ios';
+  const isIOS = Platform.OS === "ios";
 
   if (isIOS) {
     return undefined;
@@ -47,7 +39,7 @@ const getOnTintColor = ({
   value,
   checkedColor,
 }: BaseProps & { checkedColor?: string }) => {
-  const isIOS = Platform.OS === 'ios';
+  const isIOS = Platform.OS === "ios";
 
   if (isIOS) {
     return checkedColor;
@@ -60,7 +52,7 @@ const getOnTintColor = ({
   if (value) {
     return checkedColor;
   }
-  return 'rgb(178, 175, 177)';
+  return "rgb(178, 175, 177)";
 };
 
 export const getSwitchColor = ({
@@ -68,7 +60,7 @@ export const getSwitchColor = ({
   value,
   color,
 }: BaseProps & { color?: string }) => {
-  const checkedColor = getCheckedColor({color});
+  const checkedColor = getCheckedColor({ color });
 
   return {
     onTintColor: getOnTintColor({ disabled, value, checkedColor }),

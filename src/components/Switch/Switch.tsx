@@ -1,13 +1,13 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   NativeModules,
   Platform,
   StyleProp,
   Switch as NativeSwitch,
   ViewStyle,
-} from 'react-native';
+} from "react-native";
 
-import { getSwitchColor } from './utils';
+import { getSwitchColor } from "./utils";
 
 const version = NativeModules.PlatformConstants
   ? NativeModules.PlatformConstants.reactNativeVersion
@@ -71,14 +71,7 @@ export type Props = React.ComponentPropsWithRef<typeof NativeSwitch> & {
  * export default MyComponent;
  * ```
  */
-const Switch = ({
-  value,
-  disabled,
-  onValueChange,
-  color,
-  ...rest
-}: Props) => {
-  
+const Switch = ({ value, disabled, onValueChange, color, ...rest }: Props) => {
   const { checkedColor, onTintColor, thumbTintColor } = getSwitchColor({
     disabled,
     value,
@@ -91,7 +84,7 @@ const Switch = ({
           onTintColor,
           thumbTintColor,
         }
-      : Platform.OS === 'web'
+      : Platform.OS === "web"
       ? {
           activeTrackColor: onTintColor,
           thumbColor: thumbTintColor,
@@ -107,6 +100,7 @@ const Switch = ({
 
   return (
     <NativeSwitch
+      testID="switch"
       value={value}
       disabled={disabled}
       onValueChange={disabled ? undefined : onValueChange}
