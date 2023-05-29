@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  View,
   Text,
   Image,
   TouchableOpacity,
@@ -14,8 +13,10 @@ const DEFAULT_SIZE = 23;
 const DEFAULT_SPACE = 10;
 
 interface CustomCheckBoxProps {
+  testID?: string;
   label?: string;
   value?: boolean;
+  onValueChanged?: (value: boolean) => void;
   disabled?: boolean;
   labelColor?: ColorValue;
   disabledColor?: ColorValue;
@@ -29,8 +30,10 @@ interface CustomCheckBoxProps {
 }
 
 const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
+  testID = "custom-checkbox",
   label = "label",
   value = false,
+  onValueChanged = () => {},
   disabled = false,
   labelColor = "black",
   disabledColor = "grey",
@@ -48,23 +51,25 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
     <SafeAreaView
       style={[
         styles.container,
-        { flexDirection: position == "left" ? "row" : "row-reverse" },
+        { flexDirection: position === "left" ? "row" : "row-reverse" },
       ]}
     >
       <TouchableOpacity
+        testID={testID}
         disabled={disabled}
         onPress={() => {
+          onValueChanged(!checked);
           setChecked(!checked);
         }}
       >
         <Image
           source={
             checked
-              ? checkedImage || require("../assets/checked.png")
-              : unCheckedImage || require("../assets/un_checked.png")
+              ? checkedImage || require("../../assets/checked.png")
+              : unCheckedImage || require("../../assets/un_checked.png")
           }
           style={{ width: size, height: size }}
-        ></Image>
+        />
       </TouchableOpacity>
       <Text
         style={{
