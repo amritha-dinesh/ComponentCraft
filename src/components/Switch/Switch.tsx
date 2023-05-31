@@ -31,6 +31,10 @@ export type Props = React.ComponentPropsWithRef<typeof NativeSwitch> & {
    */
   onValueChange?: Function;
   style?: StyleProp<ViewStyle>;
+  /**
+   * Accessibility label for the switch.
+   */
+  accessibilityLabel?: string;
 };
 
 /**
