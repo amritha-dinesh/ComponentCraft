@@ -1,5 +1,15 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  ActivityIndicator,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+} from "react-native";
 import { ButtonMode, getButtonColors } from "./utils";
 
 interface buttonProps {
@@ -12,16 +22,24 @@ interface buttonProps {
   accessibilityHint?: string;
   testID?: string;
   textColor?: string;
+  icon?: boolean;
+  loading?: boolean;
+  contentStyle?: StyleProp<ViewStyle>;
+  textContentStyle?: StyleProp<TextStyle>;
 }
 const CustomButton: React.FC<buttonProps> = ({
   disabled,
+  textContentStyle,
   mode = "text",
   color,
+  icon,
+  loading,
   buttonTitle,
   accessibilityLabel,
   accessibilityHint,
   testID = "button",
   buttonColor,
+  contentStyle,
 }) => {
   const { backgroundColor, borderColor, textColor, borderWidth, borderRadius } =
     getButtonColors({
@@ -48,12 +66,31 @@ const CustomButton: React.FC<buttonProps> = ({
         accessibilityHint={accessibilityHint}
         disabled={disabled}
       >
-        <Text
-          testID={`${testID}-text`}
-          style={[styles.buttonTextStyle, { color: textColor }]}
-        >
-          {buttonTitle}
-        </Text>
+        <View style={styles.innerContentStyle}>
+          {icon ? (
+            <View testID={`${testID}-icon-container`} style={contentStyle}>
+              <Image
+                style={styles.iconStyle}
+                source={require("../../assets/settings.png")}
+              />
+            </View>
+          ) : null}
+          {loading ? (
+            <ActivityIndicator color={"black"} style={styles.iconStyle} />
+          ) : null}
+          <Text
+            testID={`${testID}-text`}
+            accessibilityLabel={`${accessibilityLabel}-text`}
+            accessibilityHint={`${accessibilityHint}-text`}
+            style={[
+              styles.buttonTextStyle,
+              textContentStyle,
+              { color: textColor },
+            ]}
+          >
+            {buttonTitle}
+          </Text>
+        </View>
       </TouchableOpacity>
     </View>
   );
@@ -63,9 +100,17 @@ export default CustomButton;
 
 const styles = StyleSheet.create({
   contentStyle: {
-    flexDirection: "row",
     alignItems: "center",
+  },
+  iconStyle: {
+    width: 20,
+    height: 20,
+    marginLeft: 10,
+  },
+  innerContentStyle: {
+    flexDirection: "row",
     justifyContent: "center",
+    alignItems: "center",
   },
   buttonTextStyle: {
     alignItems: "center",
