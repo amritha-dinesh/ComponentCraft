@@ -11,6 +11,8 @@ import {
 } from "react-native";
 import { black, grey50, white, blue500 } from "../../styles/themes/colors";
 
+const BORDER_RADIUS = 5;
+
 interface CustomInputProps {
   mode?: "outlined" | "filled" | "standard";
   disabled?: boolean;
@@ -23,6 +25,7 @@ interface CustomInputProps {
   onChangeText?: (text: string) => void;
   value?: string;
   rightIcon?: string | React.ReactElement;
+  leftIcon?: string | React.ReactElement;
   placeholderTextColor?: string;
   numberOfLines?: number;
   autoCapitalize?: "none" | "sentences" | "words" | "characters" | undefined;
@@ -34,6 +37,7 @@ interface CustomInputProps {
   defaultValue?: string | undefined;
   selectionColor?: string;
   labelColor?: string;
+  borderRadius?: number;
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({
@@ -47,6 +51,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   onChangeText,
   value,
   rightIcon,
+  leftIcon,
   placeholderTextColor = "gray",
   numberOfLines,
   autoCapitalize,
@@ -58,6 +63,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   defaultValue,
   selectionColor,
   labelColor = black,
+  borderRadius = BORDER_RADIUS,
   ...props
 }) => {
   const animatedLabelStyle = new Animated.Value(1);
@@ -79,6 +85,15 @@ const CustomInput: React.FC<CustomInputProps> = ({
             {label}
           </Animated.Text>
           <View style={styles.inputContainer}>
+            {leftIcon && (
+              <TouchableOpacity>
+                {typeof leftIcon === "string" ? (
+                  <Image source={{ uri: leftIcon }} style={styles.leftIcon} />
+                ) : (
+                  leftIcon
+                )}
+              </TouchableOpacity>
+            )}
             <TextInput
               {...props}
               testID={testID}
@@ -110,8 +125,9 @@ const CustomInput: React.FC<CustomInputProps> = ({
               placeholder={placeholder}
               style={[
                 styles.input,
+                typeof leftIcon === "string" && styles.leftIconInput,
                 mode === "outlined"
-                  ? styles.outlined
+                  ? [styles.outlined, { borderRadius: borderRadius }]
                   : mode === "filled"
                   ? styles.filled
                   : styles.standards,
@@ -171,6 +187,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: Platform.OS === "ios" ? 1 : 0.5,
     backgroundColor: "transparent",
   },
+  leftIconInput: {
+    paddingLeft: 40,
+  },
   input: {
     width: "100%",
     height: 44,
@@ -186,6 +205,13 @@ const styles = StyleSheet.create({
     width: 20,
     marginTop: 33,
     right: 30,
+  },
+  leftIcon: {
+    height: 20,
+    width: 20,
+    marginTop: 33,
+    position: "absolute",
+    left: 10,
   },
   labelStyle: {
     position: "absolute",
