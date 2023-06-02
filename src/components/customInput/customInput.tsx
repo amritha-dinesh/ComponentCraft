@@ -17,7 +17,19 @@ interface CustomInputProps {
   mode?: "outlined" | "filled" | "standard";
   disabled?: boolean;
   passwordForm?: boolean;
-  keyboardType?: "numeric" | "default";
+  keyboardType?:
+    | "default"
+    | "email-address"
+    | "numeric"
+    | "phone-pad"
+    | "number-pad"
+    | "decimal-pad"
+    | "ascii-capable"
+    | "numbers-and-punctuation"
+    | "url"
+    | "name-phone-pad"
+    | "twitter"
+    | "web-search";
   label?: string;
   placeholder?: string;
   num?: boolean;
