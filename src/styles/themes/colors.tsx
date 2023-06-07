@@ -272,6 +272,8 @@ export const grey600 = "#757575";
 export const grey700 = "#616161";
 export const grey800 = "#424242";
 export const grey900 = "#212121";
+export const grey1000 = "#dddddd";
+export const grey1050 = "#cccccc";
 
 export const black = "#000000";
 export const white = "#ffffff";
