@@ -2,42 +2,47 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react-native";
 import Switch from "./Switch";
 
-describe("Switch", () => {
-  it("renders correctly", () => {
-    const { getByTestId } = render(<Switch />);
-    const switchComponent = getByTestId("switch");
-    expect(switchComponent).toBeDefined();
-  });
-
-  it("renders enabled switch by default", () => {
-    const { getByTestId } = render(<Switch />);
-    const switchComponent = getByTestId("switch");
-    expect(switchComponent.props.disabled).toBeFalsy();
-  });
-
-  it("renders disabled switch when disabled prop is true", () => {
-    const { getByTestId } = render(<Switch disabled />);
-    const switchComponent = getByTestId("switch");
-    expect(switchComponent.props.disabled).toBeTruthy();
-  });
-
-  it("triggers onValueChange callback when switch is toggled", () => {
-    const onValueChangeMock = jest.fn();
+describe("Switch component", () => {
+  it("renders correctly with image content when enabled", () => {
     const { getByTestId } = render(
-      <Switch onValueChange={onValueChangeMock} />
+      <Switch value={true} onValueChange={() => {}} content="image" />
     );
-    const switchComponent = getByTestId("switch");
-    fireEvent(switchComponent, "valueChange", true);
-    expect(onValueChangeMock).toHaveBeenCalledWith(true);
-
-    fireEvent(switchComponent, "valueChange", false);
-    expect(onValueChangeMock).toHaveBeenCalledWith(false);
+    const image = getByTestId("switch-image");
+    expect(image.props.source).toEqual(require("../../assets/enabled.png"));
   });
 
-  it("applies custom color to the switch", () => {
-    const customColor = "blue";
-    const { getByTestId } = render(<Switch color={customColor} />);
-    const switchComponent = getByTestId("switch");
-    expect(switchComponent.props.color).toBe(customColor);
+  it("renders correctly with text content when disabled", () => {
+    const { getByText } = render(
+      <Switch value={false} onValueChange={() => {}} content="text" />
+    );
+    const text = getByText("OFF");
+    expect(text).toBeTruthy();
+  });
+
+  it("triggers onValueChange callback when pressed", () => {
+    let value = false;
+    const onValueChange = (newValue: boolean) => {
+      value = newValue;
+    };
+    const { getByTestId } = render(
+      <Switch value={value} onValueChange={onValueChange} />
+    );
+    const switchComponent = getByTestId("switch-component");
+    fireEvent.press(switchComponent);
+    expect(value).toBe(true);
+  });
+
+  it("renders disabled style when disabled prop is true", () => {
+    const { getByTestId } = render(
+      <Switch
+        value={true}
+        onValueChange={() => {}}
+        disabled={true}
+        disabledStyle={{ backgroundColor: "#888" }}
+      />
+    );
+    const container = getByTestId("switch-container");
+    const containerStyle = container.props.style;
+    expect(containerStyle).toHaveProperty("backgroundColor", "#888");
   });
 });
