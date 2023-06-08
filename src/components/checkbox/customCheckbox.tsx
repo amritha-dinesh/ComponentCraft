@@ -20,6 +20,7 @@ interface CustomCheckBoxProps {
   onValueChanged?: (value: boolean) => void;
   disabled?: boolean;
   labelColor?: ColorValue;
+  fillColor?: ColorValue;
   disabledColor?: ColorValue;
   labelFontSize?: number;
   spaceBetweenLabelAndCheckBox?: number;
@@ -39,6 +40,7 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
   },
   disabled = false,
   labelColor = black,
+  fillColor = grey500,
   disabledColor = grey500,
   labelFontSize,
   spaceBetweenLabelAndCheckBox = DEFAULT_SPACE,
@@ -54,7 +56,7 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
     <SafeAreaView
       style={[
         styles.container,
-        { flexDirection: position == "left" ? "row" : "row-reverse" },
+        { flexDirection: position === "left" ? "row" : "row-reverse" },
       ]}
     >
       <TouchableOpacity
@@ -64,16 +66,22 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
           onValueChanged(!checked);
           setChecked(!checked);
         }}
+        activeOpacity={0.8}
       >
         <Image
           source={
             checked
-              ? checkedImage || require("../../assets/checked.png")
-              : unCheckedImage || require("../../assets/un_checked.png")
+              ? checkedImage || require("../../assets/fillChecked.png")
+              : unCheckedImage || require("../../assets/unchecked.png")
           }
-          style={{ width: size, height: size }}
+          style={{
+            width: size,
+            height: size,
+            tintColor: checkedImage ? "" : checked ? fillColor : grey500,
+          }}
         />
       </TouchableOpacity>
+
       <Text
         style={{
           color: disabled ? disabledColor : labelColor,
@@ -91,6 +99,18 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
+    alignSelf: "flex-start",
+  },
+  checkboxContainer: {
+    width: 20,
+    height: 20,
+    borderRadius: 4,
+    borderWidth: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  checkIcon: {
+    alignSelf: "center",
   },
 });
 
