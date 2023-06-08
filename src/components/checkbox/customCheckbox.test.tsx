@@ -30,12 +30,12 @@ describe("CustomCheckbox", () => {
     const { getByTestId } = render(
       <CustomCheckBox
         value={false}
-        disabled={false}
+        disabled={true}
         onValueChanged={onChangeMock}
       />
     );
     const checkbox = getByTestId("custom-checkbox");
     fireEvent.press(checkbox);
-    expect(onChangeMock).toHaveBeenCalledTimes(1);
+    expect(onChangeMock).toHaveBeenCalledTimes(0);
   });
 });
