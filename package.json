@@ -1,6 +1,6 @@
 {
   "name": "component-craft",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "main": "dist/mainExport.js",
   "types": "dist/mainExport.d.ts",
