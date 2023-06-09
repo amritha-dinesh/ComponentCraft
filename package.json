@@ -5,7 +5,6 @@
   "main": "dist/mainExport.js",
   "types": "dist/mainExport.d.ts",
   "files": [
-    "src",
     "dist"
   ],
   "scripts": {
