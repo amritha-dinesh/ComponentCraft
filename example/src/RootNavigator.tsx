@@ -50,7 +50,7 @@ const RootNavigator = () => {
         <Stack.Screen name="CustomCheckBox" component={CustomCheckBox} />
         <Stack.Screen name="CustomButton" component={CustomButton} />
         <Stack.Screen name="CustomInput" component={CustomInput} />
-        <Stack.Screen name="Switch" component={Switch} />
+        <Stack.Screen name="CustomSwitch" component={Switch} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -17,13 +17,9 @@ import { black, grey200, white, blue500 } from "../../themes/colors";
 const BORDER_RADIUS = 5;
 
 type Props = React.ComponentPropsWithRef<typeof TextInput> & {
-  mode?: "outlined" | "filled" | "standard";
   disabled?: boolean;
-  num?: boolean;
   value?: string;
-  defaultValue?: string | undefined;
   borderRadius?: number;
-  title: string;
   labelColor: string;
 };
 

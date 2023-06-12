@@ -1,17 +1,13 @@
 import * as React from "react";
 import {
-  NativeModules,
-  Platform,
   StyleProp,
   Switch as NativeSwitch,
   ViewStyle,
+  SafeAreaView,
+  ScrollView,
+  View,
+  Text,
 } from "react-native";
-
-import { getSwitchColor } from "./utils";
-
-const version = NativeModules.PlatformConstants
-  ? NativeModules.PlatformConstants.reactNativeVersion
-  : undefined;
 
 export type Props = React.ComponentPropsWithRef<typeof NativeSwitch> & {
   /**
@@ -37,48 +33,72 @@ export type Props = React.ComponentPropsWithRef<typeof NativeSwitch> & {
   accessibilityLabel?: string;
 };
 
-const CustomSwitch = ({
-  value,
-  disabled,
-  onValueChange,
-  color,
-  ...rest
-}: Props) => {
-  const { checkedColor, onTintColor, thumbTintColor } = getSwitchColor({
-    disabled,
-    value,
-    color,
-  });
-
-  const props =
-    version && version.major === 0 && version.minor <= 56
-      ? {
-          onTintColor,
-          thumbTintColor,
-        }
-      : Platform.OS === "web"
-      ? {
-          activeTrackColor: onTintColor,
-          thumbColor: thumbTintColor,
-          activeThumbColor: checkedColor,
-        }
-      : {
-          thumbColor: thumbTintColor,
-          trackColor: {
-            true: onTintColor,
-            false: onTintColor,
-          },
-        };
-
+const CustomSwitch = ({}: Props) => {
+  const [switchValue, setSwitchValue] = React.useState(false);
+  const [defaultValue, setDefaultValue] = React.useState(true);
+  const [color, setColor] = React.useState(false);
   return (
-    <NativeSwitch
-      testID="switch"
-      value={value}
-      disabled={disabled}
-      onValueChange={disabled ? undefined : onValueChange}
-      {...props}
-      {...rest}
-    />
+    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+      <ScrollView style={{ backgroundColor: "white" }}>
+        <View style={{ paddingTop: 15, left: 10 }}>
+          <Text style={{ fontSize: 18, fontWeight: "500" }}>
+            Mode's of Toggle Switch
+          </Text>
+        </View>
+        <View style={{ padding: "10%", flexDirection: "row" }}>
+          <NativeSwitch
+            value={switchValue}
+            onValueChange={() => {
+              setSwitchValue(!switchValue);
+            }}
+          />
+          <Text style={{ left: 20, top: 5 }}>Switch with Enable mode</Text>
+        </View>
+        <View style={{ paddingLeft: "10%", flexDirection: "row" }}>
+          <NativeSwitch value={false} disabled={true} />
+          <Text style={{ left: 20, top: 5 }}>Switch with disable mode</Text>
+        </View>
+        <View style={{ paddingTop: 15, left: 10 }}>
+          <Text style={{ fontSize: 18, fontWeight: "500" }}>
+            Toggle Switch with default value
+          </Text>
+        </View>
+        <View style={{ padding: "10%", flexDirection: "row" }}>
+          <NativeSwitch
+            value={defaultValue}
+            onValueChange={() => {
+              setDefaultValue(!defaultValue);
+            }}
+          />
+          <Text style={{ left: 20, top: 5 }}>
+            Enabled Switch with default value
+          </Text>
+        </View>
+        <View style={{ paddingLeft: "10%", flexDirection: "row" }}>
+          <NativeSwitch value={true} disabled={true} />
+          <Text style={{ left: 20, top: 5 }}>
+            Disabled Switch with default value
+          </Text>
+        </View>
+        <View style={{ paddingTop: 15, left: 10 }}>
+          <Text style={{ fontSize: 18, fontWeight: "500" }}>
+            Toggle Switch with color
+          </Text>
+        </View>
+        <View style={{ padding: "10%", flexDirection: "row" }}>
+          <NativeSwitch
+            trackColor={{ true: "green", false: "blue" }}
+            value={color}
+            onValueChange={() => {
+              setColor(!color);
+            }}
+          />
+          <Text style={{ left: 20, top: 5 }}>
+            Enabled Switch with default value
+          </Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 CustomSwitch.title = "CustomSwitch";
