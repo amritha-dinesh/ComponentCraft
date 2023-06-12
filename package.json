@@ -1,7 +1,12 @@
 {
-  "name": "ComponentCraft",
-  "version": "0.0.1",
-  "private": true,
+  "name": "component-craft",
+  "version": "1.0.1",
+  "private": false,
+  "main": "dist/mainExport.js",
+  "types": "dist/mainExport.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -9,14 +14,17 @@
     "test": "jest",
     "lint": "eslint '**/*.{ts,tsx}'",
     "start": "react-native start",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build-ts": "tsc --declaration",
+    "copy-assets": "node copy-assets.ts",
+    "prepare-to-publish": "tsc --declaration && echo ***generated declaration files successfully!*** && node copy-assets.ts"
   },
-   "lint-staged": {
+  "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-     "yarn lint",
-     "yarn format"
-  ]
- },
+      "yarn lint",
+      "yarn format"
+    ]
+  },
   "dependencies": {
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-native": "^4.0.0",
@@ -69,6 +77,22 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "description": "A small Component library for react-native applications.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amritha-dinesh/ComponentCraft.git"
+  },
+  "keywords": [
+    "react-native",
+    "design",
+    "system",
+    "component",
+    "library"
+  ],
+  "author": "Amritha Dinesh, Durga Prasad, Jenish Mariyajerald, Shashikant Patil, Manoj Sai Bellamkonda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amritha-dinesh/ComponentCraft/issues"
   }
- 
 }
