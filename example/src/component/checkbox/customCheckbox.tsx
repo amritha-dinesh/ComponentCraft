@@ -1,15 +1,8 @@
 import React, { useState } from "react";
-import {
-  Text,
-  Image,
-  StyleSheet,
-  SafeAreaView,
-  ScrollView,
-  View,
-} from "react-native";
+import { Text, StyleSheet, SafeAreaView, ScrollView, View } from "react-native";
 import CustomCheckBoxs from "../../../../src/components/checkbox/customCheckbox";
 
-type Props = React.ComponentPropsWithRef<typeof Image> & {};
+type Props = React.ComponentPropsWithRef<typeof Text> & {};
 
 const CustomCheckBox = ({}: Props) => {
   const [checked, setChecked] = useState(false);

@@ -15,6 +15,7 @@ import CustomInput from "./customInput/customInput";
 import CustomButton from "./customButton/customButton";
 import CustomCheckBox from "./checkbox/customCheckbox";
 import CustomSwitch from "./Switch/Switch";
+import CustomSearchBar from "./SearchBar/SearchBar";
 
 export const mainExamples: Record<
   string,
@@ -24,6 +25,7 @@ export const mainExamples: Record<
   CustomButton: CustomButton,
   CustomCheckBox: CustomCheckBox,
   CustomSwitch: CustomSwitch,
+  CustomSearchBar: CustomSearchBar,
 };
 
 type ItemProps = { title: string };

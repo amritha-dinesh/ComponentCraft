@@ -10,7 +10,7 @@ import CustomInput from "./component/customInput/customInput";
 import CustomCheckBox from "./component/checkbox/customCheckbox";
 import CustomButton from "./component/customButton/customButton";
 import Switch from "./component/Switch/Switch";
-
+import CustomSearchBar from "./component/SearchBar/SearchBar";
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
@@ -51,6 +51,7 @@ const RootNavigator = () => {
         <Stack.Screen name="CustomButton" component={CustomButton} />
         <Stack.Screen name="CustomInput" component={CustomInput} />
         <Stack.Screen name="CustomSwitch" component={Switch} />
+        <Stack.Screen name="CustomSearchBar" component={CustomSearchBar} />
       </Stack.Navigator>
     </NavigationContainer>
   );
