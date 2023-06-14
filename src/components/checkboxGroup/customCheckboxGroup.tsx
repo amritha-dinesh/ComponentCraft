@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { View, ColorValue, ImageSourcePropType } from "react-native";
-import CustomCheckBox from "./checkbox/customCheckbox";
+import CustomCheckBox from "../checkbox/customCheckbox";
 
 interface CustomCheckboxGroupProps {
+  testID?: string;
   onClick?: (item: CustomCheckBoxProps, value: boolean, index: number) => void;
-  mode?: "single" | "multi";
   Checkboxes: CustomCheckBoxProps[];
 }
 
@@ -27,7 +27,7 @@ interface CustomCheckBoxProps {
 }
 
 const CustomCheckboxGroup: React.FC<CustomCheckboxGroupProps> = ({
-  mode = "single",
+  testID = "custom-checkbox-group",
   onClick = () => {
     "true";
   },
@@ -40,27 +40,20 @@ const CustomCheckboxGroup: React.FC<CustomCheckboxGroupProps> = ({
     index: number
   ) => (
     <CustomCheckBox
+      key={index}
       {...checkboxItem}
       value={checkboxItem.value}
       onValueChanged={(value) => {
         const listOfCheckboxesCopy = [...listOfCheckboxes];
-        if (mode === "multi") {
-          listOfCheckboxesCopy[index].value = value;
-          console.log("MultiModified", JSON.stringify(listOfCheckboxesCopy));
-          setListOfCheckboxes(listOfCheckboxesCopy);
-        } else {
-          listOfCheckboxesCopy.forEach((item) => (item.value = false));
-          listOfCheckboxesCopy[index].value = value;
-          console.log("SingleModified", JSON.stringify(listOfCheckboxesCopy));
-          setListOfCheckboxes(listOfCheckboxesCopy);
-        }
+        listOfCheckboxesCopy[index].value = value;
+        setListOfCheckboxes(listOfCheckboxesCopy);
         onClick(checkboxItem, value, index);
       }}
     />
   );
 
   return (
-    <View>
+    <View testID={testID}>
       {listOfCheckboxes.map(
         (checkboxItem: CustomCheckBoxProps, index: number) =>
           handlingCheckboxClick(checkboxItem, index)
