@@ -7,14 +7,16 @@ import {
   Platform,
   Animated,
   Image,
+  StyleProp,
+  TextStyle,
   TouchableOpacity,
 } from "react-native";
-import { black, grey50, white, blue500 } from "../../styles/themes/colors";
+import { black, white, blue500 } from "../../styles/themes/colors";
 
 const BORDER_RADIUS = 5;
 
 interface CustomInputProps {
-  mode?: "outlined" | "filled" | "standard";
+  mode?: "outlined" | "rounded" | "standard";
   disabled?: boolean;
   passwordForm?: boolean;
   keyboardType?:
@@ -37,7 +39,7 @@ interface CustomInputProps {
   onChangeText?: (text: string) => void;
   value?: string;
   rightIcon?: string | React.ReactElement;
-  leftIcon?: string | React.ReactElement;
+  leftIcon?: React.ReactElement;
   placeholderTextColor?: string;
   numberOfLines?: number;
   autoCapitalize?: "none" | "sentences" | "words" | "characters" | undefined;
@@ -50,10 +52,12 @@ interface CustomInputProps {
   selectionColor?: string;
   labelColor?: string;
   borderRadius?: number;
+  style?: StyleProp<TextStyle>;
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({
   mode = "filled",
+  style,
   disabled = false,
   passwordForm = false,
   keyboardType = "default",
@@ -82,7 +86,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   const [focus, setFocus] = useState(false);
   const [icon, setIcon] = useState(false);
   return (
-    <SafeAreaView style={styles.main}>
+    <SafeAreaView>
       <View style={styles.container}>
         <View style={styles.subContainer}>
           <Animated.Text
@@ -97,15 +101,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
             {label}
           </Animated.Text>
           <View style={styles.inputContainer}>
-            {leftIcon && (
-              <TouchableOpacity>
-                {typeof leftIcon === "string" ? (
-                  <Image source={{ uri: leftIcon }} style={styles.leftIcon} />
-                ) : (
-                  leftIcon
-                )}
-              </TouchableOpacity>
-            )}
+            {leftIcon && <TouchableOpacity>{leftIcon}</TouchableOpacity>}
             <TextInput
               {...props}
               testID={testID}
@@ -137,22 +133,19 @@ const CustomInput: React.FC<CustomInputProps> = ({
               placeholder={placeholder}
               style={[
                 styles.input,
-                typeof leftIcon === "string" && styles.leftIconInput,
+                leftIcon && styles.leftIconInput,
                 mode === "outlined"
                   ? [styles.outlined, { borderRadius: borderRadius }]
-                  : mode === "filled"
-                  ? styles.filled
+                  : mode === "rounded"
+                  ? styles.rounded
                   : styles.standards,
                 focus === true && styles.focused,
+                style,
               ]}
             />
             {rightIcon && (
               <TouchableOpacity onPress={() => setIcon(!icon)}>
-                {typeof rightIcon === "string" ? (
-                  <Image source={{ uri: rightIcon }} style={styles.icon} />
-                ) : (
-                  rightIcon
-                )}
+                {rightIcon}
               </TouchableOpacity>
             )}
             {passwordForm && (
@@ -180,7 +173,6 @@ const CustomInput: React.FC<CustomInputProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: white,
     width: "100%",
   },
@@ -188,9 +180,10 @@ const styles = StyleSheet.create({
     borderWidth: Platform.OS === "ios" ? 1 : 0.5,
     backgroundColor: "transparent",
   },
-  filled: {
-    borderBottomWidth: Platform.OS === "ios" ? 1 : 0.5,
-    backgroundColor: grey50,
+  rounded: {
+    borderWidth: Platform.OS === "ios" ? 1 : 0.5,
+    backgroundColor: "transparent",
+    borderRadius: 22,
   },
   focused: {
     borderColor: blue500,
