@@ -1,28 +1,12 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from "react";
-import { View } from "react-native";
-import CustomCheckboxGroup from "./components/customCheckboxGroup";
-function App(): JSX.Element {
-  const listOfCheckboxes = [
-    { label: "Java", value: false },
-    { label: "Kotlin", value: false },
-  ];
+import { View, Text } from "react-native";
+import { CustomCheckBox } from "./mainExport";
 
+function App(): JSX.Element {
   return (
     <View>
-      <CustomCheckboxGroup
-        mode="single"
-        Checkboxes={listOfCheckboxes}
-        onClick={(item, value, index) => {
-          console.log(item, value, index);
-        }}
-      />
+      <Text>Hello world</Text>
+      <CustomCheckBox />
     </View>
   );
 }

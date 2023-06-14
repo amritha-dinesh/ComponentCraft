@@ -9,7 +9,7 @@ module.exports = {
   plugins: ["prettier", "@typescript-eslint"],
   parser: "@typescript-eslint/parser",
   rules: {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", { endOfLine: "auto" }],
     "react/jsx-uses-react": 1,
     "arrow-body-style": ["error"],
   },
