@@ -1,5 +1,5 @@
 /*
-If you want to visuvalise all the various texts possible, use below code
+If you want to visualize all the various texts possible, use below code
 #imports
 import {FlatList } from "react-native";
 import { CText } from "./mainExport";
@@ -174,6 +174,7 @@ import { CText } from "./mainExport";
 
 import React, { ReactNode } from "react";
 import { Text, TextStyle } from "react-native";
+
 import {
   VariantTypes,
   TextTypes,
@@ -205,7 +206,7 @@ export type CTextPropsTypes = {
    *
    */
   accessibilityLabel?: string;
-  children: ReactNode;
+  children?: ReactNode;
   numOfLines?: number;
   onPress?: () => void;
   style?: TextStyle;
