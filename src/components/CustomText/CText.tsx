@@ -9,7 +9,44 @@ import { CText } from "./mainExport";
     {
       variant: "headingLarge",
       textType: "primaryBold",
-      content: "This is headingLarge & primaryBold",
+      content: "This is headingLarge & primaryBold & onPress",
+      onPress: () => console.log("Text is pressed!"),
+      numOfLines: 1,
+      textOverflowMode: "ClipTheEnd",
+      style: {
+        color: "orange",
+        padding: 20,
+      },
+    },
+    {
+      variant: "headingLarge",
+      textType: "primaryBold",
+      content: "This is headingLarge & primaryBold & onPress",
+      onPress: () => console.log("Text is pressed!"),
+      numOfLines: 1,
+      textOverflowMode: "ignoreTheStart",
+      style: {
+        color: "teal",
+      },
+    },
+    {
+      variant: "headingLarge",
+      textType: "primaryBold",
+      content: "This is headingLarge & primaryBold & onPress",
+      onPress: () => console.log("Text is pressed!"),
+      numOfLines: 1,
+      textOverflowMode: "ignoreTheMiddle",
+      style: {
+        color: "hotpink",
+      },
+    },
+    {
+      variant: "headingLarge",
+      textType: "primaryBold",
+      content: "This is headingLarge & primaryBold & onPress",
+      onPress: () => console.log("Text is pressed!"),
+      numOfLines: 1,
+      textOverflowMode: "ignoreTheEnd",
     },
     {
       variant: "headingNormal",
@@ -117,55 +154,103 @@ import { CText } from "./mainExport";
   ];
 
 #FlatList to render all those types
- <FlatList
-        data={AllPossibleTypesOfText}
-        renderItem={({ item }) => (
-          <CText variant={item?.variant} textType={item?.textType}>
-            {item.content}
-          </CText>
-        )}
-      />
+  <FlatList
+    data={AllPossibleTypesOfText}
+    renderItem={({ item }) => (
+        <CText
+           variant={item?.variant}
+           textType={item?.textType}
+           numOfLines={item?.numOfLines}
+           textOverflowMode={item?.textOverflowMode}
+           onPress={item.onPress}
+           style={item.style}
+        >
+          {item.content}
+        </CText>
+     )}
+  />
 
 */
 
 import React, { ReactNode } from "react";
 import { Text, TextStyle } from "react-native";
-import { variantTypes, textTypes } from "./utils";
+import {
+  VariantTypes,
+  TextTypes,
+  TextOverflowModeStyles,
+  VariantTypesPossible,
+  TextTypesPossible,
+} from "./utils";
 
-export type CTextTypes = {
-  children: ReactNode;
+export type CTextPropsTypes = {
+  /**
+   *  accessibilityLabel => provides accessibility label for screen readers etc
+   *
+   *  children => takes the content inside CText component and renders it
+   *
+   *  numOfLines => To limit the text in given number of lines
+   *
+   *  onPress => to accept any callback functon on press the text
+   *
+   *  style => to provide custom styles to the component
+   *
+   *  testID => To provide testId for testing purposes
+   *
+   *  textOverflowMode => to provide the way how to crop the text in given no. of lines
+   *                      will be effective only of numOfLines prop is given
+   *
+   *  textType => to provide suitable color to text based on context such as primary, success, error, warning etc
+   *
+   *  variant => to provide various text styles such as heading, subheading etc
+   *
+   */
   accessibilityLabel?: string;
-  testID?: string;
+  children: ReactNode;
+  numOfLines?: number;
+  onPress?: () => void;
   style?: TextStyle;
-  variant?: string;
-  textType?: string;
+  testID?: string;
+  textOverflowMode?:
+    | "clipTheEnd"
+    | "ignoreTheStart"
+    | "ignoreTheMiddle"
+    | "ignoreTheEnd";
+  textType?: (typeof TextTypesPossible)[number];
+  variant?: (typeof VariantTypesPossible)[number];
 };
 
-//TODO: need to add comments for each prop
-const CText: React.FC<CTextTypes> = ({
-  children,
+const CText: React.FC<CTextPropsTypes> = ({
   accessibilityLabel,
-  testID,
+  children,
+  numOfLines,
+  onPress,
   style,
-  variant,
+  testID,
+  textOverflowMode,
   textType,
+  variant,
   ...rest
 }) => {
-  const variantstyles: TextStyle =
-    variant && variantTypes.hasOwnProperty(variant)
-      ? variantTypes[variant as keyof typeof variantTypes]
-      : variantTypes.body;
+  const variantStyles: TextStyle =
+    variant && VariantTypes.hasOwnProperty(variant)
+      ? VariantTypes[variant as keyof typeof VariantTypes]
+      : VariantTypes.body;
 
   const textTypeStyles: TextStyle =
-    textType && textTypes.hasOwnProperty(textType)
-      ? textTypes[textType as keyof typeof textTypes]
-      : textTypes.normal;
+    textType && TextTypes.hasOwnProperty(textType)
+      ? TextTypes[textType as keyof typeof TextTypes]
+      : TextTypes.normal;
 
   return (
     <Text
       accessibilityLabel={accessibilityLabel}
       testID={testID}
-      style={[variantstyles, textTypeStyles, style]}
+      numberOfLines={numOfLines}
+      ellipsizeMode={
+        textOverflowMode && TextOverflowModeStyles[textOverflowMode]
+      }
+      onPress={onPress}
+      style={[variantStyles, textTypeStyles, style]}
       {...rest}
     >
       {children}

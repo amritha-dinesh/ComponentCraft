@@ -1,7 +1,49 @@
 import { TextStyle } from "react-native";
-//TODO: need define fonts and add font-family to these variants
 
-export const variantTypes: { [key: string]: TextStyle } = {
+export const VariantTypesPossible = [
+  "headingLarge",
+  "headingNormal",
+  "headingSmall",
+  "heading",
+  "subHeadingLarge",
+  "subHeadingNormal",
+  "subHeadingSmall",
+  "subHeading",
+  "bodyLarge",
+  "bodyNormal",
+  "bodySmall",
+  "body",
+] as const;
+
+export const TextTypesPossible = [
+  "primaryLight",
+  "primaryNormal",
+  "primaryBold",
+  "primary",
+  "secondaryLight",
+  "secondaryNormal",
+  "secondaryBold",
+  "secondary",
+  "successLight",
+  "successNormal",
+  "successBold",
+  "success",
+  "errorLight",
+  "errorNormal",
+  "errorBold",
+  "error",
+  "warningLight",
+  "warningNormal",
+  "warningBold",
+  "warning",
+  "light",
+  "normal",
+  "bold",
+] as const;
+
+export const VariantTypes: {
+  [key in (typeof VariantTypesPossible)[number]]: TextStyle;
+} = {
   headingLarge: {
     fontSize: 30,
     fontWeight: "bold",
@@ -78,7 +120,9 @@ export const variantTypes: { [key: string]: TextStyle } = {
   },
 };
 
-export const textTypes: { [key: string]: TextStyle } = {
+export const TextTypes: {
+  [key in (typeof TextTypesPossible)[number]]: TextStyle;
+} = {
   primaryLight: {
     color: "#B3D4FF",
   },
@@ -153,4 +197,11 @@ export const textTypes: { [key: string]: TextStyle } = {
   bold: {
     color: "#000000",
   },
+};
+
+export const TextOverflowModeStyles: { [key: string]: any } = {
+  clipTheEnd: "clip",
+  ignoreTheStart: "head",
+  ignoreTheMiddle: "middle",
+  ignoreTheEnd: "tail",
 };
