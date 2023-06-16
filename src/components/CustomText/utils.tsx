@@ -1,4 +1,5 @@
 import { TextStyle } from "react-native";
+import colors from "../../styles/themes/colors";
 
 export const VariantTypesPossible = [
   "headingLarge",
@@ -124,78 +125,78 @@ export const TextTypes: {
   [key in (typeof TextTypesPossible)[number]]: TextStyle;
 } = {
   primaryLight: {
-    color: "#B3D4FF",
+    color: colors.blue300,
   },
   primaryNormal: {
-    color: "#007BFF",
+    color: colors.blue600,
   },
   primaryBold: {
-    color: "#0047B2",
+    color: colors.blue800,
   },
   primary: {
-    color: "#007BFF",
+    color: colors.blue600,
   },
 
   secondaryLight: {
-    color: "#A6B1B9",
+    color: colors.grey500,
   },
   secondaryNormal: {
-    color: "#6C757D",
+    color: colors.grey700,
   },
   secondaryBold: {
-    color: "#465057",
+    color: colors.grey900,
   },
   secondary: {
-    color: "#6C757D",
+    color: colors.grey700,
   },
 
   successLight: {
-    color: "#8EDFAF",
+    color: colors.green300,
   },
   successNormal: {
-    color: "#28A745",
+    color: colors.green600,
   },
   successBold: {
-    color: "#1E8435",
+    color: colors.green900,
   },
   success: {
-    color: "#28A745",
+    color: colors.green600,
   },
 
   errorLight: {
-    color: "#F1A8AF",
+    color: colors.red300,
   },
   errorNormal: {
-    color: "#DC3545",
+    color: colors.red600,
   },
   errorBold: {
-    color: "#A32939",
+    color: colors.red900,
   },
   error: {
-    color: "#DC3545",
+    color: colors.red600,
   },
 
   warningLight: {
-    color: "#FFE383",
+    color: colors.yellow300,
   },
   warningNormal: {
-    color: "#FFC107",
+    color: colors.yellow600,
   },
   warningBold: {
-    color: "#E0A800",
+    color: colors.yellow800,
   },
   warning: {
-    color: "#FFC107",
+    color: colors.yellow600,
   },
 
   light: {
-    color: "#666666",
+    color: colors.grey400,
   },
   normal: {
-    color: "#333333",
+    color: colors.grey700,
   },
   bold: {
-    color: "#000000",
+    color: colors.black,
   },
 };
 
