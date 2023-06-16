@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react-native";
-import Dropdown from "./Dropdown";
+import Dropdown from "./DropDown";
 
 describe("Dropdown Component", () => {
   const options = ["Option 1", "Option 2", "Option 3"];
