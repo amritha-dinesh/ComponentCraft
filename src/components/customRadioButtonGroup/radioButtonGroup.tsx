@@ -60,7 +60,7 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
         <TouchableOpacity
           key={option.value}
           style={[
-            styles.radioButtonItamContainer,
+            styles.radioButtonItemContainer,
             {
               flexDirection: position === "left" ? "row" : "row-reverse",
               justifyContent:
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     alignSelf: "flex-start",
   },
-  radioButtonItamContainer: {
+  radioButtonItemContainer: {
     alignItems: "center",
     marginBottom: 8,
   },

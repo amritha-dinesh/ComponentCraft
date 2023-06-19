@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ColorValue } from "react-native";
+import { View, ColorValue, StyleSheet } from "react-native";
 import { black } from "../../styles/themes/colors";
 
 const DEFAULT_SIZE = 24;
@@ -19,15 +19,15 @@ const RadioButton: React.FC<RadioButtonProps> = ({
 }) => (
   <View
     testID={testID}
-    style={{
-      height: size,
-      width: size,
-      borderRadius: size / 2,
-      borderWidth: 2,
-      borderColor: selected ? fillColor : black,
-      alignItems: "center",
-      justifyContent: "center",
-    }}
+    style={[
+      styles.radioButtonContainer,
+      {
+        height: size,
+        width: size,
+        borderRadius: size / 2,
+        borderColor: selected ? fillColor : black,
+      },
+    ]}
   >
     {selected && (
       <View
@@ -41,5 +41,13 @@ const RadioButton: React.FC<RadioButtonProps> = ({
     )}
   </View>
 );
+
+const styles = StyleSheet.create({
+  radioButtonContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 2,
+  },
+});
 
 export default RadioButton;
