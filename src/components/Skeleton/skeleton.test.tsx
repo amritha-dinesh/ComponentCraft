@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react-native";
 import Skeleton from "./skeleton";
+import { grey300 } from "../../styles/themes/colors";
 
 describe("Skeleton Component", () => {
   it("renders correctly", () => {
@@ -62,7 +63,7 @@ describe("Skeleton Component", () => {
     const skeletonComponent = getByTestId("box-skeleton");
     const boxStyle = [
       { height: 100, width: 100 },
-      { backgroundColor: "#eeeeee" },
+      { backgroundColor: grey300 },
     ];
     expect(skeletonComponent.props.style).toEqual(boxStyle);
   });
@@ -72,7 +73,7 @@ describe("Skeleton Component", () => {
     const skeletonComponent = getByTestId("circle-skeleton");
     const circleStyle = [
       { height: 100, width: 100, borderRadius: 50 },
-      { backgroundColor: "#eeeeee" },
+      { backgroundColor: grey300 },
     ];
     expect(skeletonComponent.props.style).toEqual(circleStyle);
   });
@@ -84,7 +85,7 @@ describe("Skeleton Component", () => {
       {
         height: 220,
         marginBottom: 10,
-        backgroundColor: "#eeeeee",
+        backgroundColor: grey300,
         borderRadius: 4,
       },
       { width: "55%" },
@@ -99,7 +100,7 @@ describe("Skeleton Component", () => {
       width: 80,
       height: 80,
       borderRadius: 40,
-      backgroundColor: "#eeeeee",
+      backgroundColor: grey300,
       marginRight: 10,
     };
     expect(skeletonComponent.props.style).toEqual(userStyle);
