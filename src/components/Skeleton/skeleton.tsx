@@ -14,6 +14,8 @@ import {
   slideLeftStyle,
   slideRightStyle,
 } from "./utils";
+import { grey200, white, grey300 } from "../../styles/themes/colors";
+
 interface SkeletonProps {
   mode?: "slideUp" | "slideLeft" | "slideRight" | "slideDown";
   height?: number | string;
@@ -162,7 +164,7 @@ const styles = StyleSheet.create({
   subContainerContent: {
     width: "80%",
     alignSelf: "center",
-    backgroundColor: "#D3D3D3",
+    backgroundColor: grey200,
     height: 12,
   },
   subContainerView: {
@@ -176,24 +178,24 @@ const styles = StyleSheet.create({
   },
   content: {
     alignSelf: "center",
-    backgroundColor: "#DFDBDB",
+    backgroundColor: grey200,
     marginTop: 10,
   },
   placeholder: {
     height: 220,
     marginBottom: 10,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: grey300,
     borderRadius: 4,
   },
   placeholder1: {
     height: 220,
     marginBottom: 10,
-    backgroundColor: "white",
+    backgroundColor: white,
     borderRadius: 4,
   },
   placeholder2: {
     height: 105,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: grey300,
     borderRadius: 4,
   },
   smallView: {
@@ -216,7 +218,7 @@ const styles = StyleSheet.create({
     width: "55%",
   },
   backgroundColor: {
-    backgroundColor: "#E6E6E6",
+    backgroundColor: grey300,
   },
   userContainer: {
     flexDirection: "row",
@@ -227,7 +229,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: grey300,
     marginRight: 10,
   },
   userInfo: {
@@ -237,7 +239,7 @@ const styles = StyleSheet.create({
   },
   userInfoItem: {
     height: 12,
-    backgroundColor: "#E6E6E6",
+    backgroundColor: grey300,
     marginBottom: 5,
     borderRadius: 4,
   },

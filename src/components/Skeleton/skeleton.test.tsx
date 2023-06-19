@@ -62,7 +62,7 @@ describe("Skeleton Component", () => {
     const skeletonComponent = getByTestId("box-skeleton");
     const boxStyle = [
       { height: 100, width: 100 },
-      { backgroundColor: "#E6E6E6" },
+      { backgroundColor: "#eeeeee" },
     ];
     expect(skeletonComponent.props.style).toEqual(boxStyle);
   });
@@ -72,7 +72,7 @@ describe("Skeleton Component", () => {
     const skeletonComponent = getByTestId("circle-skeleton");
     const circleStyle = [
       { height: 100, width: 100, borderRadius: 50 },
-      { backgroundColor: "#E6E6E6" },
+      { backgroundColor: "#eeeeee" },
     ];
     expect(skeletonComponent.props.style).toEqual(circleStyle);
   });
@@ -84,7 +84,7 @@ describe("Skeleton Component", () => {
       {
         height: 220,
         marginBottom: 10,
-        backgroundColor: "#E6E6E6",
+        backgroundColor: "#eeeeee",
         borderRadius: 4,
       },
       { width: "55%" },
@@ -99,7 +99,7 @@ describe("Skeleton Component", () => {
       width: 80,
       height: 80,
       borderRadius: 40,
-      backgroundColor: "#E6E6E6",
+      backgroundColor: "#eeeeee",
       marginRight: 10,
     };
     expect(skeletonComponent.props.style).toEqual(userStyle);
