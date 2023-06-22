@@ -277,6 +277,7 @@ export const grey1050 = "#cccccc";
 export const grey1100 = "#f4f4f4";
 
 export const black = "#000000";
+export const semiBlack = "rgba(0, 0, 0, 0.5)";
 export const white = "#ffffff";
 
 const colors = {
