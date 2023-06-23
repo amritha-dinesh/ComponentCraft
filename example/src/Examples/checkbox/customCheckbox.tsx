@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text, StyleSheet, SafeAreaView, ScrollView, View } from "react-native";
-import CustomCheckBoxs from "../../../../src/components/checkbox/customCheckbox";
-
+import { CustomCheckBox as CustomCheckBoxs } from "component-craft";
+// import CustomCheckBoxs from "../../../../src/components/checkbox/customCheckbox";
 type Props = React.ComponentPropsWithRef<typeof Text> & {};
 
 const CustomCheckBox = ({}: Props) => {

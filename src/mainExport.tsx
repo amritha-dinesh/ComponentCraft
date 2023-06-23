@@ -5,6 +5,7 @@ import Switch from "./components/Switch/Switch";
 import SearchBar from "./components/SearchBar/SearchBar";
 import CustomCheckboxGroup from "./components/checkboxGroup/customCheckboxGroup";
 import CText from "./components/CustomText/CText";
+import CustomCard from "./components/customCard/customCard";
 
 export {
   CustomButton,
@@ -14,4 +15,5 @@ export {
   SearchBar,
   CustomCheckboxGroup,
   CText,
+  CustomCard,
 };

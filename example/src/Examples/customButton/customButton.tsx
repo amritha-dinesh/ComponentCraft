@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
-import CustomButtons from "../../../../src/components/customButton/customButton";
+import { CustomButton as CustomButtons } from "component-craft";
+// import CustomButtons from "../../../../src/components/customButton/customButton";
+
 type Props = React.ComponentPropsWithRef<typeof Text> & {};
 
 const CustomButton = ({}: Props) => (

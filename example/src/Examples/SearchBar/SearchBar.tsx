@@ -1,8 +1,9 @@
 import React from "react";
 import { SafeAreaView } from "react-native";
-import SearchBar from "../../../../src/components/SearchBar/SearchBar";
+// import SearchBar from "../../../../src/components/SearchBar/SearchBar";
+import { SearchBar } from "component-craft";
 
-// type Props = React.ComponentPropsWithRef<typeof View> & {};
+type Props = React.ComponentPropsWithRef<typeof SafeAreaView> & {};
 
 const CustomSearchBar = ({}: Props) => (
   <SafeAreaView>

@@ -11,21 +11,23 @@ import {
 } from "react-native";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import CustomInput from "./customInput/customInput";
+// import CustomInput from "./customInput/customInput";
 import CustomButton from "./customButton/customButton";
 import CustomCheckBox from "./checkbox/customCheckbox";
 import CustomSwitch from "./Switch/Switch";
 import CustomSearchBar from "./SearchBar/SearchBar";
+import CustomCard from "./customCard/customCard";
 
 export const mainExamples: Record<
   string,
   React.ComponentType<any> & { title: string }
 > = {
-  CustomInput: CustomInput,
   CustomButton: CustomButton,
+  CustomCard: CustomCard,
   CustomCheckBox: CustomCheckBox,
-  CustomSwitch: CustomSwitch,
+  // CustomInput: CustomInput,
   CustomSearchBar: CustomSearchBar,
+  CustomSwitch: CustomSwitch,
 };
 
 type ItemProps = { title: string };

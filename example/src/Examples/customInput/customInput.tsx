@@ -8,8 +8,9 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import { white } from "../../themes/colors";
-import CustomInputs from "../../../../src/components/customInput/customInput";
+import { white } from "../../utils/themes/colors";
+// import CustomInputs from "../../../../src/components/customInput/customInput";
+import { CustomInput as CustomInputs } from "component-craft";
 
 type Props = React.ComponentPropsWithRef<typeof TextInput> & {};
 
@@ -55,7 +56,7 @@ const CustomInput = ({}: Props) => (
         placeholder="Rounded Input"
         leftIcon={
           <Image
-            source={require("../../assets/mail.png")}
+            source={require("../../../assets/mail.png")}
             style={styles.leftIcon}
           />
         }
@@ -64,7 +65,7 @@ const CustomInput = ({}: Props) => (
         mode="standard"
         leftIcon={
           <Image
-            source={require("../../assets/mail.png")}
+            source={require("../../../assets/mail.png")}
             style={styles.leftIcon}
           />
         }
@@ -74,7 +75,7 @@ const CustomInput = ({}: Props) => (
       <CustomInputs
         leftIcon={
           <Image
-            source={require("../../assets/mail.png")}
+            source={require("../../../assets/mail.png")}
             style={styles.leftIcon}
           />
         }
@@ -88,7 +89,7 @@ const CustomInput = ({}: Props) => (
       <CustomInputs
         rightIcon={
           <Image
-            source={require("../../assets/edit.png")}
+            source={require("../../../assets/edit.png")}
             style={styles.icon}
           />
         }
@@ -102,7 +103,7 @@ const CustomInput = ({}: Props) => (
         placeholder="Standard Input"
         rightIcon={
           <Image
-            source={require("../../assets/edit.png")}
+            source={require("../../../assets/edit.png")}
             style={styles.icon}
           />
         }
@@ -113,7 +114,7 @@ const CustomInput = ({}: Props) => (
         placeholder="Outlined Input"
         rightIcon={
           <Image
-            source={require("../../assets/edit.png")}
+            source={require("../../../assets/edit.png")}
             style={styles.icon}
           />
         }

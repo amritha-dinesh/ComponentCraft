@@ -5,12 +5,14 @@ import { Image, TouchableOpacity } from "react-native";
 
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ExampleList from "./component/ExampleList";
-import CustomInput from "./component/customInput/customInput";
-import CustomCheckBox from "./component/checkbox/customCheckbox";
-import CustomButton from "./component/customButton/customButton";
-import Switch from "./component/Switch/Switch";
-import CustomSearchBar from "./component/SearchBar/SearchBar";
+import ExampleList from "./Examples/ExampleList";
+import CustomInput from "./Examples/customInput/customInput";
+import CustomCheckBox from "./Examples/checkbox/customCheckbox";
+import CustomButton from "./Examples/customButton/customButton";
+import Switch from "./Examples/Switch/Switch";
+import CustomSearchBar from "./Examples/SearchBar/SearchBar";
+import CustomCard from "./Examples/customCard/customCard";
+
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
@@ -28,7 +30,7 @@ const RootNavigator = () => {
     return (
       <TouchableOpacity onPress={handlePress}>
         <Image
-          source={require("./assets/backIcon.png")}
+          source={require("../assets/backIcon.png")}
           style={{ width: 24, height: 24 }}
         />
       </TouchableOpacity>
@@ -52,6 +54,7 @@ const RootNavigator = () => {
         <Stack.Screen name="CustomInput" component={CustomInput} />
         <Stack.Screen name="CustomSwitch" component={Switch} />
         <Stack.Screen name="CustomSearchBar" component={CustomSearchBar} />
+        <Stack.Screen name="CustomCard" component={CustomCard} />
       </Stack.Navigator>
     </NavigationContainer>
   );

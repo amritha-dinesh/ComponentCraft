@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import {
   View,
   Text,
@@ -23,6 +23,7 @@ interface CustomCardProps {
   cardStyle?: StyleProp<ViewStyle>;
   titleStyle?: StyleProp<TextStyle>;
   contentStyle?: StyleProp<ViewStyle>;
+  children?: ReactNode;
 }
 
 const CustomCard: React.FC<CustomCardProps> = ({
@@ -37,6 +38,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
   titleStyle,
   contentStyle,
   delayLongPress,
+  children,
   ...rest
 }) => (
   <SafeAreaView>
@@ -60,6 +62,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
         ]}
         {...rest}
       >
+        {children}
         <Text style={[styles.title, titleStyle]}>{title}</Text>
         <View style={contentStyle}>
           <Text>{content}</Text>
