@@ -4,8 +4,15 @@
 ## Getting Started
 
 Open a Terminal in your project's folder and run:
+```
 - npm i component-craft
-- To run iOS, you need to execute the command "npx pod-install" in your project's directory.
+```
+- To run iOS, you need to execute the command
+  ```
+  "npx pod-install"
+  ```
+  in your project's directory.
+  
 - To utilize the components in the desired screen, simply import them and pass the desired properties.
   
   Example :
@@ -19,8 +26,8 @@ Open a Terminal in your project's folder and run:
       <CustomButton mode="outlined" buttonTitle="Outlined Button"/>
     </View>
   );
-}
-export default App;
+  }
+  export default App;
 ```
 ## Features
 
