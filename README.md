@@ -5,7 +5,7 @@
 
 Open a Terminal in your project's folder and run:
 ```
-- npm i component-craft
+npm i component-craft
 ```
 - To run iOS, you need to execute the command
   ```
