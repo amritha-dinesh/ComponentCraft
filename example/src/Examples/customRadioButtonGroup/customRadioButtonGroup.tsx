@@ -7,11 +7,16 @@ import {
   Text,
   ScrollView,
 } from "react-native";
-import { white, lightBlue500 } from "../../utils/themes/colors";
+import {
+  white,
+  lightBlue400,
+  green400,
+  orange500,
+} from "../../utils/themes/colors";
 import { RadioButtonGroup } from "component-craft";
 
-type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & {};
-let options = [
+type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & object;
+const options = [
   { label: "Java", value: "true" },
   { label: "Kotlin", value: "false" },
 ];
@@ -39,22 +44,22 @@ const CustomRadioButtonGroup = ({}: Props) => (
         <View style={styles.paddingTop}>
           <RadioButtonGroup
             options={options}
-            fillColor={"orange"}
-            labelColor={"orange"}
+            fillColor={orange500}
+            labelColor={orange500}
           />
         </View>
         <View style={styles.paddingTop}>
           <RadioButtonGroup
             options={options}
-            fillColor={"skyblue"}
-            labelColor={"skyblue"}
+            fillColor={lightBlue400}
+            labelColor={lightBlue400}
           />
         </View>
         <View style={styles.paddingTop}>
           <RadioButtonGroup
             options={options}
-            fillColor={"green"}
-            labelColor={"green"}
+            fillColor={green400}
+            labelColor={green400}
           />
         </View>
       </View>
@@ -87,18 +92,5 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "500",
-  },
-  image: {
-    alignSelf: "center",
-    height: 360,
-    width: "90%",
-    marginBottom: 20,
-  },
-  button: {
-    borderWidth: 0.5,
-    alignSelf: "center",
-    padding: 10,
-    borderRadius: 15,
-    backgroundColor: lightBlue500,
   },
 });

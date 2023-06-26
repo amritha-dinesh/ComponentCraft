@@ -11,7 +11,7 @@ import {
 import { white } from "../../utils/themes/colors";
 import { CustomInput as CustomInputs } from "component-craft";
 
-type Props = React.ComponentPropsWithRef<typeof TextInput> & {};
+type Props = React.ComponentPropsWithRef<typeof TextInput> & object;
 
 const CustomInput = ({}: Props) => (
   <SafeAreaView style={styles.main}>

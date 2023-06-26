@@ -540,6 +540,7 @@ const colors = {
   grey1050,
   grey1100,
   black,
+  semiBlack,
   white,
 };
 

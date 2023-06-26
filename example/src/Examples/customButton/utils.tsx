@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 export type ButtonMode = "text" | "contained" | "outlined";
 type BaseProps = {
   isMode: (mode: ButtonMode) => boolean;

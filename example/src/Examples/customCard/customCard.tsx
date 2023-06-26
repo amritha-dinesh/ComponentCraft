@@ -12,7 +12,7 @@ import {
 import { white, lightBlue500 } from "../../utils/themes/colors";
 import { CustomCard as CustomCards } from "component-craft";
 
-type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & {};
+type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & object;
 
 const CustomCard = ({}: Props) => (
   <SafeAreaView style={styles.main}>

@@ -11,7 +11,7 @@ import { white, lightBlue500, blueA700 } from "../../utils/themes/colors";
 import { CustomDialog as CustomDialogs } from "component-craft";
 import { longText } from "./mockTextData";
 
-type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & {};
+type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & object;
 type ButtonVisibility = {
   [key: string]: boolean | undefined;
 };

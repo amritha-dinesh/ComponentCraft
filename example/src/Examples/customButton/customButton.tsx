@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import { CustomButton as CustomButtons } from "component-craft";
-
-type Props = React.ComponentPropsWithRef<typeof Text> & {};
+import { white, lightBlue600, grey300 } from "../../utils/themes/colors";
+type Props = React.ComponentPropsWithRef<typeof Text> & object;
 
 const CustomButton = ({}: Props) => (
   <SafeAreaView style={styles.container}>
@@ -20,7 +20,7 @@ const CustomButton = ({}: Props) => (
         <CustomButtons
           mode="contained"
           buttonTitle="Contained Button"
-          buttonColor="skyblue"
+          buttonColor={lightBlue600}
         />
       </View>
       <View style={styles.titleContainer}>
@@ -36,7 +36,7 @@ const CustomButton = ({}: Props) => (
         <CustomButtons
           mode="contained"
           buttonTitle="Contained Button"
-          buttonColor="skyblue"
+          buttonColor={lightBlue600}
           icon
         />
       </View>
@@ -53,7 +53,7 @@ const CustomButton = ({}: Props) => (
         <CustomButtons
           mode="contained"
           buttonTitle="Contained Button"
-          buttonColor="skyblue"
+          buttonColor={lightBlue600}
           loading
         />
       </View>
@@ -64,7 +64,7 @@ const CustomButton = ({}: Props) => (
         <CustomButtons
           mode="outlined"
           buttonTitle="Outlined Button"
-          buttonColor="gray"
+          buttonColor={grey300}
           disabled
         />
       </View>
@@ -75,7 +75,7 @@ const CustomButton = ({}: Props) => (
         <CustomButtons
           mode="contained"
           buttonTitle="Contained Button"
-          buttonColor="skyblue"
+          buttonColor={lightBlue600}
           disabled
         />
       </View>
@@ -99,22 +99,22 @@ const styles = StyleSheet.create({
 
   outlined: {
     backgroundColor: "transparent",
-    borderColor: "gray",
+    borderColor: grey300,
     borderWidth: 1,
     borderRadius: 5,
   },
   contained: {
-    backgroundColor: "skyblue",
-    borderColor: "skyblue",
+    backgroundColor: lightBlue600,
+    borderColor: lightBlue600,
     borderWidth: 1,
     borderRadius: 5,
   },
 
   white: {
-    backgroundColor: "white",
+    backgroundColor: white,
   },
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: white,
   },
 });

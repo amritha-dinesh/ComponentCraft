@@ -3,7 +3,7 @@ import { View, StyleSheet, SafeAreaView, Text, ScrollView } from "react-native";
 import { white, lightBlue50, greenA700 } from "../../utils/themes/colors";
 import { Dropdown as Dropdowns } from "component-craft";
 
-type Props = React.ComponentPropsWithRef<typeof ScrollView> & {};
+type Props = React.ComponentPropsWithRef<typeof ScrollView> & object;
 const options = ["Option 1", "Option 2", "Option 3"];
 const Dropdown = ({}: Props) => (
   <SafeAreaView style={styles.main}>

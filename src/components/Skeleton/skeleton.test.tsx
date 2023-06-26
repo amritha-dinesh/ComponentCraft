@@ -54,6 +54,11 @@ describe("Skeleton Component", () => {
       flexDirection: "column",
       padding: 10,
       opacity: 0,
+      transform: [
+        {
+          translateX: -100,
+        },
+      ],
     };
     expect(skeletonComponent.props.style).toEqual(slideRightStyle);
   });

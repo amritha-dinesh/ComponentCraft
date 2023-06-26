@@ -1,11 +1,12 @@
 import React from "react";
 import { SafeAreaView, StyleSheet, ScrollView, View, Text } from "react-native";
 import { SearchBar } from "component-craft";
+import { white, grey300, grey500 } from "../../utils/themes/colors";
 
-type Props = React.ComponentPropsWithRef<typeof SafeAreaView> & {};
+type Props = React.ComponentPropsWithRef<typeof SafeAreaView> & object;
 
 const CustomSearchBar = ({}: Props) => (
-  <SafeAreaView>
+  <SafeAreaView style={styles.main}>
     <ScrollView style={styles.white}>
       <View style={styles.container}>
         <View style={styles.titleView}>
@@ -14,12 +15,9 @@ const CustomSearchBar = ({}: Props) => (
         <View style={styles.paddingNew}>
           <SearchBar
             searchIcon={require("../../../assets/search.png")}
-            containerStyle={{ width: "90%", alignSelf: "center" }}
-            placeholderTextColor="gray"
-            inputContainerStyle={{
-              borderWidth: 1,
-              backgroundColor: "#f4f4f4",
-            }}
+            containerStyle={styles.containerStyle}
+            placeholderTextColor={grey500}
+            inputContainerStyle={styles.inputContainer}
             platform="ios"
             placeholder="Search"
           />
@@ -31,9 +29,9 @@ const CustomSearchBar = ({}: Props) => (
       <View style={styles.paddingNew}>
         <SearchBar
           cancelButtonTitle="Cancel"
-          containerStyle={{ width: "90%", alignSelf: "center" }}
-          placeholderTextColor="gray"
-          inputContainerStyle={{ borderWidth: 1, backgroundColor: "#f4f4f4" }}
+          containerStyle={styles.containerStyle}
+          placeholderTextColor={grey500}
+          inputContainerStyle={styles.inputContainer}
           platform="ios"
           showCancel
           placeholder="Search"
@@ -45,9 +43,9 @@ const CustomSearchBar = ({}: Props) => (
       </View>
       <View style={styles.paddingNew}>
         <SearchBar
-          containerStyle={{ width: "90%", alignSelf: "center" }}
-          placeholderTextColor="gray"
-          inputContainerStyle={{ borderWidth: 1, backgroundColor: "#f4f4f4" }}
+          containerStyle={styles.containerStyle}
+          placeholderTextColor={grey500}
+          inputContainerStyle={styles.inputContainer}
           platform="ios"
           showLoading
           round
@@ -61,17 +59,12 @@ const CustomSearchBar = ({}: Props) => (
 CustomSearchBar.title = "SearchBar";
 export default CustomSearchBar;
 const styles = StyleSheet.create({
-  titleContainer: {
-    paddingTop: 15,
-    left: 10,
+  main: {
+    flex: 1,
   },
   title: {
     fontSize: 18,
     fontWeight: "500",
-  },
-  paddingTop: {
-    paddingTop: "5%",
-    left: 10,
   },
   paddingNew: {
     paddingTop: "1%",
@@ -81,23 +74,19 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     left: 20,
   },
-  outlined: {
-    backgroundColor: "transparent",
-    borderColor: "gray",
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-  contained: {
-    backgroundColor: "skyblue",
-    borderColor: "skyblue",
-    borderWidth: 1,
-    borderRadius: 5,
-  },
   white: {
-    backgroundColor: "white",
+    backgroundColor: white,
   },
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: white,
+  },
+  containerStyle: {
+    width: "90%",
+    alignSelf: "center",
+  },
+  inputContainer: {
+    borderWidth: 1,
+    backgroundColor: grey300,
   },
 });

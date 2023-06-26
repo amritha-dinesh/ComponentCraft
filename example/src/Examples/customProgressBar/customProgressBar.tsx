@@ -7,10 +7,10 @@ import {
   Text,
   ScrollView,
 } from "react-native";
-import { white, lightBlue500 } from "../../utils/themes/colors";
+import { white } from "../../utils/themes/colors";
 import { CustomProgressBar as CustomProgressBars } from "component-craft";
 
-type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & {};
+type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & object;
 
 const CustomProgressBar = ({}: Props) => (
   <SafeAreaView style={styles.main}>
@@ -60,18 +60,5 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "500",
-  },
-  image: {
-    alignSelf: "center",
-    height: 360,
-    width: "90%",
-    marginBottom: 20,
-  },
-  button: {
-    borderWidth: 0.5,
-    alignSelf: "center",
-    padding: 10,
-    borderRadius: 15,
-    backgroundColor: lightBlue500,
   },
 });

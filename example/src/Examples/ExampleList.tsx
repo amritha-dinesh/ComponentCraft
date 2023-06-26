@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react-native/no-inline-styles */
 import React from "react";
@@ -23,6 +24,7 @@ import CustomText from "./customText/customText";
 import CustomProgressBar from "./customProgressBar/customProgressBar";
 import Dropdown from "./Dropdown/Dropdown";
 import CustomRadioButtonGroup from "./customRadioButtonGroup/customRadioButtonGroup";
+import { grey500 } from "../utils/themes/colors";
 
 export const mainExamples: Record<
   string,
@@ -76,7 +78,7 @@ const ExampleList = ({ navigation }: Props) => {
     );
   };
   const ItemSeperator = () => (
-    <View style={{ backgroundColor: "gray", height: 1 }} />
+    <View style={{ backgroundColor: grey500, height: 1 }} />
   );
 
   return (

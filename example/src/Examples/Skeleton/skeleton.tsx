@@ -10,7 +10,7 @@ import {
 import { white, lightBlue500 } from "../../utils/themes/colors";
 import { Skeleton as Skeletons } from "component-craft";
 
-type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & {};
+type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & object;
 
 const Skeleton = ({}: Props) => (
   <SafeAreaView style={styles.main}>
@@ -54,14 +54,12 @@ const Skeleton = ({}: Props) => (
         </View>
         <View style={styles.padding}>
           <View style={styles.titleView}>
-            <Text style={styles.title}>Slide left Mode</Text>
+            <Text style={styles.title}>Slide left & down Mode</Text>
           </View>
           <Skeletons variant="box" mode="slideLeft" />
         </View>
         <View style={styles.padding}>
-          <View style={styles.titleView}>
-            <Text style={styles.title}>Slide down Mode</Text>
-          </View>
+          <View style={styles.titleView} />
           <Skeletons variant="circle" mode="slideDown" />
         </View>
       </View>

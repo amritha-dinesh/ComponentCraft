@@ -8,9 +8,10 @@ import CText from "./components/CustomText/CText";
 import CustomCard from "./components/customCard/customCard";
 import CustomDialog from "./components/customDialog/customDialog";
 import CustomProgressBar from "./components/customProgressBar/customProgressBar";
-import RadioButtonGroup from "./components/customRadioButtonGroup/radioButtonGroup";
 import Dropdown from "./components/DropDown/DropDown";
 import Skeleton from "./components/Skeleton/skeleton";
+import RadioButton from "./components/customRadioButtonGroup/radioButton";
+import RadioButtonGroup from "./components/customRadioButtonGroup/radioButtonGroup";
 
 export {
   CustomButton,
@@ -23,7 +24,8 @@ export {
   CustomCard,
   CustomDialog,
   CustomProgressBar,
-  RadioButtonGroup,
   Dropdown,
   Skeleton,
+  RadioButton,
+  RadioButtonGroup,
 };

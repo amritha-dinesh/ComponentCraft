@@ -1,8 +1,8 @@
 import React from "react";
 import { View, StyleSheet, SafeAreaView, Text, ScrollView } from "react-native";
-import { white, lightBlue500 } from "../../utils/themes/colors";
+import { white } from "../../utils/themes/colors";
 import { CText } from "component-craft";
-type Props = React.ComponentPropsWithRef<typeof Text> & {};
+type Props = React.ComponentPropsWithRef<typeof Text> & object;
 
 const CustomText = ({}: Props) => (
   <SafeAreaView style={styles.main}>
@@ -12,73 +12,73 @@ const CustomText = ({}: Props) => (
           <Text style={styles.title}>Mode's of Text</Text>
         </View>
         <View style={styles.paddingTop}>
-          <CText textType="primaryBold" style={{ padding: 5 }}>
+          <CText textType="primaryBold" style={styles.padding}>
             primary Bold
           </CText>{" "}
-          <CText textType="primaryNormal" style={{ padding: 5 }}>
+          <CText textType="primaryNormal" style={styles.padding}>
             primary Normal
           </CText>{" "}
-          <CText textType="primary" style={{ padding: 5 }}>
+          <CText textType="primary" style={styles.padding}>
             primary
           </CText>{" "}
-          <CText textType="primaryLight" style={{ padding: 5 }}>
+          <CText textType="primaryLight" style={styles.padding}>
             primary Light
           </CText>{" "}
-          <CText textType="secondaryBold" style={{ padding: 5 }}>
+          <CText textType="secondaryBold" style={styles.padding}>
             secondary Bold
           </CText>{" "}
-          <CText textType="secondaryNormal" style={{ padding: 5 }}>
+          <CText textType="secondaryNormal" style={styles.padding}>
             secondary Normal
           </CText>{" "}
-          <CText textType="secondary" style={{ padding: 5 }}>
+          <CText textType="secondary" style={styles.padding}>
             secondary
           </CText>{" "}
-          <CText textType="secondaryLight" style={{ padding: 5 }}>
+          <CText textType="secondaryLight" style={styles.padding}>
             secondary Light
           </CText>{" "}
-          <CText textType="successBold" style={{ padding: 5 }}>
+          <CText textType="successBold" style={styles.padding}>
             success Bold
           </CText>{" "}
-          <CText textType="successNormal" style={{ padding: 5 }}>
+          <CText textType="successNormal" style={styles.padding}>
             success Normal
           </CText>{" "}
-          <CText textType="success" style={{ padding: 5 }}>
+          <CText textType="success" style={styles.padding}>
             success
           </CText>{" "}
-          <CText textType="successLight" style={{ padding: 5 }}>
+          <CText textType="successLight" style={styles.padding}>
             success Light
           </CText>{" "}
-          <CText textType="warningBold" style={{ padding: 5 }}>
+          <CText textType="warningBold" style={styles.padding}>
             warning Bold
           </CText>{" "}
-          <CText textType="warningNormal" style={{ padding: 5 }}>
+          <CText textType="warningNormal" style={styles.padding}>
             warning Normal
           </CText>{" "}
-          <CText textType="warning" style={{ padding: 5 }}>
+          <CText textType="warning" style={styles.padding}>
             warning
           </CText>{" "}
-          <CText textType="warningLight" style={{ padding: 5 }}>
+          <CText textType="warningLight" style={styles.padding}>
             warning Light
           </CText>{" "}
-          <CText textType="errorBold" style={{ padding: 5 }}>
+          <CText textType="errorBold" style={styles.padding}>
             error Bold
           </CText>{" "}
-          <CText textType="errorNormal" style={{ padding: 5 }}>
+          <CText textType="errorNormal" style={styles.padding}>
             error Normal
           </CText>{" "}
-          <CText textType="error" style={{ padding: 5 }}>
+          <CText textType="error" style={styles.padding}>
             error
           </CText>{" "}
-          <CText textType="errorLight" style={{ padding: 5 }}>
+          <CText textType="errorLight" style={styles.padding}>
             error Light
           </CText>{" "}
-          <CText textType="bold" style={{ padding: 5 }}>
+          <CText textType="bold" style={styles.padding}>
             bold
           </CText>{" "}
-          <CText textType="normal" style={{ padding: 5 }}>
+          <CText textType="normal" style={styles.padding}>
             normal
           </CText>{" "}
-          <CText textType="light" style={{ padding: 5 }}>
+          <CText textType="light" style={styles.padding}>
             light
           </CText>
         </View>
@@ -113,17 +113,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "500",
   },
-  image: {
-    alignSelf: "center",
-    height: 360,
-    width: "90%",
-    marginBottom: 20,
-  },
-  button: {
-    borderWidth: 0.5,
-    alignSelf: "center",
-    padding: 10,
-    borderRadius: 15,
-    backgroundColor: lightBlue500,
+  padding: {
+    padding: 5,
   },
 });

@@ -7,7 +7,6 @@
     "lib": ["ESNext", "DOM"],
     "resolveJsonModule": true,
     "moduleResolution": "node",
-
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext",
@@ -20,10 +19,6 @@
   "exclude": [
     "node_modules",
     "babel.config.js",
-    "metro.config.js",
-    "jest.config.js",
-    "src/components/*/__snapshots__",
-    "src/App.tsx",
-    "src/index.ts"
+    "src/components/*/__snapshots__"
   ]
 }
