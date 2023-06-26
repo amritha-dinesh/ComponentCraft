@@ -12,6 +12,12 @@ import CustomButton from "./Examples/customButton/customButton";
 import Switch from "./Examples/Switch/Switch";
 import CustomSearchBar from "./Examples/SearchBar/SearchBar";
 import CustomCard from "./Examples/customCard/customCard";
+import CustomDialog from "./Examples/customDialog/customDialog";
+import Skeleton from "./Examples/Skeleton/skeleton";
+import CustomText from "./Examples/customText/customText";
+import CustomProgressBar from "./Examples/customProgressBar/customProgressBar";
+import Dropdown from "./Examples/Dropdown/Dropdown";
+import CustomRadioButtonGroup from "./Examples/customRadioButtonGroup/customRadioButtonGroup";
 
 const Stack = createNativeStackNavigator();
 
@@ -55,6 +61,15 @@ const RootNavigator = () => {
         <Stack.Screen name="CustomSwitch" component={Switch} />
         <Stack.Screen name="CustomSearchBar" component={CustomSearchBar} />
         <Stack.Screen name="CustomCard" component={CustomCard} />
+        <Stack.Screen name="CustomDialog" component={CustomDialog} />
+        <Stack.Screen name="Skeleton" component={Skeleton} />
+        <Stack.Screen name="CustomText" component={CustomText} />
+        <Stack.Screen name="Dropdown" component={Dropdown} />
+        <Stack.Screen
+          name="CustomRadioButtonGroup"
+          component={CustomRadioButtonGroup}
+        />
+        <Stack.Screen name="CustomProgressBar" component={CustomProgressBar} />
       </Stack.Navigator>
     </NavigationContainer>
   );

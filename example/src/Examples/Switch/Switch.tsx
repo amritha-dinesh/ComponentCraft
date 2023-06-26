@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
     left: 10,
   },
   switchTitle: {
-    left: 20,
+    marginLeft: 10,
     top: 5,
   },
   switchView: {

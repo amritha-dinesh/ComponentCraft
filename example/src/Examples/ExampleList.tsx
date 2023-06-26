@@ -11,12 +11,18 @@ import {
 } from "react-native";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-// import CustomInput from "./customInput/customInput";
+import CustomInput from "./customInput/customInput";
 import CustomButton from "./customButton/customButton";
 import CustomCheckBox from "./checkbox/customCheckbox";
 import CustomSwitch from "./Switch/Switch";
 import CustomSearchBar from "./SearchBar/SearchBar";
 import CustomCard from "./customCard/customCard";
+import CustomDialog from "./customDialog/customDialog";
+import Skeleton from "./Skeleton/skeleton";
+import CustomText from "./customText/customText";
+import CustomProgressBar from "./customProgressBar/customProgressBar";
+import Dropdown from "./Dropdown/Dropdown";
+import CustomRadioButtonGroup from "./customRadioButtonGroup/customRadioButtonGroup";
 
 export const mainExamples: Record<
   string,
@@ -25,9 +31,15 @@ export const mainExamples: Record<
   CustomButton: CustomButton,
   CustomCard: CustomCard,
   CustomCheckBox: CustomCheckBox,
-  // CustomInput: CustomInput,
+  CustomDialog: CustomDialog,
+  CustomInput: CustomInput,
+  CustomProgressBar: CustomProgressBar,
+  CustomRadioButtonGroup: CustomRadioButtonGroup,
   CustomSearchBar: CustomSearchBar,
   CustomSwitch: CustomSwitch,
+  CustomText: CustomText,
+  Dropdown: Dropdown,
+  Skeleton: Skeleton,
 };
 
 type ItemProps = { title: string };

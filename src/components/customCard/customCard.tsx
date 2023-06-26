@@ -10,9 +10,11 @@ import {
   ViewStyle,
   TextStyle,
 } from "react-native";
+import { white, grey200, black } from "../../styles/themes/colors";
 
 interface CustomCardProps {
   title?: string;
+  subTitle?: string;
   content?: string | React.ReactElement;
   mode?: "elevated" | "outlined" | "contained";
   onPress?: (e: GestureResponderEvent) => void;
@@ -39,6 +41,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
   contentStyle,
   delayLongPress,
   children,
+  subTitle,
   ...rest
 }) => (
   <SafeAreaView>
@@ -64,6 +67,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
       >
         {children}
         <Text style={[styles.title, titleStyle]}>{title}</Text>
+        <Text style={[styles.subTitle, titleStyle]}>{subTitle}</Text>
         <View style={contentStyle}>
           <Text>{content}</Text>
         </View>
@@ -74,7 +78,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
 export default CustomCard;
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "white",
+    backgroundColor: white,
     borderRadius: 8,
     padding: 16,
     margin: 8,
@@ -87,17 +91,22 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-    shadowColor: "#000",
+    shadowColor: black,
   },
   outlined: {
     borderWidth: 0.5,
   },
   contained: {
-    backgroundColor: "#E5E4E2",
+    backgroundColor: grey200,
   },
   title: {
     fontSize: 18,
     fontWeight: "bold",
+    marginBottom: 8,
+  },
+  subTitle: {
+    fontWeight: "600",
+    fontSize: 15,
     marginBottom: 8,
   },
 });
