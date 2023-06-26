@@ -7,7 +7,7 @@ import {
   Image,
   Animated,
 } from "react-native";
-import { grey1050 } from "./../../styles/themes/colors";
+import { grey1050 } from "../../styles/themes/colors";
 
 interface DropdownProps {
   options: string[];

@@ -1,5 +1,5 @@
 import { TextStyle } from "react-native";
-import colors from "../../styles/themes/colors";
+import { colors } from "../../styles/themes/colors";
 
 export const VariantTypesPossible = [
   "headingLarge",

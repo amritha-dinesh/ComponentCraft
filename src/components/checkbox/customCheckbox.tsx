@@ -9,9 +9,9 @@ import {
   SafeAreaView,
 } from "react-native";
 import { black, grey500 } from "../../styles/themes/colors";
+import { typography, spacing, componentSizes } from "../../styles/themes";
 
-const DEFAULT_SIZE = 40;
-const DEFAULT_SPACE = 10;
+const DEFAULT_SIZE = componentSizes.checkboxSize;
 
 interface CustomCheckBoxProps {
   testID?: string;
@@ -43,7 +43,7 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
   fillColor = grey500,
   disabledColor = grey500,
   labelFontSize,
-  spaceBetweenLabelAndCheckBox = DEFAULT_SPACE,
+  spaceBetweenLabelAndCheckBox = spacing.xs,
   checkedImage,
   unCheckedImage,
   size = DEFAULT_SIZE,
@@ -83,12 +83,15 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
       </TouchableOpacity>
 
       <Text
-        style={{
-          color: disabled ? disabledColor : labelColor,
-          fontSize: labelFontSize,
-          marginHorizontal: spaceBetweenLabelAndCheckBox,
-          fontFamily: labelFontFamily,
-        }}
+        style={[
+          typography.text,
+          {
+            color: disabled ? disabledColor : labelColor,
+            fontSize: labelFontSize,
+            marginHorizontal: spaceBetweenLabelAndCheckBox,
+            fontFamily: labelFontFamily,
+          },
+        ]}
       >
         {label}
       </Text>

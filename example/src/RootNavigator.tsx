@@ -2,6 +2,8 @@
 /* eslint-disable react/no-unstable-nested-components */
 import * as React from "react";
 import { Image, TouchableOpacity } from "react-native";
+import { useColorScheme } from "react-native";
+import { theme } from "./themes";
 
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -14,6 +16,8 @@ import CustomSearchBar from "./component/SearchBar/SearchBar";
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
+  const scheme = useColorScheme();
+
   const CustomHeaderLeft = ({ onPress }: any) => {
     const navigation = useNavigation();
 
@@ -36,7 +40,7 @@ const RootNavigator = () => {
   };
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={scheme === "dark" ? theme.dark : theme.light}>
       <Stack.Navigator
         initialRouteName="ExampleList"
         screenOptions={({ route }) => ({

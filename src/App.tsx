@@ -1,12 +1,8 @@
 import React from "react";
-import { View, Text } from "react-native";
+import RootNavigator from "../example/src/RootNavigator";
 
 function App(): JSX.Element {
-  return (
-    <View>
-      <Text>This is component-craft npm package</Text>
-    </View>
-  );
+  return <RootNavigator />;
 }
 
 export default App;

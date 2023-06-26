@@ -4,7 +4,7 @@ import SearchBar from "../../../../src/components/SearchBar/SearchBar";
 
 // type Props = React.ComponentPropsWithRef<typeof View> & {};
 
-const CustomSearchBar = ({}: Props) => (
+const CustomSearchBar = () => (
   <SafeAreaView>
     <SearchBar
       //   searchIcon={
