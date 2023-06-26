@@ -85,7 +85,7 @@ const CustomCard = ({}: Props) => (
   </SafeAreaView>
 );
 export default CustomCard;
-CustomCard.title = "CustomCard";
+CustomCard.title = "Card";
 
 const styles = StyleSheet.create({
   main: {

@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import { CustomButton as CustomButtons } from "component-craft";
-// import CustomButtons from "../../../../src/components/customButton/customButton";
 
 type Props = React.ComponentPropsWithRef<typeof Text> & {};
 
@@ -83,7 +82,7 @@ const CustomButton = ({}: Props) => (
     </ScrollView>
   </SafeAreaView>
 );
-CustomButton.title = "CustomButton";
+CustomButton.title = "Button";
 export default CustomButton;
 const styles = StyleSheet.create({
   titleContainer: {

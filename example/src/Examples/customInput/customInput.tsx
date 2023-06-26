@@ -9,7 +9,6 @@ import {
   ScrollView,
 } from "react-native";
 import { white } from "../../utils/themes/colors";
-// import CustomInputs from "../../../../src/components/customInput/customInput";
 import { CustomInput as CustomInputs } from "component-craft";
 
 type Props = React.ComponentPropsWithRef<typeof TextInput> & {};
@@ -165,7 +164,7 @@ const CustomInput = ({}: Props) => (
     </ScrollView>
   </SafeAreaView>
 );
-CustomInput.title = "CustomInput";
+CustomInput.title = "Input";
 
 const styles = StyleSheet.create({
   container: {

@@ -1,6 +1,5 @@
 import * as React from "react";
 import { SafeAreaView, ScrollView, View, Text, StyleSheet } from "react-native";
-// import Switch from "../../../../src/components/Switch/Switch";
 import { Switch } from "component-craft";
 
 type Props = React.ComponentPropsWithRef<typeof Text> & {
@@ -195,7 +194,7 @@ const CustomSwitch = ({}: Props) => {
   );
 };
 
-CustomSwitch.title = "CustomSwitch";
+CustomSwitch.title = "Switch";
 
 export default CustomSwitch;
 const styles = StyleSheet.create({

@@ -5,12 +5,10 @@ import {
   StyleSheet,
   SafeAreaView,
   Text,
-  Image,
   ScrollView,
 } from "react-native";
 import { white, lightBlue500 } from "../../utils/themes/colors";
-// import CustomCards from "../../../../src/components/customCard/customCard";
-// import { CustomProgressBar as CustomProgressBars } from "component-craft";
+import { CustomProgressBar as CustomProgressBars } from "component-craft";
 
 type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & {};
 
@@ -19,19 +17,33 @@ const CustomProgressBar = ({}: Props) => (
     <ScrollView style={styles.white}>
       <View style={styles.container}>
         <View style={styles.titleView}>
-          <Text style={styles.title}>Mode's of ProgressBar</Text>
+          <Text style={styles.title}>Default ProgressBar</Text>
         </View>
-        {/* <CustomProgressBars progress={1} /> */}
+        <View style={styles.paddingTop}>
+          <CustomProgressBars progress={3} height={10} width={100} />
+        </View>
+        <View style={styles.titleView}>
+          <Text style={styles.title}>
+            Default ProgressBar with varying height,width and progress
+          </Text>
+        </View>
+        <View style={styles.paddingTop}>
+          <CustomProgressBars progress={10} height={20} width={200} />
+        </View>
       </View>
     </ScrollView>
   </SafeAreaView>
 );
 export default CustomProgressBar;
-CustomProgressBar.title = "CustomProgressBar";
+CustomProgressBar.title = "ProgressBar";
 
 const styles = StyleSheet.create({
   main: {
     flex: 1,
+  },
+  paddingTop: {
+    paddingTop: "1%",
+    left: 10,
   },
   white: {
     backgroundColor: white,

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Text, StyleSheet, SafeAreaView, ScrollView, View } from "react-native";
 import { CustomCheckBox as CustomCheckBoxs } from "component-craft";
-// import CustomCheckBoxs from "../../../../src/components/checkbox/customCheckbox";
 type Props = React.ComponentPropsWithRef<typeof Text> & {};
 
 const CustomCheckBox = ({}: Props) => {
@@ -87,7 +86,7 @@ const CustomCheckBox = ({}: Props) => {
     </SafeAreaView>
   );
 };
-CustomCheckBox.title = "CustomCheckBox";
+CustomCheckBox.title = "CheckBox";
 
 export default CustomCheckBox;
 const styles = StyleSheet.create({

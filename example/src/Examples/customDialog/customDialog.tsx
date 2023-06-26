@@ -107,7 +107,7 @@ const CustomDialog = ({}: Props) => {
   );
 };
 export default CustomDialog;
-CustomDialog.title = "CustomDialog";
+CustomDialog.title = "Dialog";
 
 const styles = StyleSheet.create({
   main: {
