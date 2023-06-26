@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react-native/no-inline-styles */
 import React from "react";
@@ -16,16 +17,31 @@ import CustomButton from "./customButton/customButton";
 import CustomCheckBox from "./checkbox/customCheckbox";
 import CustomSwitch from "./Switch/Switch";
 import CustomSearchBar from "./SearchBar/SearchBar";
+import CustomCard from "./customCard/customCard";
+import CustomDialog from "./customDialog/customDialog";
+import Skeleton from "./Skeleton/skeleton";
+import CustomText from "./customText/customText";
+import CustomProgressBar from "./customProgressBar/customProgressBar";
+import Dropdown from "./Dropdown/Dropdown";
+import CustomRadioButtonGroup from "./customRadioButtonGroup/customRadioButtonGroup";
+import { grey500 } from "../utils/themes/colors";
 
 export const mainExamples: Record<
   string,
   React.ComponentType<any> & { title: string }
 > = {
-  CustomInput: CustomInput,
   CustomButton: CustomButton,
+  CustomCard: CustomCard,
   CustomCheckBox: CustomCheckBox,
-  CustomSwitch: CustomSwitch,
+  CustomDialog: CustomDialog,
+  CustomInput: CustomInput,
+  CustomProgressBar: CustomProgressBar,
+  CustomRadioButtonGroup: CustomRadioButtonGroup,
   CustomSearchBar: CustomSearchBar,
+  CustomSwitch: CustomSwitch,
+  CustomText: CustomText,
+  Dropdown: Dropdown,
+  Skeleton: Skeleton,
 };
 
 type ItemProps = { title: string };
@@ -62,7 +78,7 @@ const ExampleList = ({ navigation }: Props) => {
     );
   };
   const ItemSeperator = () => (
-    <View style={{ backgroundColor: "gray", height: 1 }} />
+    <View style={{ backgroundColor: grey500, height: 1 }} />
   );
 
   return (

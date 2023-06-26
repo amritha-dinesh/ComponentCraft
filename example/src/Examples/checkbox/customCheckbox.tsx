@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { Text, StyleSheet, SafeAreaView, ScrollView, View } from "react-native";
-import CustomCheckBoxs from "../../../../src/components/checkbox/customCheckbox";
-
-type Props = React.ComponentPropsWithRef<typeof Text> & {};
+import { CustomCheckBox as CustomCheckBoxs } from "component-craft";
+import {
+  white,
+  orange500,
+  lightBlue600,
+  green500,
+} from "../../utils/themes/colors";
+type Props = React.ComponentPropsWithRef<typeof Text> & object;
 
 const CustomCheckBox = ({}: Props) => {
   const [checked, setChecked] = useState(false);
@@ -61,24 +66,24 @@ const CustomCheckBox = ({}: Props) => {
         </View>
         <View style={styles.padding}>
           <CustomCheckBoxs
-            labelColor={"green"}
-            fillColor={"green"}
+            labelColor={green500}
+            fillColor={green500}
             value
             label="green"
           />
         </View>
         <View style={styles.padding}>
           <CustomCheckBoxs
-            labelColor={"skyblue"}
-            fillColor={"skyblue"}
+            labelColor={lightBlue600}
+            fillColor={lightBlue600}
             value
             label="skyblue"
           />
         </View>
         <View style={styles.padding}>
           <CustomCheckBoxs
-            labelColor={"orange"}
-            fillColor={"orange"}
+            labelColor={orange500}
+            fillColor={orange500}
             value
             label="orange"
           />
@@ -87,7 +92,7 @@ const CustomCheckBox = ({}: Props) => {
     </SafeAreaView>
   );
 };
-CustomCheckBox.title = "CustomCheckBox";
+CustomCheckBox.title = "CheckBox";
 
 export default CustomCheckBox;
 const styles = StyleSheet.create({
@@ -100,7 +105,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   whiteColor: {
-    backgroundColor: "white",
+    backgroundColor: white,
   },
   padding: {
     padding: "5%",
