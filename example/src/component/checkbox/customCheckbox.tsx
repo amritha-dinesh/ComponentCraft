@@ -1,7 +1,14 @@
 import React, { useState } from "react";
-import { Text, StyleSheet, SafeAreaView, ScrollView, View } from "react-native";
+import {
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
+  View,
+  Text as Mtext,
+} from "react-native";
 import CustomCheckBoxs from "../../../../src/components/checkbox/customCheckbox";
 import { useTheme } from "@react-navigation/native";
+import { CText as Text } from "../../../../src/mainExport";
 
 type Props = React.ComponentPropsWithRef<typeof Text> & {};
 
@@ -13,6 +20,9 @@ const CustomCheckBox = ({}: Props) => {
     <SafeAreaView>
       <ScrollView style={{ backgroundColor: colors.background }}>
         <View style={styles.titleView}>
+          <Mtext style={[styles.title, { color: colors.text }]}>
+            Check box with label position & Enabled
+          </Mtext>
           <Text style={[styles.title, { color: colors.text }]}>
             Check box with label position & Enabled
           </Text>

@@ -16,6 +16,7 @@ import CustomButton from "./customButton/customButton";
 import CustomCheckBox from "./checkbox/customCheckbox";
 import CustomSwitch from "./Switch/Switch";
 import CustomSearchBar from "./SearchBar/SearchBar";
+import { useTheme } from "@react-navigation/native";
 
 export const mainExamples: Record<
   string,
@@ -51,12 +52,17 @@ const data = Object.keys(mainExamples).map(
   (id): Item => ({ id, data: mainExamples[id] })
 );
 const ExampleList = ({ navigation }: Props) => {
+  const { colors } = useTheme();
+
   const renderItem = ({ item }: { item: Item }) => {
     // eslint-disable-next-line @typescript-eslint/no-shadow
     const { data, id } = item;
 
     return (
-      <Text style={{ padding: 10 }} onPress={() => navigation.navigate(id)}>
+      <Text
+        style={{ padding: 10, color: colors.text }}
+        onPress={() => navigation.navigate(id)}
+      >
         {data.title}
       </Text>
     );
@@ -66,7 +72,9 @@ const ExampleList = ({ navigation }: Props) => {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
       <FlatList
         ItemSeparatorComponent={ItemSeperator}
         data={data}

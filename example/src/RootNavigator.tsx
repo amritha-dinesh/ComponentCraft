@@ -33,7 +33,11 @@ const RootNavigator = () => {
       <TouchableOpacity onPress={handlePress}>
         <Image
           source={require("./assets/backIcon.png")}
-          style={{ width: 24, height: 24 }}
+          style={{
+            width: 24,
+            height: 24,
+            tintColor: scheme === "dark" ? "white" : "black",
+          }}
         />
       </TouchableOpacity>
     );
@@ -48,6 +52,9 @@ const RootNavigator = () => {
             route.name !== "ExampleList"
               ? (props) => <CustomHeaderLeft {...props} />
               : undefined,
+          headerStyle: {
+            backgroundColor: scheme === "dark" ? "black" : "white",
+          },
         })}
       >
         <Stack.Screen name="ExampleList" component={ExampleList} />

@@ -1,21 +1,6 @@
 import { TextStyle } from "react-native";
 import { colors } from "../../styles/themes/colors";
 
-export const VariantTypesPossible = [
-  "headingLarge",
-  "headingNormal",
-  "headingSmall",
-  "heading",
-  "subHeadingLarge",
-  "subHeadingNormal",
-  "subHeadingSmall",
-  "subHeading",
-  "bodyLarge",
-  "bodyNormal",
-  "bodySmall",
-  "body",
-] as const;
-
 export const TextTypesPossible = [
   "primaryLight",
   "primaryNormal",
@@ -41,85 +26,6 @@ export const TextTypesPossible = [
   "normal",
   "bold",
 ] as const;
-
-export const VariantTypes: {
-  [key in (typeof VariantTypesPossible)[number]]: TextStyle;
-} = {
-  headingLarge: {
-    fontSize: 30,
-    fontWeight: "bold",
-    lineHeight: 36,
-    letterSpacing: 0,
-  },
-  headingNormal: {
-    fontSize: 26,
-    fontWeight: "bold",
-    lineHeight: 32,
-    letterSpacing: 0,
-  },
-  headingSmall: {
-    fontSize: 22,
-    fontWeight: "bold",
-    lineHeight: 28,
-    letterSpacing: 0,
-  },
-  heading: {
-    fontSize: 26,
-    fontWeight: "bold",
-    lineHeight: 32,
-    letterSpacing: 0,
-  },
-
-  subHeadingLarge: {
-    fontSize: 24,
-    fontWeight: "normal",
-    lineHeight: 28,
-    letterSpacing: 0,
-  },
-  subHeadingNormal: {
-    fontSize: 22,
-    fontWeight: "normal",
-    lineHeight: 26,
-    letterSpacing: 0,
-  },
-  subHeadingSmall: {
-    fontSize: 20,
-    fontWeight: "normal",
-    lineHeight: 24,
-    letterSpacing: 0,
-  },
-  subHeading: {
-    fontSize: 22,
-    fontWeight: "normal",
-    lineHeight: 26,
-    letterSpacing: 0,
-  },
-
-  bodyLarge: {
-    fontSize: 20,
-    fontWeight: "normal",
-    lineHeight: 26,
-    letterSpacing: 0,
-  },
-  bodyNormal: {
-    fontSize: 18,
-    fontWeight: "normal",
-    lineHeight: 22,
-    letterSpacing: 0,
-  },
-  bodySmall: {
-    fontSize: 16,
-    fontWeight: "normal",
-    lineHeight: 20,
-    letterSpacing: 0,
-  },
-  body: {
-    fontSize: 18,
-    fontWeight: "normal",
-    lineHeight: 22,
-    letterSpacing: 0,
-  },
-};
 
 export const TextTypes: {
   [key in (typeof TextTypesPossible)[number]]: TextStyle;

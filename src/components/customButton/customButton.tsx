@@ -11,6 +11,7 @@ import {
   TextStyle,
 } from "react-native";
 import { ButtonMode, getButtonColors } from "./utils";
+import { useTheme } from "@react-navigation/native";
 
 interface buttonProps {
   mode?: ButtonMode;
@@ -41,6 +42,8 @@ const CustomButton: React.FC<buttonProps> = ({
   buttonColor,
   contentStyle,
 }) => {
+  const { colors } = useTheme();
+
   const { backgroundColor, borderColor, textColor, borderWidth, borderRadius } =
     getButtonColors({
       mode,
@@ -76,7 +79,10 @@ const CustomButton: React.FC<buttonProps> = ({
             </View>
           ) : null}
           {loading ? (
-            <ActivityIndicator color={"black"} style={styles.iconStyle} />
+            <ActivityIndicator
+              color={colors.background === "white" ? "black" : "white"}
+              style={styles.iconStyle}
+            />
           ) : null}
           <Text
             testID={`${testID}-text`}
@@ -85,7 +91,7 @@ const CustomButton: React.FC<buttonProps> = ({
             style={[
               styles.buttonTextStyle,
               textContentStyle,
-              { color: textColor },
+              { color: textColor ? textColor : colors.text },
             ]}
           >
             {buttonTitle}

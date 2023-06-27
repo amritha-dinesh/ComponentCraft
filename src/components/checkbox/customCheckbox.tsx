@@ -8,8 +8,9 @@ import {
   StyleSheet,
   SafeAreaView,
 } from "react-native";
-import { black, grey500 } from "../../styles/themes/colors";
+import { grey500 } from "../../styles/themes/colors";
 import { typography, spacing, componentSizes } from "../../styles/themes";
+import { useTheme } from "@react-navigation/native";
 
 const DEFAULT_SIZE = componentSizes.checkboxSize;
 
@@ -39,7 +40,7 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
     "true";
   },
   disabled = false,
-  labelColor = black,
+  labelColor,
   fillColor = grey500,
   disabledColor = grey500,
   labelFontSize,
@@ -50,7 +51,10 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
   labelFontFamily,
   position = "left",
 }) => {
+  const { colors } = useTheme();
   const [checked, setChecked] = useState(value);
+
+  labelColor = labelColor ? labelColor : colors.text;
 
   return (
     <SafeAreaView

@@ -1,4 +1,5 @@
 export type ButtonMode = "text" | "contained" | "outlined";
+
 type BaseProps = {
   isMode: (mode: ButtonMode) => boolean;
   disabled?: boolean;
@@ -44,7 +45,7 @@ export const getButtonColors = ({
     if (color && !disabled) {
       return color;
     } else {
-      return "#000000";
+      return null;
     }
   };
   const textColor = getButtonTextColor({

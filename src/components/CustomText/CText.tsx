@@ -173,15 +173,14 @@ import { CText } from "./mainExport";
 */
 
 import React, { ReactNode } from "react";
-import { Text, TextStyle } from "react-native";
+import { Text, TextStyle, StyleProp } from "react-native";
+
+import { TextTypes, TextOverflowModeStyles, TextTypesPossible } from "./utils";
 
 import {
   VariantTypes,
-  TextTypes,
-  TextOverflowModeStyles,
   VariantTypesPossible,
-  TextTypesPossible,
-} from "./utils";
+} from "../../styles/themes/typography";
 
 export type CTextPropsTypes = {
   /**
@@ -209,7 +208,7 @@ export type CTextPropsTypes = {
   children?: ReactNode;
   numOfLines?: number;
   onPress?: () => void;
-  style?: TextStyle;
+  style?: StyleProp<TextStyle>;
   testID?: string;
   textOverflowMode?:
     | "clipTheEnd"

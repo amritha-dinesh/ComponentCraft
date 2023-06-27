@@ -1,5 +1,6 @@
 import { DarkTheme, DefaultTheme } from "@react-navigation/native";
 import { lightThemeColors, darkThemeColors } from "./colors";
+import { VariantTypes } from "./typography";
 
 export const theme = {
   light: {
@@ -8,6 +9,7 @@ export const theme = {
       ...DefaultTheme.colors,
       ...lightThemeColors.colors,
     },
+    fonts: VariantTypes,
   },
   dark: {
     ...DarkTheme,
@@ -15,5 +17,6 @@ export const theme = {
       ...DarkTheme.colors,
       ...darkThemeColors.colors,
     },
+    fonts: VariantTypes,
   },
 };

@@ -279,6 +279,8 @@ export const grey1100 = "#f4f4f4";
 
 export const black = "#000000";
 export const white = "#ffffff";
+export const snowMan = "#f7f7f7";
+export const karl = "#edeced";
 
 export const colors = {
   transparent,
@@ -542,27 +544,37 @@ export const colors = {
   grey1100,
   black,
   white,
+  snowMan,
+  karl,
 };
 
 export const lightThemeColors = {
   colors: {
-    primary: "rgb(0, 122, 255)",
+    primary: "#B0BEC5",
+    secondary: "#29434E",
     background: "white",
     card: "rgb(255, 255, 255)",
     text: "black",
-    border: "rgb(216, 216, 216)",
+    border: "#212121",
     notification: "rgb(255, 59, 48)",
+    error: "#D32F2F",
+    activeTab: "#1976D2",
+    inactiveTab: "#757575",
   },
 };
 
 export const darkThemeColors = {
   colors: {
-    primary: "rgb(0, 122, 255)",
+    primary: "#212121",
+    secondary: "#29434E",
     background: "black",
     card: "rgb(255, 255, 255)",
     text: "white",
-    border: "rgb(216, 216, 216)",
+    border: "#FFFFFF",
     notification: "rgb(255, 59, 48)",
+    error: "#D32F2F",
+    activeTab: "#4FC3F7",
+    inactiveTab: "#FFFFFF",
   },
 };
 
