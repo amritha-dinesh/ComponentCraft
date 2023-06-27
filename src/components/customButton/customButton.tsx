@@ -79,10 +79,7 @@ const CustomButton: React.FC<buttonProps> = ({
             </View>
           ) : null}
           {loading ? (
-            <ActivityIndicator
-              color={colors.background === "white" ? "black" : "white"}
-              style={styles.iconStyle}
-            />
+            <ActivityIndicator color={colors.text} style={styles.iconStyle} />
           ) : null}
           <Text
             testID={`${testID}-text`}

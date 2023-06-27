@@ -1,5 +1,4 @@
 export const transparent = "rgba(255, 255, 255, 0)";
-export const semiBlack = "rgba(0, 0, 0, 0.5)";
 
 export const red50 = "#ffebee";
 export const red100 = "#ffcdd2";
@@ -278,13 +277,13 @@ export const grey1050 = "#cccccc";
 export const grey1100 = "#f4f4f4";
 
 export const black = "#000000";
+export const semiBlack = "rgba(0, 0, 0, 0.5)";
 export const white = "#ffffff";
 export const snowMan = "#f7f7f7";
 export const karl = "#edeced";
 
 export const colors = {
   transparent,
-  semiBlack,
   red50,
   red100,
   red200,
@@ -543,6 +542,7 @@ export const colors = {
   grey1050,
   grey1100,
   black,
+  semiBlack,
   white,
   snowMan,
   karl,

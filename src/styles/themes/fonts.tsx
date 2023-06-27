@@ -9,11 +9,11 @@ export const typeface = {
     default: "sans-serif",
   }),
 
-  weightRegular: "400" as "400",
+  weightRegular: "400" as const,
 
-  weightMedium: "500" as "500",
+  weightMedium: "500" as const,
 
-  weightBold: "700" as "700",
+  weightBold: "700" as const,
 };
 
 export const regularType: TextStyle = {
