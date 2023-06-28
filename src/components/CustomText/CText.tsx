@@ -176,6 +176,7 @@ import React, { ReactNode } from "react";
 import { Text, TextStyle, StyleProp } from "react-native";
 
 import { TextTypes, TextOverflowModeStyles, TextTypesPossible } from "./utils";
+import { useTheme } from "@react-navigation/native";
 
 import {
   VariantTypes,
@@ -231,6 +232,7 @@ const CText: React.FC<CTextPropsTypes> = ({
   variant,
   ...rest
 }) => {
+  const { colors } = useTheme();
   const variantStyles: TextStyle =
     variant && VariantTypes.hasOwnProperty(variant)
       ? VariantTypes[variant as keyof typeof VariantTypes]
@@ -239,7 +241,7 @@ const CText: React.FC<CTextPropsTypes> = ({
   const textTypeStyles: TextStyle =
     textType && TextTypes.hasOwnProperty(textType)
       ? TextTypes[textType as keyof typeof TextTypes]
-      : TextTypes.normal;
+      : { color: colors.text };
 
   return (
     <Text

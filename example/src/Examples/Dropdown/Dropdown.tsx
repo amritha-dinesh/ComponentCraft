@@ -1,38 +1,52 @@
 import React from "react";
 import { View, StyleSheet, SafeAreaView, Text, ScrollView } from "react-native";
-import { white, lightBlue50, greenA700 } from "../../utils/themes/colors";
+import {
+  white,
+  lightBlue50,
+  greenA700,
+  grey400,
+  black,
+} from "../../utils/themes/colors";
 import { Dropdown as Dropdowns } from "component-craft";
-import { useTheme } from "@react-navigation/native";
 
 type Props = React.ComponentPropsWithRef<typeof ScrollView> & object;
 const options = ["Option 1", "Option 2", "Option 3"];
-const Dropdown = ({}: Props) => {
-  const { colors } = useTheme();
-  return (
-    <SafeAreaView style={styles.main}>
-      <ScrollView style={{ backgroundColor: colors.background }}>
-        <View
-          style={[styles.container, { backgroundColor: colors.background }]}
-        >
-          <View style={styles.titleView}>
-            <Text style={[styles.title, { color: colors.text }]}>
-              Multi Select Dropdown
-            </Text>
-          </View>
-          <View style={styles.dropDownContainer}>
-            <Dropdowns
-              multiSelect
-              selectedItemColor={lightBlue50}
-              selectedItemIconColor={greenA700}
-              options={options}
-              defaultOption={"Select an option"}
-            />
-          </View>
+const Dropdown = ({}: Props) => (
+  <SafeAreaView style={styles.main}>
+    <ScrollView style={{ backgroundColor: grey400 }}>
+      <View style={[styles.container, { backgroundColor: grey400 }]}>
+        <View style={styles.titleView}>
+          <Text style={[styles.title, { color: black }]}>
+            Multi Select Dropdown with custom colors
+          </Text>
         </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+        <View style={styles.dropDownContainer}>
+          <Dropdowns
+            multiSelect
+            selectedItemColor={lightBlue50}
+            selectedItemIconColor={greenA700}
+            options={options}
+            defaultOption={"Select an option"}
+          />
+        </View>
+
+        <View style={styles.titleView}>
+          <Text style={[styles.title, { color: black }]}>
+            Multi Select Dropdown with theme select options.
+          </Text>
+        </View>
+        <View style={styles.dropDownContainer}>
+          <Dropdowns
+            multiSelect
+            options={options}
+            defaultOption={"Select an option"}
+          />
+        </View>
+      </View>
+    </ScrollView>
+  </SafeAreaView>
+);
+
 export default Dropdown;
 Dropdown.title = "Dropdown";
 

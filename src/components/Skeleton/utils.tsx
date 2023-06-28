@@ -1,3 +1,5 @@
+import { Animated } from "react-native";
+
 export const generateArray = (dataCount: number) => {
   const data = [];
   for (let i = 1; i <= dataCount; i++) {
@@ -6,7 +8,7 @@ export const generateArray = (dataCount: number) => {
   return data;
 };
 
-export const slideUpStyle = (fadeAnim: any) => {
+export const slideUpStyle = (fadeAnim: Animated.AnimatedValue) => {
   const Style = {
     opacity: fadeAnim,
     transform: [
@@ -20,7 +22,7 @@ export const slideUpStyle = (fadeAnim: any) => {
   };
   return Style;
 };
-export const slideDownStyle = (fadeAnim: any) => {
+export const slideDownStyle = (fadeAnim: Animated.AnimatedValue) => {
   const Style = {
     opacity: fadeAnim,
     transform: [
@@ -35,7 +37,7 @@ export const slideDownStyle = (fadeAnim: any) => {
   return Style;
 };
 
-export const slideLeftStyle = (fadeAnim: any) => {
+export const slideLeftStyle = (fadeAnim: Animated.AnimatedValue) => {
   const Style = {
     opacity: fadeAnim,
     transform: [
@@ -50,7 +52,7 @@ export const slideLeftStyle = (fadeAnim: any) => {
   return Style;
 };
 
-export const slideRightStyle = (fadeAnim: any) => {
+export const slideRightStyle = (fadeAnim: Animated.AnimatedValue) => {
   const Style = {
     opacity: fadeAnim,
     transform: [

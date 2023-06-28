@@ -2,14 +2,13 @@ import * as React from "react";
 import { SafeAreaView, ScrollView, View, Text, StyleSheet } from "react-native";
 import { Switch } from "component-craft";
 
-import { useTheme } from "@react-navigation/native";
+import { black, grey400 } from "../../utils/themes/colors";
 
 type Props = React.ComponentPropsWithRef<typeof Text> & {
   title?: string;
 };
 
 const CustomSwitch = ({}: Props) => {
-  const { colors } = useTheme();
   const [toggleValue, setToggleValue] = React.useState(false);
   const [toggleValueImage, setToggleValueImage] = React.useState(false);
   const [toggleValueStatus, setToggleValueStatus] = React.useState(false);
@@ -42,13 +41,23 @@ const CustomSwitch = ({}: Props) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container]}>
       <ScrollView
-        style={[styles.backgroundColor, { backgroundColor: colors.background }]}
+        style={[styles.backgroundColor, { backgroundColor: grey400 }]}
       >
         <View style={styles.titleContainer}>
-          <Text style={[styles.title, { color: colors.text }]}>
+          <Text style={[styles.title, { color: black }]}>
             Mode's of Toggle Switch
+          </Text>
+        </View>
+        <View style={styles.switchView}>
+          <Switch
+            value={toggleValue}
+            onValueChange={handleToggle}
+            content="text"
+          />
+          <Text style={[styles.switchTitle, { color: black }]}>
+            Coloring based on themes with out providing any custom colors.
           </Text>
         </View>
         <View style={styles.switchView}>
@@ -60,7 +69,7 @@ const CustomSwitch = ({}: Props) => {
             disabledStyle={styles.switchDisabled}
             indicatorColor={"#7fcf7f"}
           />
-          <Text style={[styles.switchTitle, { color: colors.text }]}>
+          <Text style={[styles.switchTitle, { color: black }]}>
             Default mode
           </Text>
         </View>
@@ -74,7 +83,7 @@ const CustomSwitch = ({}: Props) => {
             disabledStyle={styles.switchDisabled}
             indicatorColor={"#7fcf7f"}
           />
-          <Text style={[styles.switchTitle, { color: colors.text }]}>
+          <Text style={[styles.switchTitle, { color: black }]}>
             Switch with Image Content
           </Text>
         </View>
@@ -87,7 +96,7 @@ const CustomSwitch = ({}: Props) => {
             content={"text"}
             indicatorColor={"#7fcf7f"}
           />
-          <Text style={[styles.switchTitle, { color: colors.text }]}>
+          <Text style={[styles.switchTitle, { color: black }]}>
             Switch with text Content
           </Text>
         </View>
@@ -101,12 +110,12 @@ const CustomSwitch = ({}: Props) => {
             loading={isLoading}
             indicatorColor={"#7fcf7f"}
           />
-          <Text style={[styles.switchTitle, { color: colors.text }]}>
+          <Text style={[styles.switchTitle, { color: black }]}>
             Switch with Loader
           </Text>
         </View>
         <View style={styles.titleContainer}>
-          <Text style={[styles.title, { color: colors.text }]}>
+          <Text style={[styles.title, { color: black }]}>
             Toggle Switch in Disable mode
           </Text>
         </View>
@@ -120,7 +129,7 @@ const CustomSwitch = ({}: Props) => {
             disabled
             disabledStyle={styles.switchDisabled}
           />
-          <Text style={[styles.switchTitle, { color: colors.text }]}>
+          <Text style={[styles.switchTitle, { color: black }]}>
             Default mode switch disabled
           </Text>
         </View>
@@ -135,7 +144,7 @@ const CustomSwitch = ({}: Props) => {
             disabledStyle={styles.switchDisabled}
             indicatorColor={"#7fcf7f"}
           />
-          <Text style={[styles.switchTitle, { color: colors.text }]}>
+          <Text style={[styles.switchTitle, { color: black }]}>
             Disabled Switch with Image Content
           </Text>
         </View>
@@ -149,12 +158,12 @@ const CustomSwitch = ({}: Props) => {
             content={"text"}
             indicatorColor={"#7fcf7f"}
           />
-          <Text style={[styles.switchTitle, { color: colors.text }]}>
+          <Text style={[styles.switchTitle, { color: black }]}>
             Disabled Switch with text Content
           </Text>
         </View>
         <View style={styles.titleContainer}>
-          <Text style={[styles.title, { color: colors.text }]}>
+          <Text style={[styles.title, { color: black }]}>
             Toggle Switch - Value changes
           </Text>
         </View>
@@ -168,13 +177,13 @@ const CustomSwitch = ({}: Props) => {
             disabledStyle={styles.switchDisabled}
             indicatorColor={"#7fcf7f"}
           />
-          <Text style={[styles.switchTitle, { color: colors.text }]}>
+          <Text style={[styles.switchTitle, { color: black }]}>
             Switch is{" "}
             {switchStatus ? <Text>Active</Text> : <Text>Inactive</Text>}
           </Text>
         </View>
         <View style={styles.titleContainer}>
-          <Text style={[styles.title, { color: colors.text }]}>
+          <Text style={[styles.title, { color: black }]}>
             Toggle Switch - Different colors
           </Text>
         </View>
@@ -187,7 +196,7 @@ const CustomSwitch = ({}: Props) => {
             disabledStyle={styles.switchDisabled}
             indicatorColor={"#7fcf7f"}
           />
-          <Text style={[styles.switchTitle, { color: colors.text }]}>
+          <Text style={[styles.switchTitle, { color: black }]}>
             Switch with green & red color
           </Text>
         </View>
@@ -201,7 +210,7 @@ const CustomSwitch = ({}: Props) => {
             disabledStyle={styles.switchDisabled}
             indicatorColor={"#7fcf7f"}
           />
-          <Text style={[styles.switchTitle, { color: colors.text }]}>
+          <Text style={[styles.switchTitle, { color: black }]}>
             Switch with Blue & sky blue
           </Text>
         </View>
@@ -214,7 +223,7 @@ const CustomSwitch = ({}: Props) => {
             content={"text"}
             indicatorColor={"#7fcf7f"}
           />
-          <Text style={[styles.switchTitle, { color: colors.text }]}>
+          <Text style={[styles.switchTitle, { color: black }]}>
             Switch with Yellow & gray{" "}
           </Text>
         </View>
