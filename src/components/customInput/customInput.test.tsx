@@ -23,10 +23,10 @@ describe("CustomInput Component", () => {
 
   it("renders custom input mode by default", () => {
     const { getByTestId } = render(<CustomInput />);
-    const filledStyle = {
-      borderBottomWidth: Platform.OS === "ios" ? 1 : 0.5,
-      backgroundColor: "transparent",
-    };
+    const filledStyle = [
+      { backgroundColor: "transparent", borderBottomWidth: 1 },
+      { borderColor: "rgb(28, 28, 30)", color: "rgb(28, 28, 30)" },
+    ];
     const customInputComponent = getByTestId("custom-input");
     expect(customInputComponent.props.style[2]).toEqual(filledStyle);
   });
@@ -35,7 +35,11 @@ describe("CustomInput Component", () => {
     const { getByTestId } = render(<CustomInput mode="outlined" />);
     const outlinedStyle = [
       { backgroundColor: "transparent", borderWidth: 1 },
-      { borderRadius: 5 },
+      {
+        borderRadius: 5,
+        borderColor: "rgb(28, 28, 30)",
+        color: "rgb(28, 28, 30)",
+      },
     ];
     const customInputComponent = getByTestId("custom-input");
     expect(customInputComponent.props.style[2]).toEqual(outlinedStyle);
@@ -43,10 +47,10 @@ describe("CustomInput Component", () => {
 
   it("renders disabled custom input when mode prop is standard", () => {
     const { getByTestId } = render(<CustomInput mode="standard" />);
-    const standardStyle = {
-      borderBottomWidth: Platform.OS === "ios" ? 1 : 0.5,
-      backgroundColor: "transparent",
-    };
+    const standardStyle = [
+      { backgroundColor: "transparent", borderBottomWidth: 1 },
+      { borderColor: "rgb(28, 28, 30)", color: "rgb(28, 28, 30)" },
+    ];
     const customInputComponent = getByTestId("custom-input");
     expect(customInputComponent.props.style[2]).toEqual(standardStyle);
   });

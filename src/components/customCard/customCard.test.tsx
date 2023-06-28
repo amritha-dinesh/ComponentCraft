@@ -25,7 +25,7 @@ describe("Custom Card Component", () => {
       shadowOpacity: 0.25,
       shadowRadius: 4,
       elevation: 5,
-      shadowColor: "#000",
+      shadowColor: "#000000",
     };
     const CustomCardComponent = getByTestId("Card");
     expect(CustomCardComponent.props.style[1]).toEqual(elevatedStyle);
@@ -41,7 +41,7 @@ describe("Custom Card Component", () => {
   it("renders custom Card by contained mode", () => {
     const { getByTestId } = render(<CustomCard mode="contained" />);
     const containedStyle = {
-      backgroundColor: "#E5E4E2",
+      backgroundColor: "#eeeeee",
     };
     const CustomCardComponent = getByTestId("Card");
     expect(CustomCardComponent.props.style[1]).toEqual(containedStyle);
