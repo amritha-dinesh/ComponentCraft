@@ -14,7 +14,7 @@ import {
   slideLeftStyle,
   slideRightStyle,
 } from "./utils";
-import { grey200, white, grey300 } from "../../styles/themes/colors";
+import { grey200, grey300 } from "../../styles/themes/colors";
 
 interface SkeletonProps {
   mode?: "slideUp" | "slideLeft" | "slideRight" | "slideDown";
@@ -190,7 +190,6 @@ const styles = StyleSheet.create({
   placeholder1: {
     height: 220,
     marginBottom: 10,
-    backgroundColor: white,
     borderRadius: 4,
   },
   placeholder2: {

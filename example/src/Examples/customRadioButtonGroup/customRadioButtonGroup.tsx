@@ -12,70 +12,61 @@ import {
   lightBlue400,
   green400,
   orange500,
+  grey400,
 } from "../../utils/themes/colors";
 import { RadioButtonGroup } from "component-craft";
-import { useTheme } from "@react-navigation/native";
 
 type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & object;
 const options = [
   { label: "Java", value: "true" },
   { label: "Kotlin", value: "false" },
 ];
-const CustomRadioButtonGroup = ({}: Props) => {
-  const { colors } = useTheme();
-  return (
-    <SafeAreaView style={styles.main}>
-      <ScrollView style={{ backgroundColor: colors.background }}>
-        <View
-          style={[styles.container, { backgroundColor: colors.background }]}
-        >
-          <View style={styles.titleView}>
-            <Text style={[styles.title, { color: colors.text }]}>
-              Default Radio Button Group
-            </Text>
-          </View>
-          <View style={styles.paddingTop}>
-            <RadioButtonGroup options={options} />
-          </View>
-          <View style={styles.titleView}>
-            <Text style={[styles.title, { color: colors.text }]}>
-              Disabled Radio Button Group
-            </Text>
-          </View>
-          <View style={styles.paddingTop}>
-            <RadioButtonGroup disabled options={options} />
-          </View>
-          <View style={styles.titleView}>
-            <Text style={[styles.title, { color: colors.text }]}>
-              Radio Button Group in different colours
-            </Text>
-          </View>
-          <View style={styles.paddingTop}>
-            <RadioButtonGroup
-              options={options}
-              fillColor={orange500}
-              labelColor={orange500}
-            />
-          </View>
-          <View style={styles.paddingTop}>
-            <RadioButtonGroup
-              options={options}
-              fillColor={lightBlue400}
-              labelColor={lightBlue400}
-            />
-          </View>
-          <View style={styles.paddingTop}>
-            <RadioButtonGroup
-              options={options}
-              fillColor={green400}
-              labelColor={green400}
-            />
-          </View>
+const CustomRadioButtonGroup = ({}: Props) => (
+  <SafeAreaView style={styles.main}>
+    <ScrollView style={{ backgroundColor: grey400 }}>
+      <View style={styles.container}>
+        <View style={styles.titleView}>
+          <Text style={styles.title}>Default Radio Button Group</Text>
         </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+        <View style={styles.paddingTop}>
+          <RadioButtonGroup options={options} />
+        </View>
+        <View style={styles.titleView}>
+          <Text style={styles.title}>Disabled Radio Button Group</Text>
+        </View>
+        <View style={styles.paddingTop}>
+          <RadioButtonGroup disabled options={options} />
+        </View>
+        <View style={styles.titleView}>
+          <Text style={styles.title}>
+            Radio Button Group in different colours
+          </Text>
+        </View>
+        <View style={styles.paddingTop}>
+          <RadioButtonGroup
+            options={options}
+            fillColor={orange500}
+            labelColor={orange500}
+          />
+        </View>
+        <View style={styles.paddingTop}>
+          <RadioButtonGroup
+            options={options}
+            fillColor={lightBlue400}
+            labelColor={lightBlue400}
+          />
+        </View>
+        <View style={styles.paddingTop}>
+          <RadioButtonGroup
+            options={options}
+            fillColor={green400}
+            labelColor={green400}
+          />
+        </View>
+      </View>
+    </ScrollView>
+  </SafeAreaView>
+);
 export default CustomRadioButtonGroup;
 CustomRadioButtonGroup.title = "RadioButtonGroup";
 
@@ -87,8 +78,6 @@ const styles = StyleSheet.create({
     backgroundColor: white,
   },
   container: {
-    flex: 1,
-    backgroundColor: white,
     width: "100%",
   },
   paddingTop: {

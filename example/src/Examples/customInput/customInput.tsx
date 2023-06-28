@@ -8,7 +8,7 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import { white } from "../../utils/themes/colors";
+import { white, grey400 } from "../../utils/themes/colors";
 import { CustomInput as CustomInputs } from "component-craft";
 import { useTheme } from "@react-navigation/native";
 
@@ -19,23 +19,17 @@ const CustomInput = ({}: Props) => {
 
   return (
     <SafeAreaView style={styles.main}>
-      <ScrollView style={{ backgroundColor: colors.background }}>
-        <View
-          style={[styles.container, { backgroundColor: colors.background }]}
-        >
+      <ScrollView style={{ backgroundColor: grey400 }}>
+        <View style={styles.container}>
           <View style={styles.titleView}>
-            <Text style={[styles.title, { color: colors.text }]}>
-              Mode's of Input
-            </Text>
+            <Text style={styles.title}>Mode's of Input</Text>
           </View>
           <CustomInputs mode="rounded" label="" placeholder="Rounded Input" />
           <CustomInputs mode="standard" label="" placeholder="Standard Input" />
           <CustomInputs mode="outlined" label="" placeholder="Outlined Input" />
         </View>
         <View style={styles.titleView}>
-          <Text style={[styles.title, { color: colors.text }]}>
-            Input as Password Field
-          </Text>
+          <Text style={styles.title}>Input as Password Field</Text>
         </View>
         <CustomInputs
           mode="rounded"
@@ -57,9 +51,7 @@ const CustomInput = ({}: Props) => {
         />
 
         <View style={styles.titleView}>
-          <Text style={[styles.title, { color: colors.text }]}>
-            Input with Left Icon
-          </Text>
+          <Text style={styles.title}>Input with Left Icon</Text>
         </View>
         <CustomInputs
           mode="rounded"
@@ -68,7 +60,7 @@ const CustomInput = ({}: Props) => {
           leftIcon={
             <Image
               source={require("../../../assets/mail.png")}
-              style={styles.leftIcon}
+              style={[styles.leftIcon, { tintColor: colors.text }]}
             />
           }
         />
@@ -77,7 +69,7 @@ const CustomInput = ({}: Props) => {
           leftIcon={
             <Image
               source={require("../../../assets/mail.png")}
-              style={styles.leftIcon}
+              style={[styles.leftIcon, { tintColor: colors.text }]}
             />
           }
           label=""
@@ -87,7 +79,7 @@ const CustomInput = ({}: Props) => {
           leftIcon={
             <Image
               source={require("../../../assets/mail.png")}
-              style={styles.leftIcon}
+              style={[styles.leftIcon, { tintColor: colors.text }]}
             />
           }
           mode="outlined"
@@ -95,15 +87,13 @@ const CustomInput = ({}: Props) => {
           placeholder="Outlined Input"
         />
         <View style={styles.titleView}>
-          <Text style={[styles.title, { color: colors.text }]}>
-            Input with Right Icon
-          </Text>
+          <Text style={styles.title}>Input with Right Icon</Text>
         </View>
         <CustomInputs
           rightIcon={
             <Image
               source={require("../../../assets/edit.png")}
-              style={styles.icon}
+              style={[styles.icon, { tintColor: colors.text }]}
             />
           }
           mode="rounded"
@@ -117,7 +107,7 @@ const CustomInput = ({}: Props) => {
           rightIcon={
             <Image
               source={require("../../../assets/edit.png")}
-              style={styles.icon}
+              style={[styles.icon, { tintColor: colors.text }]}
             />
           }
         />
@@ -128,14 +118,12 @@ const CustomInput = ({}: Props) => {
           rightIcon={
             <Image
               source={require("../../../assets/edit.png")}
-              style={styles.icon}
+              style={[styles.icon, { tintColor: colors.text }]}
             />
           }
         />
         <View style={styles.titleView}>
-          <Text style={[styles.title, { color: colors.text }]}>
-            Input with Default Value
-          </Text>
+          <Text style={styles.title}>Input with Default Value</Text>
         </View>
         <CustomInputs
           defaultValue="Test12345"
@@ -157,9 +145,7 @@ const CustomInput = ({}: Props) => {
           placeholder="Outlined Input"
         />
         <View style={styles.titleView}>
-          <Text style={[styles.title, { color: colors.text }]}>
-            Disabled Input
-          </Text>
+          <Text style={styles.title}>Disabled Input</Text>
         </View>
         <CustomInputs
           disabled
@@ -187,8 +173,6 @@ CustomInput.title = "CustomInput";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: white,
     width: "100%",
   },
   titleView: {

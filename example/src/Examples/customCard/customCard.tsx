@@ -9,7 +9,7 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import { white, lightBlue500 } from "../../utils/themes/colors";
+import { grey400 } from "../../utils/themes/colors";
 import { CustomCard as CustomCards } from "component-craft";
 import { useTheme } from "@react-navigation/native";
 
@@ -17,16 +17,13 @@ type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & object;
 
 const CustomCard = ({}: Props) => {
   const { colors } = useTheme();
+
   return (
     <SafeAreaView style={styles.main}>
       <ScrollView style={styles.white}>
-        <View
-          style={[styles.container, { backgroundColor: colors.background }]}
-        >
+        <View style={styles.container}>
           <View style={styles.titleView}>
-            <Text style={[styles.title, { color: colors.text }]}>
-              Mode's of Card
-            </Text>
+            <Text style={styles.title}>Mode's of Card</Text>
           </View>
           <CustomCards
             disabled
@@ -79,9 +76,9 @@ const CustomCard = ({}: Props) => {
                 <View>
                   <TouchableOpacity
                     onPress={() => alert("Button is pressed")}
-                    style={styles.button}
+                    style={[styles.button, { backgroundColor: colors.text }]}
                   >
-                    <Text>Click Me</Text>
+                    <Text style={{ color: colors.background }}>Click Me</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -100,11 +97,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   white: {
-    backgroundColor: white,
+    backgroundColor: grey400,
   },
   container: {
-    flex: 1,
-    backgroundColor: white,
     width: "100%",
   },
   titleView: {
@@ -126,6 +121,5 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     padding: 10,
     borderRadius: 15,
-    backgroundColor: lightBlue500,
   },
 });

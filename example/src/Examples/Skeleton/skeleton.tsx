@@ -7,7 +7,7 @@ import {
   Text,
   ScrollView,
 } from "react-native";
-import { white, lightBlue500 } from "../../utils/themes/colors";
+import { white, lightBlue500, black, grey400 } from "../../utils/themes/colors";
 import { Skeleton as Skeletons } from "component-craft";
 import { useTheme } from "@react-navigation/native";
 
@@ -17,44 +17,30 @@ const Skeleton = ({}: Props) => {
   const { colors } = useTheme();
   return (
     <SafeAreaView style={styles.main}>
-      <ScrollView style={{ backgroundColor: colors.background }}>
-        <View
-          style={[styles.container, { backgroundColor: colors.background }]}
-        >
+      <ScrollView style={{ backgroundColor: grey400 }}>
+        <View style={styles.container}>
           <View style={styles.titleView}>
-            <Text style={[styles.title, { color: colors.text }]}>
-              User Variant
-            </Text>
+            <Text style={styles.title}>User Variant</Text>
           </View>
           <Skeletons variant="user" />
           <View style={styles.titleView}>
-            <Text style={[styles.title, { color: colors.text }]}>
-              List Variant
-            </Text>
+            <Text style={styles.title}>List Variant</Text>
           </View>
           <Skeletons variant="list" height={20} width={"80%"} dataCount={5} />
           <View style={styles.titleView}>
-            <Text style={[styles.title, { color: colors.text }]}>
-              Box Variant
-            </Text>
+            <Text style={styles.title}>Box Variant</Text>
           </View>
           <Skeletons variant="box" />
           <View style={styles.titleView}>
-            <Text style={[styles.title, { color: colors.text }]}>
-              Circle Variant
-            </Text>
+            <Text style={styles.title}>Circle Variant</Text>
           </View>
           <Skeletons variant="circle" />
           <View style={styles.titleView}>
-            <Text style={[styles.title, { color: colors.text }]}>
-              Product Variant
-            </Text>
+            <Text style={styles.title}>Product Variant</Text>
           </View>
           <Skeletons variant="similarProduct" />
           <View style={styles.titleView}>
-            <Text style={[styles.title, { color: colors.text }]}>
-              Slide Up Mode
-            </Text>
+            <Text style={styles.title}>Slide Up Mode</Text>
           </View>
           <Skeletons
             variant="list"
@@ -65,17 +51,13 @@ const Skeleton = ({}: Props) => {
           />
           <View style={styles.padding}>
             <View style={styles.titleView}>
-              <Text style={[styles.title, { color: colors.text }]}>
-                Slide Right Mode
-              </Text>
+              <Text style={styles.title}>Slide Right Mode</Text>
             </View>
             <Skeletons variant="box" mode="slideRight" />
           </View>
           <View style={styles.padding}>
             <View style={styles.titleView}>
-              <Text style={[styles.title, { color: colors.text }]}>
-                Slide left & down Mode
-              </Text>
+              <Text style={styles.title}>Slide left & down Mode</Text>
             </View>
             <Skeletons variant="box" mode="slideLeft" />
           </View>
@@ -99,8 +81,6 @@ const styles = StyleSheet.create({
     backgroundColor: white,
   },
   container: {
-    flex: 1,
-    backgroundColor: white,
     width: "100%",
   },
   titleView: {

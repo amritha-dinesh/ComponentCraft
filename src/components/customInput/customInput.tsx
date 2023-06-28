@@ -11,7 +11,7 @@ import {
   TextStyle,
   TouchableOpacity,
 } from "react-native";
-import { white, blue500 } from "../../styles/themes/colors";
+import { blue500, grey400 } from "../../styles/themes/colors";
 import { useTheme } from "@react-navigation/native";
 
 const BORDER_RADIUS = 5;
@@ -91,7 +91,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   const [icon, setIcon] = useState(false);
   return (
     <SafeAreaView>
-      <View style={[styles.container, { backgroundColor: colors.background }]}>
+      <View style={[styles.container, { backgroundColor: grey400 }]}>
         <View style={styles.subContainer}>
           <Animated.Text
             {...props}
@@ -137,25 +137,22 @@ const CustomInput: React.FC<CustomInputProps> = ({
               placeholder={placeholder}
               style={[
                 styles.input,
+                {
+                  borderColor: colors.text,
+                  color: colors.text,
+                  backgroundColor: colors.background,
+                },
                 leftIcon && styles.leftIconInput,
                 mode === "outlined"
                   ? [
                       styles.outlined,
                       {
                         borderRadius: borderRadius,
-                        borderColor: colors.text,
-                        color: colors.text,
                       },
                     ]
                   : mode === "rounded"
-                  ? [
-                      styles.rounded,
-                      { borderColor: colors.text, color: colors.text },
-                    ]
-                  : [
-                      styles.standards,
-                      { borderColor: colors.text, color: colors.text },
-                    ],
+                  ? [styles.rounded]
+                  : [styles.standards],
                 focus === true && styles.focused,
                 style,
               ]}
@@ -190,16 +187,13 @@ const CustomInput: React.FC<CustomInputProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: white,
     width: "100%",
   },
   outlined: {
     borderWidth: Platform.OS === "ios" ? 1 : 0.5,
-    backgroundColor: "transparent",
   },
   rounded: {
     borderWidth: Platform.OS === "ios" ? 1 : 0.5,
-    backgroundColor: "transparent",
     borderRadius: 22,
   },
   focused: {
@@ -207,7 +201,6 @@ const styles = StyleSheet.create({
   },
   standards: {
     borderBottomWidth: Platform.OS === "ios" ? 1 : 0.5,
-    backgroundColor: "transparent",
   },
   leftIconInput: {
     paddingLeft: 40,
@@ -241,9 +234,6 @@ const styles = StyleSheet.create({
   subContainer: {
     alignSelf: "center",
     width: "90%",
-  },
-  main: {
-    flex: 1,
   },
 });
 export default CustomInput;
