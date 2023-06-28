@@ -7,17 +7,20 @@ import {
   Text,
   ScrollView,
 } from "react-native";
-import { white, lightBlue500, blueA700 } from "../../utils/themes/colors";
+import {
+  white,
+  lightBlue500,
+  blueA700,
+  grey400,
+} from "../../utils/themes/colors";
 import { CustomDialog as CustomDialogs } from "component-craft";
 import { longText } from "./mockTextData";
-import { useTheme } from "@react-navigation/native";
 
 type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & object;
 type ButtonVisibility = {
   [key: string]: boolean | undefined;
 };
 const CustomDialog = ({}: Props) => {
-  const { colors } = useTheme();
   const [visible, setVisible] = useState<ButtonVisibility>({});
   const _toggleDialog = (name: string) => () =>
     setVisible({ ...visible, [name]: !visible[name] });
@@ -25,14 +28,12 @@ const CustomDialog = ({}: Props) => {
   const _getVisible = (name: string) => !!visible[name];
   return (
     <SafeAreaView style={styles.main}>
-      <ScrollView style={{ backgroundColor: colors.background }}>
-        <View
-          style={[styles.container, { backgroundColor: colors.background }]}
-        >
+      <ScrollView style={{ backgroundColor: grey400 }}>
+        <View style={[styles.container, { backgroundColor: grey400 }]}>
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               onPress={_toggleDialog("dialog1")}
-              style={[styles.button, { backgroundColor: colors.text }]}
+              style={[styles.button, { backgroundColor: white }]}
             >
               <Text style={styles.buttonText}>Long text</Text>
             </TouchableOpacity>
@@ -40,7 +41,7 @@ const CustomDialog = ({}: Props) => {
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               onPress={_toggleDialog("dialog2")}
-              style={[styles.button, { backgroundColor: colors.text }]}
+              style={[styles.button, { backgroundColor: white }]}
             >
               <Text style={styles.buttonText}>Progress Indicator</Text>
             </TouchableOpacity>
@@ -48,7 +49,7 @@ const CustomDialog = ({}: Props) => {
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               onPress={_toggleDialog("dialog3")}
-              style={[styles.button, { backgroundColor: colors.text }]}
+              style={[styles.button, { backgroundColor: white }]}
             >
               <Text style={styles.buttonText}>Button</Text>
             </TouchableOpacity>
@@ -56,7 +57,7 @@ const CustomDialog = ({}: Props) => {
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               onPress={_toggleDialog("dialog4")}
-              style={[styles.button, { backgroundColor: colors.text }]}
+              style={[styles.button, { backgroundColor: white }]}
             >
               <Text style={styles.buttonText}>Double Button</Text>
             </TouchableOpacity>
@@ -64,7 +65,7 @@ const CustomDialog = ({}: Props) => {
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               onPress={_toggleDialog("dialog5")}
-              style={[styles.button, { backgroundColor: colors.text }]}
+              style={[styles.button, { backgroundColor: white }]}
             >
               <Text style={styles.buttonText}>Custom Color</Text>
             </TouchableOpacity>

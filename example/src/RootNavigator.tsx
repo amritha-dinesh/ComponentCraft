@@ -20,15 +20,15 @@ import Dropdown from "./Examples/Dropdown/Dropdown";
 import CustomRadioButtonGroup from "./Examples/customRadioButtonGroup/customRadioButtonGroup";
 //import { useColorScheme } from "react-native";
 import { theme } from "./utils/themes";
-import { black, colors, green200, white } from "./utils/themes/colors";
-import { Switch as Switches } from "component-craft";
+import { black, white } from "./utils/themes/colors";
 
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
   //const scheme = useColorScheme();
-  const CustomHeaderLeft = ({ onPress }: any) => {
+  const CustomHeaderLeft = (props) => {
     const navigation = useNavigation();
+    const onPress = props?.onPress;
 
     const handlePress = () => {
       if (onPress) {

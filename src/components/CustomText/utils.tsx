@@ -106,7 +106,9 @@ export const TextTypes: {
   },
 };
 
-export const TextOverflowModeStyles: { [key: string]: any } = {
+export const TextOverflowModeStyles: {
+  [key: string]: "clip" | "head" | "middle" | "tail";
+} = {
   clipTheEnd: "clip",
   ignoreTheStart: "head",
   ignoreTheMiddle: "middle",

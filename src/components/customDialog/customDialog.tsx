@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { semiBlack, white, blue500 } from "../../styles/themes/colors";
+import { useTheme } from "@react-navigation/native";
 
 interface CustomDialogProps {
   visible?: boolean;
@@ -38,35 +39,49 @@ const CustomDialog: FC<CustomDialogProps> = ({
   firstButtonClick,
   secondButtonClick,
   loader = false,
-  backgroundColor = white,
+  backgroundColor,
   children,
 }) => {
+  const { colors } = useTheme();
   if (!visible) return null;
 
   return (
     <Modal visible={visible} transparent>
       <View style={styles.container}>
-        <View style={[styles.dialog, { backgroundColor }]}>
+        <View
+          style={[
+            styles.dialog,
+            {
+              backgroundColor: backgroundColor
+                ? backgroundColor
+                : colors.background,
+            },
+          ]}
+        >
           <View style={styles.titleView}>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={[styles.title, { color: colors.text }]}>{title}</Text>
             <TouchableOpacity onPress={onClose}>
               <Image
                 source={require("../../assets/disabled.png")}
-                style={styles.closeIcon}
+                style={[styles.closeIcon, { tintColor: colors.text }]}
               />
             </TouchableOpacity>
           </View>
-          <Text style={styles.message}>{message}</Text>
+          <Text style={[styles.message, { color: colors.text }]}>
+            {message}
+          </Text>
           {children}
           {loader && (
             <View style={styles.loaderView}>
               <ActivityIndicator size="large" color={blue500} />
-              <Text style={styles.loadingText}>Loading.....</Text>
+              <Text style={[styles.loadingText, { color: colors.text }]}>
+                Loading.....
+              </Text>
             </View>
           )}
-          {button && (
+          {!doubleButton && button && (
             <TouchableOpacity style={styles.button} onPress={onClose}>
-              <Text style={styles.buttonText}>{button}</Text>
+              <Text style={[styles.buttonText]}>{button}</Text>
             </TouchableOpacity>
           )}
           {doubleButton && (

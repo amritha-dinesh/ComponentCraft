@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import {
   View,
@@ -10,6 +11,7 @@ import {
   Platform,
 } from "react-native";
 import { grey1100 } from "../../styles/themes/colors";
+import { useTheme } from "@react-navigation/native";
 
 interface SearchBarProps {
   platform?: "default" | "ios" | "android";
@@ -65,6 +67,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   searchText,
 }) => {
   const [inputValue, setInputValue] = React.useState(searchText || "");
+  const { colors } = useTheme();
 
   const handleSearchTextChange = (text: string) => {
     setInputValue(text);
@@ -97,7 +100,10 @@ const SearchBar: React.FC<SearchBarProps> = ({
     if (icon) {
       return (
         <TouchableOpacity onPress={onPress} style={style}>
-          <Image style={styles.icon} source={icon} />
+          <Image
+            style={[styles.icon, { tintColor: colors.text }]}
+            source={icon}
+          />
         </TouchableOpacity>
       );
     }
@@ -120,7 +126,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           style={styles.cancelButton}
           {...cancelButtonProps}
         >
-          <Text style={styles.cancelButtonText}>{cancelButtonTitle}</Text>
+          <Text style={{ color: colors.text }}>{cancelButtonTitle}</Text>
         </TouchableOpacity>
       );
     }
@@ -139,6 +145,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
   const renderSearchIcon = () => {
     if (!searchText && searchIcon) {
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       return renderIcon(searchIcon, () => {}, styles.icon);
     }
     return null;
@@ -156,7 +163,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       {renderClearButton()}
       {platform === "android" && cancelIcon && (
         <TouchableOpacity onPress={handleCancel} style={styles.icon}>
-          <Image source={cancelIcon} />
+          <Image source={cancelIcon} style={{ tintColor: colors.text }} />
         </TouchableOpacity>
       )}
     </View>
@@ -171,6 +178,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         Platform.OS === "web" && {
           outlineWidth: 0,
         },
+        { color: colors.text },
         inputStyle,
       ]}
       value={inputValue}
@@ -188,7 +196,9 @@ const SearchBar: React.FC<SearchBarProps> = ({
         style={[
           styles.inputContainer,
           inputContainerStyle,
-          lightTheme && styles.lightTheme,
+          lightTheme
+            ? styles.lightTheme
+            : { backgroundColor: colors.background },
           round && styles.roundInputContainer,
         ]}
       >
