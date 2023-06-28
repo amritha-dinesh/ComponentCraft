@@ -1,6 +1,5 @@
 export const transparent = "rgba(255, 255, 255, 0)";
 export const semiBlack = "rgba(0, 0, 0, 0.5)";
-
 export const red50 = "#ffebee";
 export const red100 = "#ffcdd2";
 export const red200 = "#ef9a9a";

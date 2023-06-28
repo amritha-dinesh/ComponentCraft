@@ -46,7 +46,6 @@ const Dropdown = ({}: Props) => (
     </ScrollView>
   </SafeAreaView>
 );
-
 export default Dropdown;
 Dropdown.title = "Dropdown";
 

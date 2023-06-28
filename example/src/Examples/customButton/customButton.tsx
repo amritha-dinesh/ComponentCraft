@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import { CustomButton as CustomButtons } from "component-craft";
 import { useTheme } from "@react-navigation/native";
-import { grey400, snowMan } from "../../utils/themes/colors";
+import { grey400 } from "../../utils/themes/colors";
 
 type Props = React.ComponentPropsWithRef<typeof Text> & object;
 

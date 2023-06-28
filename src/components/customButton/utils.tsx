@@ -7,6 +7,7 @@ type BaseProps = {
   buttonColor?: string;
   disabledButtonColor?: string;
   outlinedColor?: string;
+  borderColor?: string;
 };
 export const getButtonColors = ({
   mode,
@@ -65,13 +66,13 @@ export const getButtonColors = ({
   const getButtonBorderColor = ({
     isMode,
     disabled,
-    outlinedColor,
+    borderColor,
   }: BaseProps) => {
     if (disabled && isMode("text")) {
       return "transparent";
     }
     if (isMode("outlined") && isMode("contained")) {
-      return outlinedColor;
+      return borderColor;
     }
   };
   const borderColor = getButtonBorderColor({ isMode, disabled });

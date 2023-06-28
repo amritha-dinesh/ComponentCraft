@@ -69,7 +69,6 @@ const CustomSearchBar = ({}: Props) => (
     </ScrollView>
   </SafeAreaView>
 );
-
 CustomSearchBar.title = "SearchBar";
 export default CustomSearchBar;
 const styles = StyleSheet.create({
