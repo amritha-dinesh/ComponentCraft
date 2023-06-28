@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, ColorValue, ImageSourcePropType } from "react-native";
+import { useTheme } from "@react-navigation/native";
 import CustomCheckBox from "../checkbox/customCheckbox";
 
 interface CustomCheckboxGroupProps {
@@ -34,12 +35,14 @@ const CustomCheckboxGroup: React.FC<CustomCheckboxGroupProps> = ({
   Checkboxes = [],
 }) => {
   const [listOfCheckboxes, setListOfCheckboxes] = useState(Checkboxes);
+  const { colors } = useTheme();
 
   const handlingCheckboxClick = (
     checkboxItem: CustomCheckBoxProps,
     index: number
   ) => (
     <CustomCheckBox
+      labelColor={colors.background}
       key={index}
       {...checkboxItem}
       value={checkboxItem.value}

@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useState } from "react";
 import {
   TouchableOpacity,
@@ -6,7 +7,8 @@ import {
   SafeAreaView,
   StyleSheet,
 } from "react-native";
-import { green500, grey500, black } from "../../styles/themes/colors";
+import { useTheme } from "@react-navigation/native";
+import { green500, grey500 } from "../../styles/themes/colors";
 import RadioButton from "./radioButton";
 
 const DEFAULT_SPACE = 10;
@@ -39,7 +41,7 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
   },
   labelFontSize,
   disabled = false,
-  labelColor = black,
+  labelColor,
   disabledColor = grey500,
   labelFontFamily,
   position = "right",
@@ -53,6 +55,8 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
     setSelectedOption(option);
     onSubmit(option);
   };
+  const { colors } = useTheme();
+  labelColor = labelColor ? labelColor : colors.background;
 
   return (
     <SafeAreaView testID={testID} style={styles.mainContainer}>

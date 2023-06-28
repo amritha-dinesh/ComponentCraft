@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useState } from "react";
 import {
   Text,
@@ -54,7 +55,7 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
   const { colors } = useTheme();
   const [checked, setChecked] = useState(value);
 
-  labelColor = labelColor ? labelColor : colors.text;
+  labelColor = labelColor ? labelColor : colors.background;
 
   return (
     <SafeAreaView
@@ -81,7 +82,11 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
           style={{
             width: size,
             height: size,
-            tintColor: checkedImage ? "" : checked ? fillColor : grey500,
+            tintColor: checkedImage
+              ? ""
+              : checked
+              ? fillColor
+              : colors.background,
           }}
         />
       </TouchableOpacity>

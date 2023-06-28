@@ -3,6 +3,7 @@ import { StyleSheet, SafeAreaView, ScrollView, View, Text } from "react-native";
 import { CustomCheckBox as CustomCheckBoxs } from "component-craft";
 
 import { useTheme } from "@react-navigation/native";
+import { grey400 } from "../../utils/themes/colors";
 
 type Props = React.ComponentPropsWithRef<typeof Text> & object;
 
@@ -12,9 +13,9 @@ const CustomCheckBox = ({}: Props) => {
 
   return (
     <SafeAreaView>
-      <ScrollView style={{ backgroundColor: colors.background }}>
+      <ScrollView style={{ backgroundColor: grey400 }}>
         <View style={styles.titleView}>
-          <Text style={[styles.title, { color: colors.text }]}>
+          <Text style={styles.title}>
             Check box with label position & Enabled
           </Text>
         </View>
@@ -23,26 +24,20 @@ const CustomCheckBox = ({}: Props) => {
           <CustomCheckBoxs position="right" label="Right Position" />
         </View>
         <View style={styles.titleView}>
-          <Text style={[styles.title, { color: colors.text }]}>
-            Modes of Check box
-          </Text>
+          <Text style={styles.title}>Modes of Check box</Text>
         </View>
         <View style={styles.padding}>
           <CustomCheckBoxs label="Enabled" />
           <CustomCheckBoxs value={true} disabled label="Disabled" />
         </View>
         <View style={styles.titleView}>
-          <Text style={[styles.title, { color: colors.text }]}>
-            Check box without Label
-          </Text>
+          <Text style={styles.title}>Check box without Label</Text>
         </View>
         <View style={styles.padding}>
           <CustomCheckBoxs value={true} label="" />
         </View>
         <View style={styles.titleView}>
-          <Text style={[styles.title, { color: colors.text }]}>
-            Check box in different size
-          </Text>
+          <Text style={styles.title}>Check box in different size</Text>
         </View>
         <View style={styles.padding}>
           <CustomCheckBoxs size={25} label="small" labelFontSize={12} />
@@ -55,9 +50,7 @@ const CustomCheckBox = ({}: Props) => {
         </View>
 
         <View style={styles.titleView}>
-          <Text style={[styles.title, { color: colors.text }]}>
-            Check box - Value changes
-          </Text>
+          <Text style={styles.title}>Check box - Value changes</Text>
         </View>
         <View style={styles.padding}>
           <CustomCheckBoxs
@@ -68,9 +61,7 @@ const CustomCheckBox = ({}: Props) => {
         </View>
 
         <View style={styles.titleView}>
-          <Text style={[styles.title, { color: colors.text }]}>
-            Check box in different color
-          </Text>
+          <Text style={styles.title}>Check box in different color</Text>
         </View>
         <View style={styles.padding}>
           <CustomCheckBoxs
