@@ -7,11 +7,11 @@ import {
   TouchableOpacity,
   Image,
   ActivityIndicator,
-  Text,
   Platform,
 } from "react-native";
 import { grey1100 } from "../../styles/themes/colors";
 import { useTheme } from "@react-navigation/native";
+import Text from "../CustomText/CText";
 
 interface SearchBarProps {
   platform?: "default" | "ios" | "android";

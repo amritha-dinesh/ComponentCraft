@@ -2,7 +2,6 @@ import React, { FC, ReactNode } from "react";
 import {
   Modal,
   View,
-  Text,
   TouchableOpacity,
   StyleSheet,
   Image,
@@ -10,6 +9,7 @@ import {
 } from "react-native";
 import { semiBlack, white, blue500 } from "../../styles/themes/colors";
 import { useTheme } from "@react-navigation/native";
+import Text from "../CustomText/CText";
 
 interface CustomDialogProps {
   visible?: boolean;

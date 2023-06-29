@@ -2,7 +2,6 @@ import React from "react";
 import {
   View,
   ActivityIndicator,
-  Text,
   TouchableOpacity,
   StyleSheet,
   Image,
@@ -12,6 +11,7 @@ import {
 } from "react-native";
 import { ButtonMode, getButtonColors } from "./utils";
 import { useTheme } from "@react-navigation/native";
+import Text from "../CustomText/CText";
 
 interface buttonProps {
   mode?: ButtonMode;

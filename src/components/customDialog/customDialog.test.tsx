@@ -1,8 +1,8 @@
 import React from "react";
-import { Text } from "react-native";
 import renderer from "react-test-renderer";
 import { render, fireEvent } from "@testing-library/react-native";
 import CustomDialog from "./customDialog";
+import Text from "../CustomText/CText";
 
 describe("Custom Dialog Component", () => {
   it("renders correctly", () => {

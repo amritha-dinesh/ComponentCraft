@@ -1,7 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { useState } from "react";
 import {
-  Text,
   Image,
   TouchableOpacity,
   ColorValue,
@@ -12,6 +11,7 @@ import {
 import { grey500 } from "../../styles/themes/colors";
 import { useTheme } from "@react-navigation/native";
 import { theme as defaultTheme } from "../../styles/themes";
+import Text from "../CustomText/CText";
 
 const DEFAULT_SIZE = defaultTheme.light.componentSizes.checkboxSize;
 
