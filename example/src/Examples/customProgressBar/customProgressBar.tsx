@@ -7,28 +7,50 @@ import {
   Text,
   ScrollView,
 } from "react-native";
-import { white } from "../../utils/themes/colors";
+import {
+  white,
+  black,
+  grey400,
+  blue900,
+  blue100,
+} from "../../utils/themes/colors";
 import { CustomProgressBar as CustomProgressBars } from "component-craft";
 
 type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & object;
 
 const CustomProgressBar = ({}: Props) => (
   <SafeAreaView style={styles.main}>
-    <ScrollView style={styles.white}>
-      <View style={styles.container}>
+    <ScrollView style={{ backgroundColor: grey400 }}>
+      <View style={[styles.container, { backgroundColor: grey400 }]}>
         <View style={styles.titleView}>
-          <Text style={styles.title}>Default ProgressBar</Text>
+          <Text style={[styles.title, { color: black }]}>
+            Default ProgressBar
+          </Text>
         </View>
         <View style={styles.paddingTop}>
           <CustomProgressBars progress={3} height={10} width={100} />
         </View>
         <View style={styles.titleView}>
-          <Text style={styles.title}>
+          <Text style={[styles.title, { color: black }]}>
             Default ProgressBar with varying height,width and progress
           </Text>
         </View>
         <View style={styles.paddingTop}>
           <CustomProgressBars progress={10} height={20} width={200} />
+        </View>
+        <View style={styles.titleView}>
+          <Text style={[styles.title, { color: black }]}>
+            ProgressBar with custom colors
+          </Text>
+        </View>
+        <View style={styles.paddingTop}>
+          <CustomProgressBars
+            progress={70}
+            height={10}
+            width={100}
+            barColor={blue900}
+            backgroundColor={blue100}
+          />
         </View>
       </View>
     </ScrollView>

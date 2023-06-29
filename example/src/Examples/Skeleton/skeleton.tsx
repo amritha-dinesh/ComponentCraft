@@ -7,14 +7,14 @@ import {
   Text,
   ScrollView,
 } from "react-native";
-import { white, lightBlue500 } from "../../utils/themes/colors";
+import { white, lightBlue500, grey400 } from "../../utils/themes/colors";
 import { Skeleton as Skeletons } from "component-craft";
 
 type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & object;
 
 const Skeleton = ({}: Props) => (
   <SafeAreaView style={styles.main}>
-    <ScrollView style={styles.white}>
+    <ScrollView style={{ backgroundColor: grey400 }}>
       <View style={styles.container}>
         <View style={styles.titleView}>
           <Text style={styles.title}>User Variant</Text>
@@ -66,6 +66,7 @@ const Skeleton = ({}: Props) => (
     </ScrollView>
   </SafeAreaView>
 );
+
 export default Skeleton;
 Skeleton.title = "Skeleton";
 
@@ -77,8 +78,6 @@ const styles = StyleSheet.create({
     backgroundColor: white,
   },
   container: {
-    flex: 1,
-    backgroundColor: white,
     width: "100%",
   },
   titleView: {

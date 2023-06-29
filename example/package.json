@@ -12,7 +12,7 @@
     "@expo/webpack-config": "^18.0.1",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
-    "component-craft": "../component-craft-v1.0.3.tgz",
+    "component-craft": "file:../component-craft-2.0.0.tgz",
     "expo": "~48.0.18",
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",

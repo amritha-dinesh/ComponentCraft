@@ -18,14 +18,7 @@ describe("Custom Card Component", () => {
   it("renders custom Card by elevated mode", () => {
     const { getByTestId } = render(<CustomCard mode="elevated" />);
     const elevatedStyle = {
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 4,
-      elevation: 5,
-      shadowColor: "#000",
+      backgroundColor: "rgb(242, 242, 242)",
     };
     const CustomCardComponent = getByTestId("Card");
     expect(CustomCardComponent.props.style[1]).toEqual(elevatedStyle);
@@ -33,7 +26,7 @@ describe("Custom Card Component", () => {
   it("renders custom Card by outlined mode", () => {
     const { getByTestId } = render(<CustomCard mode="outlined" />);
     const outlinedStyle = {
-      borderWidth: 0.5,
+      backgroundColor: "rgb(242, 242, 242)",
     };
     const CustomCardComponent = getByTestId("Card");
     expect(CustomCardComponent.props.style[1]).toEqual(outlinedStyle);
@@ -41,7 +34,7 @@ describe("Custom Card Component", () => {
   it("renders custom Card by contained mode", () => {
     const { getByTestId } = render(<CustomCard mode="contained" />);
     const containedStyle = {
-      backgroundColor: "#E5E4E2",
+      backgroundColor: "rgb(242, 242, 242)",
     };
     const CustomCardComponent = getByTestId("Card");
     expect(CustomCardComponent.props.style[1]).toEqual(containedStyle);

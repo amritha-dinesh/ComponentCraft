@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
 import * as React from "react";
-import { Image, TouchableOpacity } from "react-native";
+import { Image, TouchableOpacity, View, Text } from "react-native";
 
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -18,12 +18,17 @@ import CustomText from "./Examples/customText/customText";
 import CustomProgressBar from "./Examples/customProgressBar/customProgressBar";
 import Dropdown from "./Examples/Dropdown/Dropdown";
 import CustomRadioButtonGroup from "./Examples/customRadioButtonGroup/customRadioButtonGroup";
+//import { useColorScheme } from "react-native";
+import { theme } from "./utils/themes";
+import { black, white } from "./utils/themes/colors";
 
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
-  const CustomHeaderLeft = ({ onPress }: any) => {
+  //const scheme = useColorScheme();
+  const CustomHeaderLeft = (props) => {
     const navigation = useNavigation();
+    const onPress = props?.onPress;
 
     const handlePress = () => {
       if (onPress) {
@@ -37,21 +42,63 @@ const RootNavigator = () => {
       <TouchableOpacity onPress={handlePress}>
         <Image
           source={require("../assets/backIcon.png")}
-          style={{ width: 24, height: 24 }}
+          style={{
+            width: 24,
+            height: 24,
+            tintColor: toggle ? white : black,
+          }}
         />
       </TouchableOpacity>
     );
   };
 
+  //console.log("scheme", scheme);
+  const [toggle, setToggle] = React.useState(false);
+
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={toggle ? theme.dark : theme.light}>
       <Stack.Navigator
         initialRouteName="ExampleList"
         screenOptions={({ route }) => ({
           headerLeft:
             route.name !== "ExampleList"
-              ? (props) => <CustomHeaderLeft {...props} />
+              ? (props) => (
+                  <View style={{ flexDirection: "row" }}>
+                    <CustomHeaderLeft {...props} />
+                  </View>
+                )
               : undefined,
+          headerRight: () => (
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ paddingRight: 10, color: toggle ? white : black }}>
+                {toggle ? "Dark" : "Light"}
+              </Text>
+              <TouchableOpacity
+                onPress={() => {
+                  setToggle(!toggle);
+                }}
+              >
+                <Image
+                  source={
+                    toggle
+                      ? require("../assets/toggleOn.png")
+                      : require("../assets/toggleOff.png")
+                  }
+                  style={{ width: 30, height: 30 }}
+                  resizeMode="contain"
+                />
+              </TouchableOpacity>
+            </View>
+          ),
+          headerStyle: {
+            backgroundColor: toggle ? black : white,
+          },
         })}
       >
         <Stack.Screen name="ExampleList" component={ExampleList} />

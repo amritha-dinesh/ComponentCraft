@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useState } from "react";
 import {
   Text,
@@ -8,10 +9,11 @@ import {
   StyleSheet,
   SafeAreaView,
 } from "react-native";
-import { black, grey500 } from "../../styles/themes/colors";
+import { grey500 } from "../../styles/themes/colors";
+import { typography, spacing, componentSizes } from "../../styles/themes";
+import { useTheme } from "@react-navigation/native";
 
-const DEFAULT_SIZE = 40;
-const DEFAULT_SPACE = 10;
+const DEFAULT_SIZE = componentSizes.checkboxSize;
 
 interface CustomCheckBoxProps {
   testID?: string;
@@ -39,18 +41,21 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
     "true";
   },
   disabled = false,
-  labelColor = black,
+  labelColor,
   fillColor = grey500,
   disabledColor = grey500,
   labelFontSize,
-  spaceBetweenLabelAndCheckBox = DEFAULT_SPACE,
+  spaceBetweenLabelAndCheckBox = spacing.xs,
   checkedImage,
   unCheckedImage,
   size = DEFAULT_SIZE,
   labelFontFamily,
   position = "left",
 }) => {
+  const { colors } = useTheme();
   const [checked, setChecked] = useState(value);
+
+  labelColor = labelColor ? labelColor : colors.background;
 
   return (
     <SafeAreaView
@@ -77,18 +82,25 @@ const CustomCheckBox: React.FC<CustomCheckBoxProps> = ({
           style={{
             width: size,
             height: size,
-            tintColor: checkedImage ? "" : checked ? fillColor : grey500,
+            tintColor: checkedImage
+              ? ""
+              : checked
+              ? fillColor
+              : colors.background,
           }}
         />
       </TouchableOpacity>
 
       <Text
-        style={{
-          color: disabled ? disabledColor : labelColor,
-          fontSize: labelFontSize,
-          marginHorizontal: spaceBetweenLabelAndCheckBox,
-          fontFamily: labelFontFamily,
-        }}
+        style={[
+          typography.text,
+          {
+            color: disabled ? disabledColor : labelColor,
+            fontSize: labelFontSize,
+            marginHorizontal: spaceBetweenLabelAndCheckBox,
+            fontFamily: labelFontFamily,
+          },
+        ]}
       >
         {label}
       </Text>

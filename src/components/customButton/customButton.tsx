@@ -11,11 +11,14 @@ import {
   TextStyle,
 } from "react-native";
 import { ButtonMode, getButtonColors } from "./utils";
+import { useTheme } from "@react-navigation/native";
 
 interface buttonProps {
   mode?: ButtonMode;
   color?: string;
   buttonColor?: string;
+  disabledButtonColor?: string;
+  borderColor?: string;
   buttonTitle?: string;
   disabled?: boolean;
   accessibilityLabel?: string;
@@ -39,14 +42,19 @@ const CustomButton: React.FC<buttonProps> = ({
   accessibilityHint,
   testID = "button",
   buttonColor,
+  disabledButtonColor,
+  borderColor,
   contentStyle,
 }) => {
-  const { backgroundColor, borderColor, textColor, borderWidth, borderRadius } =
+  const { colors } = useTheme();
+
+  const { backgroundColor, textColor, borderWidth, borderRadius } =
     getButtonColors({
       mode,
       buttonColor,
       color,
       disabled,
+      disabledButtonColor,
     });
 
   return (
@@ -70,13 +78,22 @@ const CustomButton: React.FC<buttonProps> = ({
           {icon ? (
             <View testID={`${testID}-icon-container`} style={contentStyle}>
               <Image
-                style={styles.iconStyle}
+                style={[
+                  styles.iconStyle,
+                  {
+                    tintColor:
+                      mode === "contained" ? colors.text : colors.background,
+                  },
+                ]}
                 source={require("../../assets/settings.png")}
               />
             </View>
           ) : null}
           {loading ? (
-            <ActivityIndicator color={"black"} style={styles.iconStyle} />
+            <ActivityIndicator
+              color={mode === "contained" ? colors.text : colors.background}
+              style={styles.iconStyle}
+            />
           ) : null}
           <Text
             testID={`${testID}-text`}
@@ -85,7 +102,13 @@ const CustomButton: React.FC<buttonProps> = ({
             style={[
               styles.buttonTextStyle,
               textContentStyle,
-              { color: textColor },
+              {
+                color: textColor
+                  ? textColor
+                  : mode === "contained"
+                  ? colors.text
+                  : colors.background,
+              },
             ]}
           >
             {buttonTitle}

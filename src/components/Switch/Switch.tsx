@@ -9,7 +9,14 @@ import {
   Platform,
   Animated,
 } from "react-native";
-import { grey1000, grey1050, black, white } from "../../styles/themes/colors";
+import {
+  grey1000,
+  grey1050,
+  black,
+  white,
+  blue700,
+} from "../../styles/themes/colors";
+import { useTheme } from "@react-navigation/native";
 
 interface CustomSwitchProps {
   value: boolean;
@@ -36,7 +43,7 @@ const Switch: React.FC<CustomSwitchProps> = ({
 }) => {
   const [isEnabled, setIsEnabled] = useState(value);
   const switchTranslateX = useState(new Animated.Value(0))[0];
-
+  const { colors } = useTheme();
   const toggleSwitch = () => {
     const newValue = !isEnabled;
     setIsEnabled(newValue);
@@ -64,7 +71,9 @@ const Switch: React.FC<CustomSwitchProps> = ({
     <TouchableOpacity
       style={[
         styles.container,
-        isEnabled ? activeStyle : inactiveStyle,
+        isEnabled
+          ? activeStyle ?? { backgroundColor: colors.background }
+          : inactiveStyle,
         disabled && disabledStyle,
       ]}
       onPress={toggleSwitch}
@@ -127,7 +136,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   switchActive: {
-    backgroundColor: white,
+    backgroundColor: blue700,
   },
   image: {
     width: "80%",

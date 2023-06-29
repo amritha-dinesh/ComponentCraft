@@ -1,16 +1,24 @@
 import React from "react";
 import { SafeAreaView, StyleSheet, ScrollView, View, Text } from "react-native";
 import { SearchBar } from "component-craft";
-import { white, grey300, grey500 } from "../../utils/themes/colors";
+import {
+  white,
+  grey300,
+  grey500,
+  grey400,
+  black,
+} from "../../utils/themes/colors";
 
 type Props = React.ComponentPropsWithRef<typeof SafeAreaView> & object;
 
 const CustomSearchBar = ({}: Props) => (
   <SafeAreaView style={styles.main}>
-    <ScrollView style={styles.white}>
-      <View style={styles.container}>
+    <ScrollView style={{ backgroundColor: grey400 }}>
+      <View style={[styles.container, { backgroundColor: grey400 }]}>
         <View style={styles.titleView}>
-          <Text style={styles.title}>SearchBar with Search Icon</Text>
+          <Text style={[styles.title, { color: black }]}>
+            SearchBar with Search Icon
+          </Text>
         </View>
         <View style={styles.paddingNew}>
           <SearchBar
@@ -24,7 +32,9 @@ const CustomSearchBar = ({}: Props) => (
         </View>
       </View>
       <View style={styles.titleView}>
-        <Text style={styles.title}>SearchBar with Cancel text Button</Text>
+        <Text style={[styles.title, { color: black }]}>
+          SearchBar with Cancel text Button, light theme.
+        </Text>
       </View>
       <View style={styles.paddingNew}>
         <SearchBar
@@ -36,10 +46,13 @@ const CustomSearchBar = ({}: Props) => (
           showCancel
           placeholder="Search"
           clearIcon={require("../../../assets/disabled.png")}
+          lightTheme
         />
       </View>
       <View style={styles.titleView}>
-        <Text style={styles.title}>SearchBar with loading & round outline</Text>
+        <Text style={[styles.title, { color: black }]}>
+          SearchBar with loading & round outline
+        </Text>
       </View>
       <View style={styles.paddingNew}>
         <SearchBar

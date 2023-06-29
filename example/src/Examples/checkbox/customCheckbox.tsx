@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { Text, StyleSheet, SafeAreaView, ScrollView, View } from "react-native";
+import { StyleSheet, SafeAreaView, ScrollView, View, Text } from "react-native";
 import { CustomCheckBox as CustomCheckBoxs } from "component-craft";
+
 import {
+  grey400,
   white,
   orange500,
   lightBlue600,
   green500,
 } from "../../utils/themes/colors";
+
 type Props = React.ComponentPropsWithRef<typeof Text> & object;
 
 const CustomCheckBox = ({}: Props) => {
@@ -14,7 +17,7 @@ const CustomCheckBox = ({}: Props) => {
 
   return (
     <SafeAreaView>
-      <ScrollView style={styles.whiteColor}>
+      <ScrollView style={{ backgroundColor: grey400 }}>
         <View style={styles.titleView}>
           <Text style={styles.title}>
             Check box with label position & Enabled

@@ -82,5 +82,8 @@
   "homepage": "https://github.com/amritha-dinesh/ComponentCraft#readme",
   "directories": {
     "example": "example"
+  },
+  "dependencies": {
+    "@react-navigation/native": "^6.1.7"
   }
 }

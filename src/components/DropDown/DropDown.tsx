@@ -7,7 +7,8 @@ import {
   Image,
   Animated,
 } from "react-native";
-import { grey1050 } from "./../../styles/themes/colors";
+import { grey1050 } from "../../styles/themes/colors";
+import { useTheme } from "@react-navigation/native";
 
 interface DropdownProps {
   options: string[];
@@ -27,6 +28,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const slideAnimation = useRef(new Animated.Value(0)).current;
+  const { colors } = useTheme();
 
   const toggleDropdown = () => {
     if (isOpen) {
@@ -69,9 +71,9 @@ const Dropdown: React.FC<DropdownProps> = ({
   });
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
       <TouchableOpacity style={styles.dropdownHeader} onPress={toggleDropdown}>
-        <Text style={styles.selectedOption}>
+        <Text style={[styles.selectedOption, { color: colors.text }]}>
           {selectedOptions.length === 0
             ? defaultOption
             : selectedOptions.join(", ")}
@@ -84,7 +86,7 @@ const Dropdown: React.FC<DropdownProps> = ({
               ? require("../../assets/up-arrow.png")
               : require("../../assets/down-arrow.png")
           }
-          style={styles.dropdownIcon}
+          style={[styles.dropdownIcon, { tintColor: colors.text }]}
           resizeMode="contain"
         />
       </TouchableOpacity>
@@ -97,19 +99,26 @@ const Dropdown: React.FC<DropdownProps> = ({
               key={option}
               style={[
                 styles.dropdownItem,
+                { backgroundColor: colors.background },
                 selectedOptions.includes(option) && {
-                  backgroundColor: selectedItemColor,
+                  backgroundColor: selectedItemColor
+                    ? selectedItemColor
+                    : colors.primary,
                 },
               ]}
               onPress={() => selectOption(option)}
             >
-              <Text>{option}</Text>
+              <Text style={{ color: colors.text }}>{option}</Text>
               {selectedOptions.includes(option) && (
                 <Image
                   source={require("../../assets/enabled.png")}
                   style={[
                     styles.checkIcon,
-                    { tintColor: selectedItemIconColor },
+                    {
+                      tintColor: selectedItemIconColor
+                        ? selectedItemIconColor
+                        : colors.text,
+                    },
                   ]}
                   resizeMode="contain"
                 />

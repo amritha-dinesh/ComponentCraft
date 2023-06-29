@@ -10,7 +10,8 @@ import {
   ViewStyle,
   TextStyle,
 } from "react-native";
-import { white, grey200, black } from "../../styles/themes/colors";
+import { black } from "../../styles/themes/colors";
+import { useTheme } from "@react-navigation/native";
 
 interface CustomCardProps {
   title?: string;
@@ -43,42 +44,50 @@ const CustomCard: React.FC<CustomCardProps> = ({
   children,
   subTitle,
   ...rest
-}) => (
-  <SafeAreaView>
-    <TouchableOpacity
-      testID={"Custom-card"}
-      disabled={disabled}
-      onPress={onPress}
-      onLongPress={onLongPress}
-      delayLongPress={delayLongPress}
-    >
-      <View
-        testID={testID}
-        style={[
-          styles.card,
-          mode === "elevated"
-            ? styles.elevated
-            : mode === "outlined"
-            ? styles.outlined
-            : styles.contained,
-          cardStyle,
-        ]}
-        {...rest}
+}) => {
+  const { colors } = useTheme();
+
+  return (
+    <SafeAreaView>
+      <TouchableOpacity
+        testID={"Custom-card"}
+        disabled={disabled}
+        onPress={onPress}
+        onLongPress={onLongPress}
+        delayLongPress={delayLongPress}
       >
-        {children}
-        <Text style={[styles.title, titleStyle]}>{title}</Text>
-        <Text style={[styles.subTitle, titleStyle]}>{subTitle}</Text>
-        <View style={contentStyle}>
-          <Text>{content}</Text>
+        <View
+          testID={testID}
+          style={[
+            styles.card,
+            { backgroundColor: colors.background },
+            mode === "elevated"
+              ? styles.elevated
+              : mode === "outlined"
+              ? styles.outlined
+              : styles.contained,
+            cardStyle,
+          ]}
+          {...rest}
+        >
+          {children}
+          <Text style={[styles.title, { color: colors.text }, titleStyle]}>
+            {title}
+          </Text>
+          <Text style={[styles.subTitle, { color: colors.text }, titleStyle]}>
+            {subTitle}
+          </Text>
+          <View style={contentStyle}>
+            <Text style={[{ color: colors.text }]}>{content}</Text>
+          </View>
         </View>
-      </View>
-    </TouchableOpacity>
-  </SafeAreaView>
-);
+      </TouchableOpacity>
+    </SafeAreaView>
+  );
+};
 export default CustomCard;
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: white,
     borderRadius: 8,
     padding: 16,
     margin: 8,
@@ -97,7 +106,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
   },
   contained: {
-    backgroundColor: grey200,
+    borderWidth: 0.2,
   },
   title: {
     fontSize: 18,

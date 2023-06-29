@@ -12,6 +12,7 @@ import {
   lightBlue400,
   green400,
   orange500,
+  grey400,
 } from "../../utils/themes/colors";
 import { RadioButtonGroup } from "component-craft";
 
@@ -22,7 +23,7 @@ const options = [
 ];
 const CustomRadioButtonGroup = ({}: Props) => (
   <SafeAreaView style={styles.main}>
-    <ScrollView style={styles.white}>
+    <ScrollView style={{ backgroundColor: grey400 }}>
       <View style={styles.container}>
         <View style={styles.titleView}>
           <Text style={styles.title}>Default Radio Button Group</Text>
@@ -77,8 +78,6 @@ const styles = StyleSheet.create({
     backgroundColor: white,
   },
   container: {
-    flex: 1,
-    backgroundColor: white,
     width: "100%",
   },
   paddingTop: {

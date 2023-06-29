@@ -11,7 +11,8 @@ import {
   TextStyle,
   TouchableOpacity,
 } from "react-native";
-import { black, white, blue500 } from "../../styles/themes/colors";
+import { blue500, grey400 } from "../../styles/themes/colors";
+import { useTheme } from "@react-navigation/native";
 
 const BORDER_RADIUS = 5;
 
@@ -78,16 +79,19 @@ const CustomInput: React.FC<CustomInputProps> = ({
   autoFocus = false,
   defaultValue,
   selectionColor,
-  labelColor = black,
+  labelColor,
   borderRadius = BORDER_RADIUS,
   ...props
 }) => {
+  const { colors } = useTheme();
+  labelColor = labelColor ? labelColor : colors.text;
+
   const animatedLabelStyle = new Animated.Value(1);
   const [focus, setFocus] = useState(false);
   const [icon, setIcon] = useState(false);
   return (
     <SafeAreaView>
-      <View style={styles.container}>
+      <View style={[styles.container, { backgroundColor: grey400 }]}>
         <View style={styles.subContainer}>
           <Animated.Text
             {...props}
@@ -133,12 +137,22 @@ const CustomInput: React.FC<CustomInputProps> = ({
               placeholder={placeholder}
               style={[
                 styles.input,
+                {
+                  borderColor: colors.text,
+                  color: colors.text,
+                  backgroundColor: colors.background,
+                },
                 leftIcon && styles.leftIconInput,
                 mode === "outlined"
-                  ? [styles.outlined, { borderRadius: borderRadius }]
+                  ? [
+                      styles.outlined,
+                      {
+                        borderRadius: borderRadius,
+                      },
+                    ]
                   : mode === "rounded"
-                  ? styles.rounded
-                  : styles.standards,
+                  ? [styles.rounded]
+                  : [styles.standards],
                 focus === true && styles.focused,
                 style,
               ]}
@@ -160,7 +174,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
                       ? require("../../assets/eye.png")
                       : require("../../assets/eye-off.png")
                   }
-                  style={styles.icon}
+                  style={[styles.icon, { tintColor: colors.text }]}
                 />
               </TouchableOpacity>
             )}
@@ -173,16 +187,13 @@ const CustomInput: React.FC<CustomInputProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: white,
     width: "100%",
   },
   outlined: {
     borderWidth: Platform.OS === "ios" ? 1 : 0.5,
-    backgroundColor: "transparent",
   },
   rounded: {
     borderWidth: Platform.OS === "ios" ? 1 : 0.5,
-    backgroundColor: "transparent",
     borderRadius: 22,
   },
   focused: {
@@ -190,7 +201,6 @@ const styles = StyleSheet.create({
   },
   standards: {
     borderBottomWidth: Platform.OS === "ios" ? 1 : 0.5,
-    backgroundColor: "transparent",
   },
   leftIconInput: {
     paddingLeft: 40,
@@ -224,9 +234,6 @@ const styles = StyleSheet.create({
   subContainer: {
     alignSelf: "center",
     width: "90%",
-  },
-  main: {
-    flex: 1,
   },
 });
 export default CustomInput;

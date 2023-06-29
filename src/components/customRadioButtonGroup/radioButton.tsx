@@ -1,6 +1,6 @@
 import React from "react";
 import { View, ColorValue, StyleSheet } from "react-native";
-import { black } from "../../styles/themes/colors";
+import { useTheme } from "@react-navigation/native";
 
 const DEFAULT_SIZE = 24;
 
@@ -16,31 +16,35 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   selected,
   fillColor,
   size = DEFAULT_SIZE,
-}) => (
-  <View
-    testID={testID}
-    style={[
-      styles.radioButtonContainer,
-      {
-        height: size,
-        width: size,
-        borderRadius: size / 2,
-        borderColor: selected ? fillColor : black,
-      },
-    ]}
-  >
-    {selected && (
-      <View
-        style={{
-          height: size / 2,
-          width: size / 2,
-          borderRadius: size,
-          backgroundColor: fillColor,
-        }}
-      />
-    )}
-  </View>
-);
+}) => {
+  const { colors } = useTheme();
+
+  return (
+    <View
+      testID={testID}
+      style={[
+        styles.radioButtonContainer,
+        {
+          height: size,
+          width: size,
+          borderRadius: size / 2,
+          borderColor: selected ? fillColor : colors.background,
+        },
+      ]}
+    >
+      {selected && (
+        <View
+          style={{
+            height: size / 2,
+            width: size / 2,
+            borderRadius: size,
+            backgroundColor: fillColor,
+          }}
+        />
+      )}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   radioButtonContainer: {
