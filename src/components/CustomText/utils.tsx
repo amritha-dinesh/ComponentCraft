@@ -1,5 +1,6 @@
 import { TextStyle } from "react-native";
 import { colors } from "../../styles/themes/colors";
+import { regularType, boldType } from "../../styles/themes/fonts";
 
 export const TextTypesPossible = [
   "primaryLight",
@@ -113,4 +114,117 @@ export const TextOverflowModeStyles: {
   ignoreTheStart: "head",
   ignoreTheMiddle: "middle",
   ignoreTheEnd: "tail",
+};
+
+export const VariantTypesPossible = [
+  "headingLarge",
+  "headingNormal",
+  "headingSmall",
+  "heading",
+  "subHeadingLarge",
+  "subHeadingNormal",
+  "subHeadingSmall",
+  "subHeading",
+  "bodyLarge",
+  "bodyNormal",
+  "bodySmall",
+  "body",
+] as const;
+
+export const VariantTypes: {
+  [key in (typeof VariantTypesPossible)[number]]: TextStyle;
+} = {
+  headingLarge: {
+    ...boldType,
+    fontSize: 30,
+    lineHeight: 36,
+    letterSpacing: 0,
+  },
+
+  headingNormal: {
+    ...boldType,
+    fontSize: 26,
+    lineHeight: 32,
+    letterSpacing: 0,
+  },
+
+  headingSmall: {
+    ...boldType,
+    fontSize: 22,
+    fontWeight: "bold",
+    lineHeight: 28,
+    letterSpacing: 0,
+  },
+
+  heading: {
+    ...boldType,
+    fontSize: 26,
+    fontWeight: "bold",
+    lineHeight: 32,
+    letterSpacing: 0,
+  },
+
+  subHeadingLarge: {
+    ...regularType,
+    fontSize: 24,
+    fontWeight: "normal",
+    lineHeight: 28,
+    letterSpacing: 0,
+  },
+
+  subHeadingNormal: {
+    ...regularType,
+    fontSize: 22,
+    fontWeight: "normal",
+    lineHeight: 26,
+    letterSpacing: 0,
+  },
+
+  subHeadingSmall: {
+    ...regularType,
+    fontSize: 20,
+    fontWeight: "normal",
+    lineHeight: 24,
+    letterSpacing: 0,
+  },
+
+  subHeading: {
+    ...regularType,
+    fontSize: 22,
+    fontWeight: "normal",
+    lineHeight: 26,
+    letterSpacing: 0,
+  },
+
+  bodyLarge: {
+    ...regularType,
+    fontSize: 20,
+    fontWeight: "normal",
+    lineHeight: 26,
+    letterSpacing: 0,
+  },
+
+  bodyNormal: {
+    ...regularType,
+    fontSize: 18,
+    fontWeight: "normal",
+    lineHeight: 22,
+    letterSpacing: 0,
+  },
+
+  bodySmall: {
+    ...regularType,
+    fontSize: 16,
+    fontWeight: "normal",
+    lineHeight: 20,
+    letterSpacing: 0,
+  },
+
+  body: {
+    ...regularType,
+    fontSize: 18,
+    fontWeight: "normal",
+    lineHeight: 22,
+    letterSpacing: 0,
+  },
 };
