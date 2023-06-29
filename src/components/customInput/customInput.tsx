@@ -221,13 +221,6 @@ const styles = StyleSheet.create({
     marginTop: 33,
     right: 30,
   },
-  leftIcon: {
-    height: 20,
-    width: 20,
-    marginTop: 33,
-    position: "absolute",
-    left: 10,
-  },
   labelStyle: {
     position: "absolute",
   },

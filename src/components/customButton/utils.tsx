@@ -5,8 +5,6 @@ type BaseProps = {
   disabled?: boolean;
   color?: string;
   buttonColor?: string;
-  disabledButtonColor?: string;
-  outlinedColor?: string;
   borderColor?: string;
 };
 export const getButtonColors = ({
@@ -14,14 +12,11 @@ export const getButtonColors = ({
   buttonColor,
   color,
   disabled,
-  disabledButtonColor,
 }: {
   mode: ButtonMode;
   buttonColor?: string;
   color?: string;
   disabled?: boolean;
-  disabledButtonColor?: string;
-  outlinedColor?: string;
 }) => {
   const isMode = (modeToCompare: ButtonMode) => mode === modeToCompare;
 
@@ -29,7 +24,6 @@ export const getButtonColors = ({
     disabled,
     buttonColor,
     isMode,
-    disabledButtonColor,
   }: BaseProps) => {
     if (isMode("outlined") || isMode("text")) {
       return "transparent";
@@ -37,8 +31,8 @@ export const getButtonColors = ({
     if (buttonColor && !disabled) {
       return buttonColor;
     }
-    if (isMode("contained") && disabledButtonColor && disabled) {
-      return disabledButtonColor;
+    if (isMode("contained") && buttonColor && disabled) {
+      return buttonColor;
     }
   };
 
@@ -46,7 +40,6 @@ export const getButtonColors = ({
     isMode,
     disabled,
     buttonColor,
-    disabledButtonColor,
   });
 
   const getButtonTextColor = ({

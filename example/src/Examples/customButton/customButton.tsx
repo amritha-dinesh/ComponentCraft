@@ -98,7 +98,7 @@ const CustomButton = ({}: Props) => {
             mode="contained"
             buttonTitle="Contained Button"
             borderColor={colors.background}
-            disabledButtonColor={colors.background}
+            buttonColor={colors.background}
             disabled
           />
         </View>
@@ -119,23 +119,6 @@ const styles = StyleSheet.create({
   },
   paddingTop: {
     paddingTop: "5%",
-  },
-
-  outlined: {
-    backgroundColor: "transparent",
-    borderColor: "gray",
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-  contained: {
-    backgroundColor: "skyblue",
-    borderColor: "skyblue",
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-
-  white: {
-    backgroundColor: "white",
   },
   container: {
     flex: 1,

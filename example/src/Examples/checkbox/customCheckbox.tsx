@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { StyleSheet, SafeAreaView, ScrollView, View, Text } from "react-native";
 import { CustomCheckBox as CustomCheckBoxs } from "component-craft";
-
 import {
   grey400,
-  white,
   orange500,
   lightBlue600,
   green500,
@@ -52,7 +50,6 @@ const CustomCheckBox = ({}: Props) => {
             <CustomCheckBoxs size={40} label="large" />
           </View>
         </View>
-
         <View style={styles.titleView}>
           <Text style={styles.title}>Check box - Value changes</Text>
         </View>
@@ -63,7 +60,6 @@ const CustomCheckBox = ({}: Props) => {
             label={checked ? "Active" : "Inactive"}
           />
         </View>
-
         <View style={styles.titleView}>
           <Text style={styles.title}>Check box in different color</Text>
         </View>
@@ -106,9 +102,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "500",
-  },
-  whiteColor: {
-    backgroundColor: white,
   },
   padding: {
     padding: "5%",

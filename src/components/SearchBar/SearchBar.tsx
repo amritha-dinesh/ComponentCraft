@@ -10,7 +10,7 @@ import {
   Text,
   Platform,
 } from "react-native";
-import { grey1100 } from "../../styles/themes/colors";
+import { grey1100, grey200, grey500 } from "../../styles/themes/colors";
 import { useTheme } from "@react-navigation/native";
 
 interface SearchBarProps {
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#eee",
+    backgroundColor: grey200,
     borderRadius: 4,
     paddingVertical: 8,
     paddingHorizontal: 12,
@@ -251,13 +251,10 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   clearIcon: {
-    tintColor: "#888",
+    tintColor: grey500,
   },
   cancelButton: {
     marginLeft: 8,
-  },
-  cancelButtonText: {
-    color: "green",
   },
 });
 

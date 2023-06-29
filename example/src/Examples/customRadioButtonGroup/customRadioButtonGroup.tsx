@@ -8,7 +8,6 @@ import {
   ScrollView,
 } from "react-native";
 import {
-  white,
   lightBlue400,
   green400,
   orange500,
@@ -73,9 +72,6 @@ CustomRadioButtonGroup.title = "RadioButtonGroup";
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-  },
-  white: {
-    backgroundColor: white,
   },
   container: {
     width: "100%",

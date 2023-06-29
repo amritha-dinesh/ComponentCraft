@@ -113,17 +113,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "flex-start",
   },
-  checkboxContainer: {
-    width: 20,
-    height: 20,
-    borderRadius: 4,
-    borderWidth: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  checkIcon: {
-    alignSelf: "center",
-  },
   text: {
     fontSize: 16,
     fontWeight: "400",

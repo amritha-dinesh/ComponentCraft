@@ -67,9 +67,6 @@ const styles = StyleSheet.create({
     paddingTop: "1%",
     left: 10,
   },
-  white: {
-    backgroundColor: white,
-  },
   container: {
     flex: 1,
     backgroundColor: white,

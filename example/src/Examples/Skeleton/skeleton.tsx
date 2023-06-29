@@ -7,7 +7,7 @@ import {
   Text,
   ScrollView,
 } from "react-native";
-import { white, lightBlue500, grey400 } from "../../utils/themes/colors";
+import { grey400 } from "../../utils/themes/colors";
 import { Skeleton as Skeletons } from "component-craft";
 
 type Props = React.ComponentPropsWithRef<typeof TouchableOpacity> & object;
@@ -74,9 +74,6 @@ const styles = StyleSheet.create({
   main: {
     flex: 1,
   },
-  white: {
-    backgroundColor: white,
-  },
   container: {
     width: "100%",
   },
@@ -87,19 +84,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "500",
-  },
-  image: {
-    alignSelf: "center",
-    height: 360,
-    width: "90%",
-    marginBottom: 20,
-  },
-  button: {
-    borderWidth: 0.5,
-    alignSelf: "center",
-    padding: 10,
-    borderRadius: 15,
-    backgroundColor: lightBlue500,
   },
   padding: {
     paddingTop: 30,
