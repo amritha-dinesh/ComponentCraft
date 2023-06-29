@@ -1,22 +1,37 @@
 import { DarkTheme, DefaultTheme } from "@react-navigation/native";
 import { lightThemeColors, darkThemeColors } from "./colors";
-import { VariantTypes } from "./typography";
+import { spacing } from "./spacing";
+import { componentSizes } from "./constants";
+
+export const defaultFontFamily = {
+  web: "Roboto Mono, monospace",
+  ios: "System",
+  android: "Roboto Mono, monospace, sans-serif",
+  default: "sans-serif",
+};
 
 export const theme = {
   light: {
     ...DefaultTheme,
     colors: {
       ...DefaultTheme.colors,
-      ...lightThemeColors.colors,
+      ...lightThemeColors,
     },
-    fonts: VariantTypes,
+    fonts: defaultFontFamily,
+    spacing,
+    componentSizes,
   },
   dark: {
     ...DarkTheme,
     colors: {
       ...DarkTheme.colors,
-      ...darkThemeColors.colors,
+      ...darkThemeColors,
     },
-    fonts: VariantTypes,
+    fonts: defaultFontFamily,
+    spacing,
+    componentSizes,
   },
 };
+
+export const darkTheme = theme.dark;
+export const lightTheme = theme.light;
