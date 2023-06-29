@@ -175,13 +175,14 @@ import { CText } from "./mainExport";
 import React, { ReactNode } from "react";
 import { Text, TextStyle, StyleProp } from "react-native";
 
-import { TextTypes, TextOverflowModeStyles, TextTypesPossible } from "./utils";
-import { useTheme } from "@react-navigation/native";
-
 import {
+  TextTypes,
+  TextOverflowModeStyles,
+  TextTypesPossible,
   VariantTypes,
   VariantTypesPossible,
-} from "../../styles/themes/typography";
+} from "./utils";
+import { useTheme } from "@react-navigation/native";
 
 export type CTextPropsTypes = {
   /**

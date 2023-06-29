@@ -18,14 +18,17 @@ import CustomText from "./Examples/customText/customText";
 import CustomProgressBar from "./Examples/customProgressBar/customProgressBar";
 import Dropdown from "./Examples/Dropdown/Dropdown";
 import CustomRadioButtonGroup from "./Examples/customRadioButtonGroup/customRadioButtonGroup";
-//import { useColorScheme } from "react-native";
-import { theme } from "./utils/themes";
 import { black, white } from "./utils/themes/colors";
+
+//custom themes from example app
+// import { theme } from "./utils/themes";
+
+//default themes form component-craft
+import { darkTheme, lightTheme } from "component-craft";
 
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
-  //const scheme = useColorScheme();
   const CustomHeaderLeft = (props) => {
     const navigation = useNavigation();
     const onPress = props?.onPress;
@@ -52,18 +55,17 @@ const RootNavigator = () => {
     );
   };
 
-  //console.log("scheme", scheme);
   const [toggle, setToggle] = React.useState(false);
 
   return (
-    <NavigationContainer theme={toggle ? theme.dark : theme.light}>
+    <NavigationContainer theme={toggle ? darkTheme : lightTheme}>
       <Stack.Navigator
         initialRouteName="ExampleList"
         screenOptions={({ route }) => ({
           headerLeft:
             route.name !== "ExampleList"
               ? (props) => (
-                  <View style={{ flexDirection: "row" }}>
+                  <View style={{ flexDirection: "row", marginLeft: 20 }}>
                     <CustomHeaderLeft {...props} />
                   </View>
                 )
@@ -74,9 +76,17 @@ const RootNavigator = () => {
                 flexDirection: "row",
                 alignItems: "center",
                 justifyContent: "center",
+                marginRight: 30,
               }}
             >
-              <Text style={{ paddingRight: 10, color: toggle ? white : black }}>
+              <Text
+                style={{
+                  paddingRight: 15,
+                  color: toggle ? white : black,
+                  fontSize: 16,
+                  fontWeight: "500",
+                }}
+              >
                 {toggle ? "Dark" : "Light"}
               </Text>
               <TouchableOpacity
@@ -90,7 +100,7 @@ const RootNavigator = () => {
                       ? require("../assets/toggleOn.png")
                       : require("../assets/toggleOff.png")
                   }
-                  style={{ width: 30, height: 30 }}
+                  style={{ width: 40, height: 40 }}
                   resizeMode="contain"
                 />
               </TouchableOpacity>

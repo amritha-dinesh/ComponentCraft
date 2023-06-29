@@ -13,6 +13,8 @@ import Skeleton from "./components/Skeleton/skeleton";
 import RadioButton from "./components/customRadioButtonGroup/radioButton";
 import RadioButtonGroup from "./components/customRadioButtonGroup/radioButtonGroup";
 
+import { darkTheme, lightTheme } from "./styles/themes/theme";
+
 export {
   CustomButton,
   CustomCheckBox,
@@ -28,4 +30,6 @@ export {
   Skeleton,
   RadioButton,
   RadioButtonGroup,
+  darkTheme,
+  lightTheme,
 };
