@@ -17,7 +17,6 @@ interface buttonProps {
   mode?: ButtonMode;
   color?: string;
   buttonColor?: string;
-  disabledButtonColor?: string;
   borderColor?: string;
   buttonTitle?: string;
   disabled?: boolean;
@@ -29,6 +28,7 @@ interface buttonProps {
   loading?: boolean;
   contentStyle?: StyleProp<ViewStyle>;
   textContentStyle?: StyleProp<TextStyle>;
+  onPress?: () => void;
 }
 const CustomButton: React.FC<buttonProps> = ({
   disabled,
@@ -42,9 +42,9 @@ const CustomButton: React.FC<buttonProps> = ({
   accessibilityHint,
   testID = "button",
   buttonColor,
-  disabledButtonColor,
   borderColor,
   contentStyle,
+  onPress,
 }) => {
   const { colors } = useTheme();
 
@@ -54,13 +54,12 @@ const CustomButton: React.FC<buttonProps> = ({
       buttonColor,
       color,
       disabled,
-      disabledButtonColor,
     });
 
   return (
     <View style={styles.contentStyle}>
       <TouchableOpacity
-        onPress={() => console.log("enter here")}
+        onPress={onPress}
         style={[
           {
             backgroundColor,

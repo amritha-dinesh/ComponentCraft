@@ -20,7 +20,7 @@ const CustomCard = ({}: Props) => {
 
   return (
     <SafeAreaView style={styles.main}>
-      <ScrollView style={styles.white}>
+      <ScrollView style={styles.background}>
         <View style={styles.container}>
           <View style={styles.titleView}>
             <Text style={styles.title}>Mode's of Card</Text>
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   main: {
     flex: 1,
   },
-  white: {
+  background: {
     backgroundColor: grey400,
   },
   container: {

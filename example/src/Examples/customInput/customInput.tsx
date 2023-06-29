@@ -8,7 +8,7 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import { white, grey400 } from "../../utils/themes/colors";
+import { grey400 } from "../../utils/themes/colors";
 import { CustomInput as CustomInputs } from "component-craft";
 import { useTheme } from "@react-navigation/native";
 
@@ -49,7 +49,6 @@ const CustomInput = ({}: Props) => {
           placeholder="Outlined Input"
           passwordForm
         />
-
         <View style={styles.titleView}>
           <Text style={styles.title}>Input with Left Icon</Text>
         </View>
@@ -183,17 +182,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "500",
   },
-  leftIconInput: {
-    paddingLeft: 40,
-  },
-  input: {
-    width: "100%",
-    height: 44,
-    padding: 10,
-    marginTop: 20,
-    marginBottom: 10,
-  },
-
   icon: {
     height: 20,
     width: 20,
@@ -210,9 +198,6 @@ const styles = StyleSheet.create({
 
   main: {
     flex: 1,
-  },
-  white: {
-    backgroundColor: white,
   },
 });
 export default CustomInput;
