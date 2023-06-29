@@ -2,7 +2,6 @@ import * as React from "react";
 import { SafeAreaView, ScrollView, View, Text, StyleSheet } from "react-native";
 import { Switch } from "component-craft";
 import {
-  white,
   green500,
   blue500,
   lightBlue500,
@@ -10,7 +9,6 @@ import {
   red500,
   grey300,
   lightGreen300,
-  black,
   grey400,
 } from "../../utils/themes/colors";
 
