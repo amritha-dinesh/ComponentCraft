@@ -24,28 +24,21 @@ const CustomInput = ({}: Props) => {
           <View style={styles.titleView}>
             <Text style={styles.title}>Mode's of Input</Text>
           </View>
-          <CustomInputs mode="rounded" label="" placeholder="Rounded Input" />
-          <CustomInputs mode="standard" label="" placeholder="Standard Input" />
-          <CustomInputs mode="outlined" label="" placeholder="Outlined Input" />
+          <CustomInputs mode="rounded" placeholder="Rounded Input" />
+          <CustomInputs mode="standard" placeholder="Standard Input" />
+          <CustomInputs mode="outlined" placeholder="Outlined Input" />
         </View>
         <View style={styles.titleView}>
           <Text style={styles.title}>Input as Password Field</Text>
         </View>
-        <CustomInputs
-          mode="rounded"
-          label=""
-          placeholder="Rounded Input"
-          passwordForm
-        />
+        <CustomInputs mode="rounded" placeholder="Rounded Input" passwordForm />
         <CustomInputs
           mode="standard"
-          label=""
           placeholder="Standard Input"
           passwordForm
         />
         <CustomInputs
           mode="outlined"
-          label=""
           placeholder="Outlined Input"
           passwordForm
         />
@@ -54,7 +47,6 @@ const CustomInput = ({}: Props) => {
         </View>
         <CustomInputs
           mode="rounded"
-          label=""
           placeholder="Rounded Input"
           leftIcon={
             <Image
@@ -71,7 +63,6 @@ const CustomInput = ({}: Props) => {
               style={[styles.leftIcon, { tintColor: colors.text }]}
             />
           }
-          label=""
           placeholder="Standard Input"
         />
         <CustomInputs
@@ -82,7 +73,6 @@ const CustomInput = ({}: Props) => {
             />
           }
           mode="outlined"
-          label=""
           placeholder="Outlined Input"
         />
         <View style={styles.titleView}>
@@ -96,12 +86,10 @@ const CustomInput = ({}: Props) => {
             />
           }
           mode="rounded"
-          label=""
           placeholder="Rounded Input"
         />
         <CustomInputs
           mode="standard"
-          label=""
           placeholder="Standard Input"
           rightIcon={
             <Image
@@ -112,7 +100,6 @@ const CustomInput = ({}: Props) => {
         />
         <CustomInputs
           mode="outlined"
-          label=""
           placeholder="Outlined Input"
           rightIcon={
             <Image
@@ -127,44 +114,26 @@ const CustomInput = ({}: Props) => {
         <CustomInputs
           defaultValue="Test12345"
           mode="rounded"
-          label=""
           placeholder="Rounded Input"
         />
 
         <CustomInputs
           defaultValue="Test12345"
           mode="standard"
-          label=""
           passwordForm
           placeholder="Standard Input"
         />
         <CustomInputs
           defaultValue="Test12345"
           mode="outlined"
-          label=""
           placeholder="Outlined Input"
         />
         <View style={styles.titleView}>
           <Text style={styles.title}>Disabled Input</Text>
         </View>
-        <CustomInputs
-          disabled
-          mode="rounded"
-          label=""
-          placeholder="Rounded Input"
-        />
-        <CustomInputs
-          disabled
-          mode="standard"
-          label=""
-          placeholder="Standard Input"
-        />
-        <CustomInputs
-          disabled
-          mode="outlined"
-          label=""
-          placeholder="Outlined Input"
-        />
+        <CustomInputs disabled mode="rounded" placeholder="Rounded Input" />
+        <CustomInputs disabled mode="standard" placeholder="Standard Input" />
+        <CustomInputs disabled mode="outlined" placeholder="Outlined Input" />
       </ScrollView>
     </SafeAreaView>
   );

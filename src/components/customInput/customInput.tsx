@@ -1,14 +1,12 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from "react";
 import {
   SafeAreaView,
   StyleSheet,
   View,
   TextInput,
-  Text,
   TouchableOpacity,
   Image,
-  StyleProp,
-  TextStyle,
   Platform,
 } from "react-native";
 import { useTheme } from "@react-navigation/native";
@@ -33,7 +31,6 @@ interface CustomInputProps {
     | "name-phone-pad"
     | "twitter"
     | "web-search";
-  label?: string;
   placeholder?: string;
   num?: boolean;
   testID?: string;
@@ -51,19 +48,15 @@ interface CustomInputProps {
   autoFocus?: boolean;
   defaultValue?: string | undefined;
   selectionColor?: string;
-  labelColor?: string;
   borderRadius?: number;
   rightIconPress?: () => void;
   leftIconPress?: () => void;
-  style?: StyleProp<TextStyle>;
 }
 const CustomInput: React.FC<CustomInputProps> = ({
   mode = "outlined",
-  style,
   disabled = false,
   passwordForm = false,
   keyboardType = "default",
-  label = "Label Name",
   placeholder = "placeholder",
   testID = "custom-input",
   onChangeText,
@@ -80,7 +73,6 @@ const CustomInput: React.FC<CustomInputProps> = ({
   autoFocus = false,
   defaultValue,
   selectionColor,
-  labelColor,
   borderRadius = BORDER_RADIUS,
   rightIconPress,
   leftIconPress,
@@ -88,11 +80,8 @@ const CustomInput: React.FC<CustomInputProps> = ({
   const { colors } = useTheme();
   const [focus, setFocus] = React.useState(false);
   const [icon, setIcon] = React.useState(false);
-  labelColor = labelColor ? labelColor : colors.text;
   return (
     <SafeAreaView style={styles.flex}>
-      <Text style={{ color: labelColor }}>{label}</Text>
-
       <View style={styles.container}>
         <View
           style={[
