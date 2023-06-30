@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import {
   TouchableOpacity,
-  Text,
   ColorValue,
   SafeAreaView,
   StyleSheet,
@@ -10,6 +9,7 @@ import {
 import { useTheme } from "@react-navigation/native";
 import { green500, grey500 } from "../../styles/themes/colors";
 import RadioButton from "./radioButton";
+import Text from "../CustomText/CText";
 
 const DEFAULT_SPACE = 10;
 
