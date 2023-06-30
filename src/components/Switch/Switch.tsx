@@ -4,7 +4,6 @@ import {
   ViewStyle,
   StyleSheet,
   Image,
-  Text,
   ActivityIndicator,
   Platform,
   Animated,
@@ -17,6 +16,7 @@ import {
   blue700,
 } from "../../styles/themes/colors";
 import { useTheme } from "@react-navigation/native";
+import Text from "../CustomText/CText";
 
 interface CustomSwitchProps {
   value: boolean;

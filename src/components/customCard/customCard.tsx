@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import {
   View,
-  Text,
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
@@ -12,6 +11,7 @@ import {
 } from "react-native";
 import { black } from "../../styles/themes/colors";
 import { useTheme } from "@react-navigation/native";
+import Text from "../CustomText/CText";
 
 interface CustomCardProps {
   title?: string;

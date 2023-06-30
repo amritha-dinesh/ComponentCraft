@@ -207,6 +207,7 @@ export type CTextPropsTypes = {
    *
    */
   accessibilityLabel?: string;
+  accessibilityHint?: string;
   children?: ReactNode;
   numOfLines?: number;
   onPress?: () => void;
@@ -222,6 +223,7 @@ export type CTextPropsTypes = {
 };
 
 const CText: React.FC<CTextPropsTypes> = ({
+  accessibilityHint,
   accessibilityLabel,
   children,
   numOfLines,
@@ -246,6 +248,7 @@ const CText: React.FC<CTextPropsTypes> = ({
 
   return (
     <Text
+      accessibilityHint={accessibilityHint}
       accessibilityLabel={accessibilityLabel}
       testID={testID}
       numberOfLines={numOfLines}
