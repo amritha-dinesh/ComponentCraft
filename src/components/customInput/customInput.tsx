@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import {
+  SafeAreaView,
+  StyleSheet,
   View,
   TextInput,
-  StyleSheet,
-  SafeAreaView,
-  Platform,
-  Animated,
+  Text,
+  TouchableOpacity,
   Image,
   StyleProp,
   TextStyle,
-  TouchableOpacity,
+  Platform,
 } from "react-native";
-import { blue500, grey400 } from "../../styles/themes/colors";
 import { useTheme } from "@react-navigation/native";
+import { blue500 } from "../../styles/themes/colors";
 
 const BORDER_RADIUS = 5;
 
@@ -53,11 +53,12 @@ interface CustomInputProps {
   selectionColor?: string;
   labelColor?: string;
   borderRadius?: number;
+  rightIconPress?: () => void;
+  leftIconPress?: () => void;
   style?: StyleProp<TextStyle>;
 }
-
 const CustomInput: React.FC<CustomInputProps> = ({
-  mode = "filled",
+  mode = "outlined",
   style,
   disabled = false,
   passwordForm = false,
@@ -81,104 +82,101 @@ const CustomInput: React.FC<CustomInputProps> = ({
   selectionColor,
   labelColor,
   borderRadius = BORDER_RADIUS,
-  ...props
+  rightIconPress,
+  leftIconPress,
 }) => {
   const { colors } = useTheme();
+  const [focus, setFocus] = React.useState(false);
+  const [icon, setIcon] = React.useState(false);
   labelColor = labelColor ? labelColor : colors.text;
-
-  const animatedLabelStyle = new Animated.Value(1);
-  const [focus, setFocus] = useState(false);
-  const [icon, setIcon] = useState(false);
   return (
-    <SafeAreaView>
-      <View style={[styles.container, { backgroundColor: grey400 }]}>
-        <View style={styles.subContainer}>
-          <Animated.Text
-            {...props}
-            testID={"label"}
+    <SafeAreaView style={styles.flex}>
+      <Text style={{ color: labelColor }}>{label}</Text>
+
+      <View style={styles.container}>
+        <View
+          style={[
+            styles.sectionStyle,
+            {
+              backgroundColor: colors.background,
+            },
+            mode === "outlined"
+              ? [
+                  styles.outlined,
+                  {
+                    borderRadius: borderRadius,
+                  },
+                ]
+              : mode === "rounded"
+              ? [styles.rounded]
+              : [styles.standards],
+            focus === true && styles.focused,
+          ]}
+        >
+          {leftIcon && (
+            <TouchableOpacity onPress={leftIconPress}>
+              {leftIcon}
+            </TouchableOpacity>
+          )}
+          <TextInput
             style={[
-              styles.labelStyle,
-              animatedLabelStyle,
-              { color: labelColor },
+              styles.flex,
+              mode === "rounded" && {
+                borderRadius: 22,
+              },
+              { color: colors.text },
+
+              leftIcon && [styles.leftIconInput, { width: 10, flex: 1 }],
             ]}
-          >
-            {label}
-          </Animated.Text>
-          <View style={styles.inputContainer}>
-            {leftIcon && <TouchableOpacity>{leftIcon}</TouchableOpacity>}
-            <TextInput
-              {...props}
-              testID={testID}
-              defaultValue={defaultValue}
-              onPressIn={onBlur}
-              onPressOut={onFocus}
-              autoCapitalize={autoCapitalize}
-              numberOfLines={numberOfLines}
-              placeholderTextColor={placeholderTextColor}
-              autoFocus={autoFocus}
-              selectionColor={selectionColor}
-              onFocus={() => {
-                if (disabled === true) {
-                  setFocus(false);
-                } else {
-                  setFocus(true);
-                }
-              }}
-              onBlur={() => {
+            testID={testID}
+            defaultValue={defaultValue}
+            onPressIn={onBlur}
+            onPressOut={onFocus}
+            autoCapitalize={autoCapitalize}
+            numberOfLines={numberOfLines}
+            placeholderTextColor={placeholderTextColor}
+            autoFocus={autoFocus}
+            selectionColor={selectionColor}
+            multiline={multiline}
+            keyboardType={keyboardType}
+            secureTextEntry={passwordForm && !icon ? true : false}
+            textAlign={textAlign}
+            editable={disabled ? false : true}
+            value={value}
+            onChangeText={onChangeText}
+            placeholder={placeholder}
+            onFocus={() => {
+              if (disabled === true) {
                 setFocus(false);
+              } else {
+                setFocus(true);
+              }
+            }}
+            onBlur={() => {
+              setFocus(false);
+            }}
+          />
+          {rightIcon && (
+            <TouchableOpacity onPress={rightIconPress}>
+              {rightIcon}
+            </TouchableOpacity>
+          )}
+          {passwordForm && (
+            <TouchableOpacity
+              onPress={() => {
+                setIcon(!icon);
               }}
-              multiline={multiline}
-              keyboardType={keyboardType}
-              secureTextEntry={passwordForm && !icon ? true : false}
-              textAlign={textAlign}
-              editable={disabled ? false : true}
-              value={value}
-              onChangeText={onChangeText}
-              placeholder={placeholder}
-              style={[
-                styles.input,
-                {
-                  borderColor: colors.text,
-                  color: colors.text,
-                  backgroundColor: colors.background,
-                },
-                leftIcon && styles.leftIconInput,
-                mode === "outlined"
-                  ? [
-                      styles.outlined,
-                      {
-                        borderRadius: borderRadius,
-                      },
-                    ]
-                  : mode === "rounded"
-                  ? [styles.rounded]
-                  : [styles.standards],
-                focus === true && styles.focused,
-                style,
-              ]}
-            />
-            {rightIcon && (
-              <TouchableOpacity onPress={() => setIcon(!icon)}>
-                {rightIcon}
-              </TouchableOpacity>
-            )}
-            {passwordForm && (
-              <TouchableOpacity
-                onPress={() => {
-                  setIcon(!icon);
-                }}
-              >
-                <Image
-                  source={
-                    !icon
-                      ? require("../../assets/eye.png")
-                      : require("../../assets/eye-off.png")
-                  }
-                  style={[styles.icon, { tintColor: colors.text }]}
-                />
-              </TouchableOpacity>
-            )}
-          </View>
+            >
+              <Image
+                source={
+                  !icon
+                    ? require("../../assets/eye.png")
+                    : require("../../assets/eye-off.png")
+                }
+                style={[styles.imageStyle, { tintColor: colors.text }]}
+              />
+            </TouchableOpacity>
+          )}
         </View>
       </View>
     </SafeAreaView>
@@ -187,7 +185,30 @@ const CustomInput: React.FC<CustomInputProps> = ({
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 10,
+  },
+  sectionStyle: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
     width: "100%",
+    height: 40,
+  },
+  imageStyle: {
+    padding: 10,
+    margin: 5,
+    right: 5,
+    height: 20,
+    width: 20,
+    alignSelf: "center",
+  },
+  flex: {
+    flex: 1,
+    padding: 10,
   },
   outlined: {
     borderWidth: Platform.OS === "ios" ? 1 : 0.5,
@@ -196,37 +217,15 @@ const styles = StyleSheet.create({
     borderWidth: Platform.OS === "ios" ? 1 : 0.5,
     borderRadius: 22,
   },
-  focused: {
-    borderColor: blue500,
-  },
   standards: {
     borderBottomWidth: Platform.OS === "ios" ? 1 : 0.5,
   },
+  focused: {
+    borderColor: blue500,
+  },
   leftIconInput: {
-    paddingLeft: 40,
-  },
-  input: {
-    width: "100%",
-    height: 44,
-    padding: 10,
-    marginTop: 20,
-    marginBottom: 10,
-  },
-  inputContainer: {
-    flexDirection: "row",
-  },
-  icon: {
-    height: 20,
-    width: 20,
-    marginTop: 33,
-    right: 30,
-  },
-  labelStyle: {
-    position: "absolute",
-  },
-  subContainer: {
-    alignSelf: "center",
-    width: "90%",
+    paddingLeft: 20,
   },
 });
+
 export default CustomInput;

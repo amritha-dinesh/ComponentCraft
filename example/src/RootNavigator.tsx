@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
 import * as React from "react";
-import { Image, TouchableOpacity, View, Text } from "react-native";
+import { Image, TouchableOpacity, View, Text, Platform } from "react-native";
 
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -65,7 +65,12 @@ const RootNavigator = () => {
           headerLeft:
             route.name !== "ExampleList"
               ? (props) => (
-                  <View style={{ flexDirection: "row", marginLeft: 20 }}>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      marginLeft: Platform.OS === "ios" ? 0 : 20,
+                    }}
+                  >
                     <CustomHeaderLeft {...props} />
                   </View>
                 )
@@ -76,7 +81,7 @@ const RootNavigator = () => {
                 flexDirection: "row",
                 alignItems: "center",
                 justifyContent: "center",
-                marginRight: 30,
+                marginRight: Platform.OS === "ios" ? 0 : 30,
               }}
             >
               <Text

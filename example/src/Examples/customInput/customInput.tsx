@@ -130,6 +130,7 @@ const CustomInput = ({}: Props) => {
           label=""
           placeholder="Rounded Input"
         />
+
         <CustomInputs
           defaultValue="Test12345"
           mode="standard"
@@ -183,17 +184,20 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   icon: {
+    padding: 10,
+    margin: 5,
     height: 20,
     width: 20,
-    marginTop: 33,
-    right: 30,
+    alignSelf: "center",
+    right: 5,
   },
   leftIcon: {
+    padding: 10,
+    margin: 5,
     height: 20,
     width: 20,
-    marginTop: 33,
-    position: "absolute",
-    left: 10,
+    alignSelf: "center",
+    left: 5,
   },
 
   main: {
