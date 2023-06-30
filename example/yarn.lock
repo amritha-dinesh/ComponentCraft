@@ -3285,7 +3285,7 @@
   "version" "3.6.0"
 
 "component-craft@file:../component-craft-2.0.0.tgz":
-  "integrity" "sha512-6PPURVhJUolHtQEg2pT9bxYA5vMxMPOfDgHF9sAHt0FnkF68aMnzxC+7JZ3+EUIsJeBP9hYAe5df9xCbI2cRag=="
+  "integrity" "sha512-Uz8grVkQ1DDP5Brdo5OMHvEB62Yv0omeGFnewM/i6ktKvbvZ6O91zamU+U9+2LtojhobAXw9Kw9PBX0XEtJNTA=="
   "resolved" "file:../component-craft-2.0.0.tgz"
   "version" "2.0.0"
   dependencies:
