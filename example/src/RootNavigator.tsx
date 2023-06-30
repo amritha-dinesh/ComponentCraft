@@ -114,6 +114,7 @@ const RootNavigator = () => {
           headerStyle: {
             backgroundColor: toggle ? black : white,
           },
+          headerTitleAlign: "center",
         })}
       >
         <Stack.Screen name="ExampleList" component={ExampleList} />
